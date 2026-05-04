@@ -1,359 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Kitchen Battle | Cook. Compete. Conquer.</title>
+  <meta charset="UTF-8">
+  <title>The Kitchen Battle</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+  <link rel="stylesheet" href="style.css">
 
-    body {
-      background: #f5f8ff;
-      color: #1b1b1b;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #6b0f1a;
-      color: white;
-      padding: 22px 8%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      letter-spacing: 1px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 22px;
-      font-weight: bold;
-    }
-
-    .hero {
-      min-height: 85vh;
-      background: linear-gradient(rgba(107,15,26,0.82), rgba(20,40,80,0.72)),
-      url("https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80");
-      background-size: cover;
-      background-position: center;
-      color: white;
-      display: flex;
-      align-items: center;
-      padding: 80px 8%;
-    }
-
-    .hero-content {
-      max-width: 720px;
-    }
-
-    .hero h1 {
-      font-size: 58px;
-      line-height: 1.05;
-      margin-bottom: 22px;
-    }
-
-    .hero p {
-      font-size: 22px;
-      margin-bottom: 32px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #9ed8ff;
-      color: #250008;
-      padding: 16px 28px;
-      border-radius: 40px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-right: 12px;
-      margin-top: 10px;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: white;
-      transform: translateY(-2px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: white;
-      border: 2px solid white;
-    }
-
-    section {
-      padding: 80px 8%;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 38px;
-      color: #6b0f1a;
-      margin-bottom: 16px;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-      font-size: 18px;
-      color: #444;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: white;
-      padding: 32px;
-      border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      text-align: center;
-    }
-
-    .card h3 {
-      color: #6b0f1a;
-      font-size: 24px;
-      margin-bottom: 12px;
-    }
-
-    .experience {
-      background: #e7f5ff;
-    }
-
-    .split {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 40px;
-      align-items: center;
-    }
-
-    .split img {
-      width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-    }
-
-    .split h2 {
-      font-size: 40px;
-      color: #6b0f1a;
-      margin-bottom: 18px;
-    }
-
-    .split p {
-      font-size: 18px;
-      margin-bottom: 18px;
-    }
-
-    .pricing {
-      background: #6b0f1a;
-      color: white;
-      text-align: center;
-    }
-
-    .pricing h2 {
-      font-size: 42px;
-      margin-bottom: 16px;
-    }
-
-    .price-box {
-      background: white;
-      color: #1b1b1b;
-      max-width: 520px;
-      margin: 35px auto 0;
-      padding: 38px;
-      border-radius: 24px;
-    }
-
-    .price {
-      font-size: 44px;
-      font-weight: bold;
-      color: #6b0f1a;
-      margin: 18px 0;
-    }
-
-    .urgent {
-      background: #142850;
-      color: white;
-      text-align: center;
-    }
-
-    .urgent h2 {
-      font-size: 40px;
-      margin-bottom: 18px;
-    }
-
-    footer {
-      background: #111;
-      color: white;
-      text-align: center;
-      padding: 35px 8%;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      nav {
-        margin-top: 15px;
-      }
-
-      nav a {
-        display: inline-block;
-        margin: 8px 10px 0 0;
-      }
-    }
-  </style>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">THE KITCHEN BATTLE</div>
-    <nav>
-      <a href="#how">How It Works</a>
-      <a href="#experience">Experience</a>
-      <a href="#tickets">Tickets</a>
-      <a href="#compete">Compete</a>
-    </nav>
-  </header>
+<header class="nav">
+  <div class="logo">KITCHEN BATTLE</div>
+  <div class="nav-links">
+    <a href="#experience">Experience</a>
+    <a href="#tickets">Tickets</a>
+    <a href="#compete">Compete</a>
+  </div>
+</header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Medellín’s First Live Cooking Battle</h1>
-      <p>Two competitors. Four dishes. One winner — chosen by you.</p>
-      <a href="#tickets" class="btn">Reserve My Seat</a>
-      <a href="#compete" class="btn btn-secondary">Apply to Compete</a>
-    </div>
-  </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="overlay"></div>
 
-  <section id="how">
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-subtitle">
-      A live food competition where the crowd is not just watching — they decide the outcome.
+  <div class="hero-content">
+    <h1>Where Cooking Becomes Competition</h1>
+
+    <p class="subheadline">
+      Two competitors. Two rounds. One winner. You decide.
     </p>
 
-    <div class="cards">
-      <div class="card">
-        <h3>1. Two Competitors</h3>
-        <p>Two rising cooks step into the battle and prepare dishes live in front of the audience.</p>
-      </div>
-
-      <div class="card">
-        <h3>2. You Taste</h3>
-        <p>Guests experience each dish, feel the pressure, and enjoy the energy of the night.</p>
-      </div>
-
-      <div class="card">
-        <h3>3. You Vote</h3>
-        <p>The audience chooses the winner. Every vote matters. Only one conquers the night.</p>
-      </div>
+    <div class="cta-group">
+      <a href="#tickets" class="btn primary">Reserve My Seat</a>
+      <a href="#compete" class="btn secondary">Apply to Compete</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="experience" id="experience">
-    <div class="split">
-      <div>
-        <h2>Not a Restaurant. Not a Class. A Battle.</h2>
-        <p>
-          The Kitchen Battle is a live culinary experience built around pressure, creativity,
-          flavor, and crowd energy.
-        </p>
-        <p>
-          Guests don’t just sit and eat — they become part of the competition.
-        </p>
-        <a href="#tickets" class="btn">Join the Experience</a>
-      </div>
+<!-- EXPERIENCE -->
+<section id="experience" class="experience">
+  <div class="experience-container">
 
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80" alt="Cooking experience">
+    <div class="text">
+      <h2>This Is Not Dinner</h2>
+
+      <p>
+        This is pressure. Energy. Reaction.
+      </p>
+
+      <p>
+        You don’t sit back — you experience it.  
+        You taste every round. You feel every moment.
+      </p>
+
+      <p>
+        And when it's over…  
+        you decide who wins.
+      </p>
+
+      <a href="#tickets" class="btn primary">Join the Experience</a>
     </div>
-  </section>
 
-  <section>
-    <h2 class="section-title">Meet the Competitors</h2>
-    <p class="section-subtitle">
-      Passion. Skill. Pressure. Each event gives rising cooks a platform to prove themselves.
-    </p>
-
-    <div class="cards">
-      <div class="card">
-        <h3>Raw Talent</h3>
-        <p>People with passion, creativity, and something to prove.</p>
-      </div>
-
-      <div class="card">
-        <h3>Real Pressure</h3>
-        <p>They cook live, face the crowd, and compete for recognition.</p>
-      </div>
-
-      <div class="card">
-        <h3>Crowd Power</h3>
-        <p>The winner is not chosen behind closed doors. The audience decides.</p>
-      </div>
+    <div class="image">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=80" />
     </div>
-  </section>
 
-  <section class="pricing" id="tickets">
-    <h2>One Ticket. Full Experience.</h2>
-    <p>Limited seats. Intimate setting. Real competition.</p>
+  </div>
+</section>
 
-    <div class="price-box">
-      <h3>What’s Included</h3>
-      <p>Live cooking battle</p>
-      <p>Multiple tasting dishes</p>
-      <p>Welcome drink</p>
-      <p>Audience voting experience</p>
+<!-- TICKETS -->
+<section id="tickets" class="tickets">
+  <h2>Limited Seats. Real Energy.</h2>
 
-      <div class="price">195,000 COP</div>
+  <p>Only 24 spots per event.</p>
 
-      <a href="mailto:info@thekitchenbattle.com" class="btn">Get Tickets</a>
-    </div>
-  </section>
+  <div class="price-box">
+    <h3>Full Experience</h3>
 
-  <section class="urgent">
-    <h2>Only 24 Seats Per Battle</h2>
-    <p>
-      This is an intimate live experience. Once seats are gone, the battle is closed.
-    </p>
-    <a href="mailto:info@thekitchenbattle.com" class="btn">Book Before It Sells Out</a>
-  </section>
+    <ul>
+      <li>Live competition</li>
+      <li>Tasting rounds</li>
+      <li>Welcome drink</li>
+      <li>Voting power</li>
+    </ul>
 
-  <section id="compete">
-    <h2 class="section-title">Think You Can Win?</h2>
-    <p class="section-subtitle">
-      Step into the battle. Show your skill. Earn the crowd.
-    </p>
+    <div class="price">195,000 COP</div>
 
-    <div style="text-align:center;">
-      <a href="mailto:info@thekitchenbattle.com" class="btn">Apply to Compete</a>
-    </div>
-  </section>
+    <a href="#" class="btn primary">Get Tickets</a>
+  </div>
+</section>
 
-  <footer>
-    <p><strong>THE KITCHEN BATTLE</strong></p>
-    <p>Cook. Compete. Conquer.</p>
-    <p>Medellín, Colombia</p>
-  </footer>
+<!-- COMPETE -->
+<section id="compete" class="compete">
+  <h2>Think You Can Win?</h2>
+
+  <p>
+    Step into the battle. Show your skill. Earn the crowd.
+  </p>
+
+  <a href="#" class="btn secondary">Apply Now</a>
+</section>
+
+<footer>
+  <p>KITCHEN BATTLE</p>
+  <p>Cook. Compete. Conquer.</p>
+</footer>
 
 </body>
 </html>
