@@ -1,1 +1,128 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #0b0b0b;
+  color: #fff;
+}
 
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 8%;
+  position: absolute;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.nav a {
+  color: #fff;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1600&q=80') center/cover;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0,0,0,0.9), rgba(0,0,0,0.4));
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.subheadline {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.btn {
+  padding: 14px 26px;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.primary {
+  background: #ff3b1f;
+  color: #fff;
+}
+
+.secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+/* EXPERIENCE */
+.experience {
+  padding: 80px 8%;
+}
+
+.experience-container {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.text h2 {
+  font-size: 42px;
+}
+
+.image img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+/* TICKETS */
+.tickets {
+  padding: 80px 8%;
+  text-align: center;
+}
+
+.price-box {
+  background: #1a1a1a;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 20px;
+}
+
+.price {
+  font-size: 36px;
+  margin: 20px 0;
+}
+
+/* COMPETE */
+.compete {
+  text-align: center;
+  padding: 80px 8%;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 40px;
+  background: #000;
+}
