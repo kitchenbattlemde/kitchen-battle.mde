@@ -1,47 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Kitchen Battle</title>
+<!-- 1. Import high-energy Google Fonts -->
+<link href="https://googleapis.com" rel="stylesheet">
 
-  <link rel="stylesheet" href="style.css" />
+<style>
+  /* Basic Reset */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
-</head>
+  body {
+    /* Replace with your specific 'two chefs competing' image URL */
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                url('https://example.com');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+  }
 
-<body>
+  .glass-hero {
+    text-align: center;
+    /* Modern Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px);
+    padding: 3.5rem 5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    max-width: 90%;
+  }
 
-  <section class="hero">
-    <div class="hero-overlay"></div>
+  h1 {
+    /* Using 'Anton' for a heavy, cinematic competition vibe */
+    font-family: 'Anton', sans-serif;
+    font-size: clamp(2rem, 6vw, 4.5rem);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    color: #ff4d4d; /* Sharp accent red for intensity */
+    line-height: 1.1;
+  }
 
-    <nav class="navbar">
-      <div class="logo">KITCHEN BATTLE</div>
+  .subtitle {
+    font-weight: 300;
+    font-size: clamp(1rem, 2vw, 1.4rem);
+    letter-spacing: 2px;
+    text-transform: lowercase;
+    opacity: 0.85;
+  }
+</style>
 
-      <div class="nav-links">
-        <a href="#experience">Experience</a>
-        <a href="#tickets">Tickets</a>
-        <a href="#compete">Compete</a>
-      </div>
-    </nav>
-
-    <div class="hero-content">
-      <p class="eyebrow">LIVE IN MEDELLÍN</p>
-
-      <h1>Where Cooking Becomes Competition</h1>
-
-      <p class="subheadline">
-        Two competitors. Two rounds. One winner. You decide.
-      </p>
-
-      <p class="scarcity">Only 24 seats per event.</p>
-
-      <div class="hero-buttons">
-        <a href="#tickets" class="btn primary">Reserve My Seat</a>
-        <a href="#compete" class="btn secondary">Apply to Compete</a>
-      </div>
-    </div>
-  </section>
-
-</body>
-</html>
+<!-- Clean, semantic HTML structure -->
+<section class="glass-hero">
+  <h1>Cooking Becomes Competition</h1>
+  <p class="subtitle">Two Chefs. One Victor. No Mercy.</p>
+</section>
