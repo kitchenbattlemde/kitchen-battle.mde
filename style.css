@@ -233,6 +233,8 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   text-align: center;
+  gap: 50px;
+  margin-top: 30px;
 }
 
 .features div {
