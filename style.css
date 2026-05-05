@@ -80,11 +80,13 @@ body {
 }
 
 h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(64px, 9vw, 128px);
-  line-height: 0.9;
-  letter-spacing: 2px;
-  margin-bottom: 26px;
+  font-family: 'Teko', sans-serif;
+  font-size: clamp(42px, 5vw, 72px);
+  line-height: 1.05;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  max-width: 500px;
+
 }
 
 .subheadline {
