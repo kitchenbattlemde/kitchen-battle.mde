@@ -242,9 +242,10 @@ body {
 
 .features h4 {
   text-transform: uppercase;
-  margin: 20px 0 18px;
-  font-size: 18px;
+  margin: 22px 0 18px;
+  font-size: 20px;
   font-weight: 900;
+  letter-spacing: 1px;
 }
 .icon {
   width: 90px;
