@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kitchen Battle</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
 <header class="hero" id="home">
-
   <nav class="navbar">
-    <div class="logo">🔥 KITCHEN <span>BATTLE</span></div>
+    <div class="logo">
+      <span class="flame">🔥</span>
+      <div>KITCHEN <span>BATTLE</span></div>
+    </div>
 
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
     <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
+      <li><a class="active" href="#home">Home</a></li>
       <li><a href="#events">Events</a></li>
       <li><a href="#how">How It Works</a></li>
+      <li><a href="#gallery">Gallery</a></li>
       <li><a href="#about">About Us</a></li>
     </ul>
 
@@ -27,45 +30,60 @@
   </nav>
 
   <div class="hero-content">
+    <div class="cross">⚔</div>
     <p class="tagline">Two competitors. One kitchen. One winner.</p>
 
     <h1>KITCHEN <span>BATTLE</span></h1>
 
     <h2>Live Cooking.<br>Real Competition.</h2>
-
     <p class="gold">Cook. Compete. Conquer.</p>
 
-    <div class="cards">
+    <div class="hero-cards">
       <div>
-        ⏱ <strong>LIMITED SEATS</strong><br>
-        Only 24 spots per night.
+        <span>⏱</span>
+        <p><strong>Limited Seats</strong><br>Only 24 spots per night.</p>
       </div>
 
       <div>
-        👥 <strong>ALMOST SOLD OUT</strong><br>
-        Next event is filling fast!
+        <span>👥</span>
+        <p><strong>Almost Sold Out</strong><br>Next event is filling up fast!</p>
       </div>
     </div>
 
     <a href="#book" class="btn big">Book Your Seat</a>
   </div>
-
 </header>
 
 <section class="experience" id="about">
-  <div>
+  <div class="experience-text">
     <h3>An Experience,</h3>
     <h2>Not Just Dinner</h2>
+    <div class="line"></div>
     <p>
-      Kitchen Battle is a live cooking experience where two competitors go head-to-head.
+      Kitchen Battle is a one-of-a-kind live cooking experience where two
+      competitors go head-to-head to impress you.
     </p>
-    <strong>Come for the flavor, stay for something special.</strong>
+    <strong>Come for the flavor,<br>stay for something special.</strong>
   </div>
 
   <div class="features">
-    <div>🥂<h4>Welcome Drink</h4></div>
-    <div>🍽<h4>Live Cooking</h4></div>
-    <div>🏆<h4>You Decide</h4></div>
+    <div>
+      <span>🥂</span>
+      <h4>Welcome Drink</h4>
+      <p>Start the night with a signature welcome drink on us.</p>
+    </div>
+
+    <div>
+      <span>🍽</span>
+      <h4>Live Cooking</h4>
+      <p>Watch both competitors create their dishes right in front of you.</p>
+    </div>
+
+    <div>
+      <span>🏆</span>
+      <h4>You Decide</h4>
+      <p>Taste, vote, and crown the winner of the battle.</p>
+    </div>
   </div>
 </section>
 
@@ -73,48 +91,62 @@
   <h2>How It Works</h2>
 
   <div class="steps">
-    <div>
-      <span>1</span>
-      <h3>Two Competitors</h3>
-      <p>Same ingredients. One winner.</p>
+    <div class="step">
+      <span class="number">1</span>
+      <div class="circle">👨‍🍳</div>
+      <h3>Two Competitors Face Off</h3>
+      <p>Each competitor gets the same mystery ingredients.</p>
     </div>
 
-    <div>
-      <span>2</span>
-      <h3>You Taste</h3>
-      <p>Enjoy both creations.</p>
+    <div class="step">
+      <span class="number">2</span>
+      <div class="circle">🍽</div>
+      <h3>You Enjoy Both Creations</h3>
+      <p>Sit back and enjoy both dishes made live in front of you.</p>
     </div>
 
-    <div>
-      <span>3</span>
-      <h3>You Decide</h3>
-      <p>Vote for the best dish.</p>
+    <div class="step">
+      <span class="number">3</span>
+      <div class="circle">🗳</div>
+      <h3>You Decide The Winner</h3>
+      <p>Cast your vote and crown the Kitchen Battle champion.</p>
     </div>
   </div>
 </section>
 
-<section class="event" id="events">
-  <div>📅 Sat, June 15</div>
-  <div>📍 Medellín</div>
-  <div>👥 Only 24 seats</div>
+<section class="event-bar" id="events">
+  <div>
+    <span>📅</span>
+    <p><strong>Sat, 15 June 2024</strong><br>Doors open 6:30 PM<br>Battle starts 7:00 PM</p>
+  </div>
+
+  <div>
+    <span>📍</span>
+    <p><strong>Flavor Arena</strong><br>Medellín, Colombia</p>
+  </div>
+
+  <div>
+    <span>👥</span>
+    <p><strong>Only 24 Seats</strong><br>Per Night</p>
+  </div>
 </section>
 
 <section class="booking" id="book">
   <h2>Book Your Seat</h2>
+  <p>Reserve your spot for the next Kitchen Battle experience.</p>
 
   <form>
     <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email" required>
-    <input type="number" placeholder="Seats" min="1" max="24">
-    <button type="submit">Reserve</button>
+    <input type="email" placeholder="Email Address" required>
+    <input type="number" placeholder="Number of Seats" min="1" max="24" required>
+    <button type="submit">Request Booking</button>
   </form>
 </section>
 
 <footer>
-  <p>© Kitchen Battle</p>
+  <p>© 2026 Kitchen Battle — Cook. Compete. Conquer.</p>
 </footer>
 
 <script src="script.js"></script>
-
 </body>
 </html>
