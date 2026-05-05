@@ -9,186 +9,424 @@ html {
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
   background: #050505;
-  color: white;
+  color: #fff;
 }
 
 /* HERO */
 .hero {
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
   background:
-    radial-gradient(circle at center, #1a1a1a 0%, #050505 70%),
-    linear-gradient(to bottom, rgba(0,0,0,.3), rgba(0,0,0,.9));
+    radial-gradient(circle at center, rgba(255,106,0,0.22), transparent 28%),
+    radial-gradient(circle at top left, rgba(255,149,0,0.18), transparent 28%),
+    linear-gradient(180deg, #050505 0%, #0b0b0b 45%, #050505 100%);
 }
 
-/* GLOW EFFECT */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.95), rgba(0,0,0,0.25), rgba(0,0,0,0.95)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px 80px);
+  z-index: 1;
+}
+
 .hero::after {
   content: "";
   position: absolute;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(255,106,0,0.4), transparent 70%);
-  top: 50%;
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(255,106,0,0.45), transparent 70%);
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  filter: blur(120px);
-  animation: glowMove 6s infinite alternate;
-}
-
-@keyframes glowMove {
-  from { transform: translate(-50%, -50%) scale(1); }
-  to { transform: translate(-50%, -50%) scale(1.2); }
+  filter: blur(130px);
+  z-index: 1;
 }
 
 /* NAV */
 .navbar {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  padding: 28px 55px;
   display: flex;
   justify-content: space-between;
-  padding: 25px 40px;
+  align-items: center;
 }
 
-.logo span {
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.logo span,
+.hero h1 span {
   color: #ff6a00;
+}
+
+.flame {
+  font-size: 28px;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 38px;
   list-style: none;
 }
 
 .nav-links a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
 }
 
-.btn {
+.nav-links a.active,
+.nav-links a:hover {
+  color: #ff7a00;
+  border-bottom: 2px solid #ff7a00;
+  padding-bottom: 8px;
+}
+
+.btn,
+.booking button {
+  display: inline-block;
   background: linear-gradient(135deg, #ff3c00, #ff9500);
-  padding: 12px 22px;
-  border-radius: 6px;
-  color: white;
+  color: #ffffff;
+  padding: 17px 30px;
+  border-radius: 8px;
+  text-decoration: none;
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 0 22px rgba(255, 106, 0, 0.75);
+  transition: 0.25s;
+}
+
+.btn:hover,
+.booking button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(255, 106, 0, 1);
 }
 
 /* HERO CONTENT */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
+  max-width: 780px;
+  margin: 105px auto 0;
   text-align: center;
-  margin-top: 120px;
+  padding: 0 24px;
 }
 
-h1 {
-  font-size: 70px;
+.cross {
+  font-size: 48px;
+  margin-bottom: 22px;
+  color: #ffffff;
 }
 
-h1 span {
-  color: #ff6a00;
+.tagline {
+  color: #ffb000;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 15px;
 }
 
-.tagline,
+.hero h1 {
+  font-size: 82px;
+  line-height: 0.9;
+  margin: 20px 0;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+
+.hero h2 {
+  font-size: 30px;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
 .gold {
+  margin-top: 12px;
   color: #ff9500;
+  text-transform: uppercase;
+  font-weight: 900;
 }
 
-.cards {
+.hero-cards {
+  margin: 36px auto;
+  max-width: 520px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border: 1px solid #d88900;
+  border-radius: 10px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.hero-cards div {
   display: flex;
-  justify-content: center;
-  border: 1px solid #ff9500;
-  margin: 30px auto;
-  max-width: 400px;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  text-align: left;
 }
 
-.cards div {
-  padding: 15px;
-  border-right: 1px solid #ff9500;
+.hero-cards div:first-child {
+  border-right: 1px solid rgba(216,137,0,0.8);
 }
 
-.cards div:last-child {
-  border-right: none;
+.hero-cards span {
+  font-size: 32px;
 }
 
-/* SECTIONS */
+.hero-cards strong {
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+/* EXPERIENCE */
 .experience {
   background: #eee8df;
-  color: black;
-  padding: 60px;
+  color: #111;
+  padding: 75px 70px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
+  gap: 70px;
+}
+
+.experience h3 {
+  color: #d88900;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.experience h2 {
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+.line {
+  width: 70px;
+  height: 3px;
+  background: #d88900;
+  margin: 24px 0;
+}
+
+.experience p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
 .features {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
 }
 
+.features div {
+  padding: 15px 36px;
+  border-left: 1px solid #999;
+}
+
+.features span {
+  display: block;
+  color: #d88900;
+  font-size: 52px;
+  margin-bottom: 22px;
+}
+
+.features h4 {
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+/* HOW */
 .how {
-  padding: 60px;
+  background: #050505;
+  padding: 65px 70px;
   text-align: center;
+  border-top: 1px solid rgba(255,149,0,0.25);
+}
+
+.how h2 {
+  font-size: 34px;
+  text-transform: uppercase;
+  margin-bottom: 45px;
 }
 
 .steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 55px;
+}
+
+.number {
+  font-size: 68px;
+  font-weight: 900;
+  color: #dddddd;
+}
+
+.circle {
+  width: 115px;
+  height: 115px;
+  border: 1px solid #ff9500;
+  border-radius: 50%;
+  margin: -25px auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 42px;
+}
+
+.step h3 {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.step p {
+  color: #dddddd;
+  line-height: 1.5;
+}
+
+/* EVENT BAR */
+.event-bar {
+  background: #050505;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #d88900;
+  border-bottom: 1px solid #d88900;
+}
+
+.event-bar div {
   display: flex;
   gap: 20px;
+  padding: 28px 50px;
+  border-right: 1px solid #d88900;
 }
 
-.event {
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  border-top: 1px solid #ff9500;
-  border-bottom: 1px solid #ff9500;
+.event-bar span {
+  color: #ff9500;
+  font-size: 34px;
 }
 
+.event-bar strong {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+/* BOOKING */
 .booking {
-  padding: 60px;
+  background: #eee8df;
+  color: #111;
+  padding: 80px 30px;
   text-align: center;
 }
 
+.booking h2 {
+  font-size: 40px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
 form {
-  max-width: 300px;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  max-width: 450px;
+  margin: 35px auto 0;
+  display: grid;
+  gap: 15px;
 }
 
-input, button {
-  padding: 12px;
+input {
+  padding: 16px;
+  border: 1px solid #c9c1b5;
+  font-size: 16px;
 }
 
-/* MOBILE */
+footer {
+  text-align: center;
+  padding: 24px;
+  background: #050505;
+  color: #aaa;
+}
+
 .menu-btn {
   display: none;
 }
 
+/* MOBILE */
 @media (max-width: 900px) {
-  .menu-btn {
-    display: block;
+  .navbar {
+    padding: 22px;
   }
 
-  .nav-links {
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    z-index: 4;
+  }
+
+  .nav-links,
+  .navbar .btn {
     display: none;
   }
 
   .nav-links.show {
     display: flex;
-    flex-direction: column;
     position: absolute;
+    top: 82px;
     right: 20px;
-    top: 80px;
+    flex-direction: column;
     background: #111;
-    padding: 20px;
+    padding: 25px;
+    border: 1px solid #ff9500;
+  }
+
+  .hero-content {
+    margin-top: 90px;
+  }
+
+  .hero h1 {
+    font-size: 50px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+  }
+
+  .hero-cards,
+  .experience,
+  .features,
+  .steps,
+  .event-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-cards div:first-child,
+  .features div,
+  .event-bar div {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #d88900;
   }
 
   .experience,
-  .features,
-  .steps {
-    display: block;
+  .how {
+    padding: 45px 25px;
   }
 }
