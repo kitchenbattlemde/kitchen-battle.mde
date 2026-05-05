@@ -2,77 +2,188 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Battle | Cook. Compete. Conquer.</title>
 
-  <title>Kitchen Battle</title>
+  <link rel="stylesheet" href="style.css" />
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .heading {
-      font-family: 'Oswald', sans-serif;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-white text-[#111111]">
+<body>
 
-  <!-- 🔝 HEADER -->
-  <header class="flex justify-between items-center px-8 py-5 border-b border-gray-200">
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">
+      <h1>KITCHEN BATTLE</h1>
+      <p>COOK. COMPETE. <span>CONQUER.</span></p>
+    </div>
 
-    <h1 class="heading text-xl tracking-wider">
-      KITCHEN BATTLE
-    </h1>
-
-    <nav class="hidden md:flex gap-8 text-sm text-gray-600">
-      <a href="#" class="hover:text-black">Home</a>
-      <a href="#">Experience</a>
-      <a href="#">About</a>
-      <a href="#">Gallery</a>
-      <a href="#">Contact</a>
+    <nav class="nav">
+      <a class="active" href="#">Home</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-    <button class="border border-[#D96A1A] text-[#D96A1A] px-5 py-2 text-sm hover:bg-[#D96A1A] hover:text-white transition">
-      JOIN
-    </button>
-
+    <a href="#guest-list" class="outline-btn">Join the Guest List</a>
   </header>
 
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">Live Cooking Experience</p>
 
-  <!-- 🥇 HERO SECTION -->
-  <section class="grid md:grid-cols-2 items-center px-8 py-20 gap-10">
-
-    <!-- LEFT TEXT -->
-    <div>
-      <h2 class="heading text-5xl md:text-6xl leading-tight">
-        TWO COMPETITORS.<br>
-        TWO DISHES.<br>
-        <span class="text-[#D96A1A]">ONE WINNER.</span>
+      <h2>
+        Two Competitors.<br>
+        Two Dishes.<br>
+        <span>One Winner.</span>
       </h2>
 
-      <p class="mt-6 text-gray-600 max-w-md">
+      <div class="small-line"></div>
+
+      <p class="hero-copy">
         A live cooking battle where you taste every round and decide who conquers the kitchen.
       </p>
 
-      <button class="mt-8 bg-[#D96A1A] text-white px-6 py-3 hover:bg-[#F07A2A] transition">
-        JOIN THE GUEST LIST
-      </button>
+      <div class="hero-buttons">
+        <a href="#guest-list" class="main-btn">Join the Guest List</a>
+        <a href="#how" class="play-btn">
+          <span>▶</span> See How It Works
+        </a>
+      </div>
     </div>
 
-
-    <!-- RIGHT IMAGE -->
-    <div>
-      <img src="your-image.jpg" alt="Food" class="rounded-lg shadow-lg">
-    </div>
-
+    <div class="hero-image"></div>
   </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how">
+    <h3>How It Works</h3>
+
+    <div class="steps">
+      <div class="step">
+        <p class="number">01</p>
+        <div class="icon">🔥</div>
+        <h4>The Battle Begins</h4>
+        <p>Two competitors face off in a live head-to-head cooking battle.</p>
+      </div>
+
+      <div class="step">
+        <p class="number">02</p>
+        <div class="icon">🍽️</div>
+        <h4>You Taste Every Round</h4>
+        <p>Dishes are served. You taste. You experience.</p>
+      </div>
+
+      <div class="step">
+        <p class="number">03</p>
+        <div class="icon">🏆</div>
+        <h4>You Decide the Winner</h4>
+        <p>Your vote crowns the champion of the kitchen.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="experience-text">
+      <p class="eyebrow">The Experience</p>
+
+      <h2>
+        Cook.<br>
+        Compete.<br>
+        <span>Conquer.</span>
+      </h2>
+
+      <div class="small-line"></div>
+
+      <p>
+        Real competitors. Real pressure. Real flavor. This is where skill meets heat — and the audience decides.
+      </p>
+
+      <a href="#about" class="secondary-btn">Learn More</a>
+    </div>
+
+    <div class="experience-image"></div>
+  </section>
+
+  <!-- LAUNCH / GUEST LIST -->
+  <section class="launch" id="guest-list">
+    <div class="launch-left">
+      <p class="eyebrow">The First Battle</p>
+      <h2>Is Coming.</h2>
+      <p>
+        An exclusive live cooking competition is about to launch. Limited seats. One night. One winner.
+      </p>
+
+      <div class="countdown">
+        <div><strong>18</strong><span>Days</span></div>
+        <div><strong>07</strong><span>Hours</span></div>
+        <div><strong>34</strong><span>Minutes</span></div>
+        <div><strong>12</strong><span>Seconds</span></div>
+      </div>
+    </div>
+
+    <div class="launch-right">
+      <h3>Be the First to Know</h3>
+      <p>
+        Join the guest list and get early access to tickets, updates, and exclusive surprises.
+      </p>
+
+      <form>
+        <input type="email" placeholder="Enter your email" />
+        <button type="submit">Join the Guest List</button>
+      </form>
+
+      <div class="perks">
+        <div>
+          <h4>Early Access</h4>
+          <p>Get first access to tickets.</p>
+        </div>
+        <div>
+          <h4>Exclusive Updates</h4>
+          <p>Be the first to know what’s happening.</p>
+        </div>
+        <div>
+          <h4>Special Perks</h4>
+          <p>Receive exclusive offers and surprises.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div>
+      <h3>KITCHEN BATTLE</h3>
+      <p>COOK. COMPETE. <span>CONQUER.</span></p>
+      <p>A live culinary experience powered by passion, pressure, and flavor.</p>
+    </div>
+
+    <div>
+      <h4>Quick Links</h4>
+      <a href="#">Home</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div>
+      <h4>Follow Us</h4>
+      <p class="socials">Instagram · TikTok · Facebook · YouTube</p>
+    </div>
+
+    <div>
+      <h4>Stay Updated</h4>
+      <form class="footer-form">
+        <input type="email" placeholder="Enter your email" />
+        <button>→</button>
+      </form>
+    </div>
+  </footer>
 
 </body>
 </html>
