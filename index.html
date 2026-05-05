@@ -6,8 +6,6 @@
 
   <title>Kitchen Battle | Cook. Compete. Conquer.</title>
   <meta name="description" content="Kitchen Battle is a live culinary competition experience where guests taste, judge, and decide the winner." />
-  <meta name="keywords" content="Kitchen Battle, cooking competition, culinary experience, live food event, Medellin events" />
-  <meta name="author" content="Kitchen Battle" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,7 +17,6 @@
       --white: #FFFFFF;
       --orange: #FF6600;
       --dark-gray: #1A1A1A;
-
       --section-padding: 9rem 6%;
       --transition: 0.3s ease;
       --max-width: 1200px;
@@ -41,11 +38,6 @@
       font-family: "Montserrat", sans-serif;
       line-height: 1.7;
       overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
     }
 
     a {
@@ -89,7 +81,6 @@
       font-size: clamp(1rem, 2vw, 1.25rem);
       font-weight: 300;
       color: rgba(255,255,255,0.72);
-      letter-spacing: 0.5px;
     }
 
     .body-copy {
@@ -111,7 +102,6 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.75rem;
       padding: 1rem 1.8rem;
       border: 1px solid var(--orange);
       text-transform: uppercase;
@@ -157,7 +147,6 @@
       }
     }
 
-    /* HEADER */
     .header {
       position: fixed;
       top: 0;
@@ -207,7 +196,6 @@
       color: var(--orange);
     }
 
-    /* HERO */
     .hero {
       min-height: 100vh;
       padding: 9rem 6% 6rem;
@@ -266,7 +254,6 @@
       font-weight: 300;
     }
 
-    /* EXPERIENCE */
     .experience {
       background: var(--dark-gray);
     }
@@ -327,7 +314,6 @@
       font-weight: 300;
     }
 
-    /* ABOUT */
     .about {
       background: var(--black);
     }
@@ -360,7 +346,7 @@
       font-family: "Bebas Neue", sans-serif;
       font-size: 3rem;
       line-height: 1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     .about-panel p {
@@ -368,27 +354,19 @@
       font-weight: 300;
     }
 
-    /* CTA */
     .cta {
-      background:
-        linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.82)),
-        var(--dark-gray);
+      background: var(--dark-gray);
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.08);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .cta .accent-line {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
+    .cta .accent-line,
     .cta .body-copy {
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* FOOTER */
     .footer {
       padding: 5rem 6% 2rem;
       background: var(--black);
@@ -440,7 +418,6 @@
       flex-wrap: wrap;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       :root {
         --section-padding: 7rem 6%;
@@ -461,7 +438,6 @@
       }
 
       .hero {
-        text-align: left;
         background:
           linear-gradient(rgba(0,0,0,0.82), rgba(0,0,0,0.9)),
           url("images/hero-bg.jpg") center/cover no-repeat;
@@ -478,10 +454,6 @@
     }
 
     @media (max-width: 520px) {
-      .header-inner {
-        gap: 1rem;
-      }
-
       .logo {
         font-size: 1.6rem;
       }
@@ -555,7 +527,7 @@
             <a href="#guest" class="btn btn-primary" aria-label="Join the Kitchen Battle guest list">
               Join the Guest List
             </a>
-            <a href="#experience" class="btn btn-outline" aria-label="Learn more about the Kitchen Battle experience">
+            <a href="#experience" class="btn btn-outline" aria-label="Explore the Kitchen Battle experience">
               Explore the Experience
             </a>
           </div>
@@ -595,11 +567,10 @@
           <div>
             <div class="accent-line"></div>
             <p class="body-copy">
-              This is not a traditional dinner. It is an intimate culinary showdown designed
-              to feel premium, social, and unforgettable.
+              An intimate culinary showdown where food, pressure, creativity, and audience power come together.
             </p>
             <p class="sub-es">
-              No es una cena tradicional. Es una experiencia culinaria íntima, premium y memorable.
+              Una batalla culinaria íntima donde la comida, la presión, la creatividad y el voto del público se unen.
             </p>
           </div>
         </div>
@@ -610,8 +581,7 @@
             <h3>Welcome Drink</h3>
             <p class="es">Cóctel de bienvenida</p>
             <p>
-              Guests arrive into a dark, high-energy lounge atmosphere with a signature drink
-              that sets the tone for the night.
+              Guests enter the arena with a signature drink that sets the tone for the night.
             </p>
           </article>
 
@@ -620,8 +590,7 @@
             <h3>Live Battle</h3>
             <p class="es">Batalla en vivo</p>
             <p>
-              Two cooks prepare their dishes in real time while the audience watches the pressure,
-              technique, creativity, and flavor unfold.
+              Two cooks prepare their dishes in real time while the audience watches the pressure unfold.
             </p>
           </article>
 
@@ -630,8 +599,7 @@
             <h3>The Verdict</h3>
             <p class="es">El veredicto final</p>
             <p>
-              Every guest tastes. Every guest votes. One competitor leaves as the champion
-              of the kitchen arena.
+              Every guest tastes. Every guest votes. One competitor becomes the champion.
             </p>
           </article>
         </div>
@@ -653,15 +621,14 @@
         </div>
 
         <div class="about-panel">
-          <h3>Not a restaurant. Not a cooking class.</h3>
-          <p class="sub-es">No es un restaurante. No es una clase de cocina.</p>
+          <h3>Cook. Compete. Conquer.</h3>
+          <p class="sub-es">Cocina. Compite. Conquista.</p>
 
           <div class="accent-line"></div>
 
           <p>
-            Kitchen Battle is a live culinary experience where competition, food, and audience
-            participation meet. It is designed for people who want more than dinner — they want
-            a story, a show, and a final verdict.
+            Two competitors. One kitchen arena. A live audience that tastes, judges, and decides the winner.
+            This is a high-energy culinary showdown designed to be experienced, not watched.
           </p>
         </div>
       </div>
@@ -683,8 +650,7 @@
         <div class="accent-line"></div>
 
         <p class="body-copy">
-          Get early access to launch dates, private tasting nights, and the first official
-          Kitchen Battle event.
+          Get early access to launch dates, private tasting nights, and the first official Kitchen Battle event.
         </p>
 
         <div class="hero-buttons" style="justify-content:center;">
