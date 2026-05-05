@@ -238,8 +238,8 @@ body {
 }
 
 .features div {
-  padding: 18px 35px;
-  border-left: 1px solid #9b9b9b;
+  padding: 25px 30px;
+  border-left: none;
 }
 
 .features h4 {
