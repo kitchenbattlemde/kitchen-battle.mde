@@ -106,10 +106,10 @@ a {
 /* HERO */
 
 .hero {
-  min-height: 710px;
+  min-height: 720px;
   background:
-    linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.78) 36%, rgba(0,0,0,0.18) 100%),
-    url("https://images.unsplash.com/photo-1514517220035-65b3f0333e1d?q=80&w=1800&auto=format&fit=crop");
+    linear-gradient(90deg, rgba(0,0,0,0.98) 0%, rgba(0,0,0,0.82) 36%, rgba(0,0,0,0.20) 100%),
+    url("https://images.unsplash.com/photo-1625944230945-1b7dd3b949ab?q=80&w=1800&auto=format&fit=crop");
   background-size: cover;
   background-position: center right;
   display: flex;
@@ -132,7 +132,7 @@ a {
 }
 
 .hero h2 span,
-.experience h2 span,
+.about h2 span,
 .guest h2 span,
 .guest-right h3 {
   color: var(--bright-orange);
@@ -228,9 +228,9 @@ a {
   font-weight: 400;
 }
 
-/* EXPERIENCE */
+/* ABOUT SECTION */
 
-.experience {
+.about {
   min-height: 365px;
   background: var(--off-white);
   color: #0b0b0b;
@@ -240,11 +240,11 @@ a {
   border-top: 1px solid rgba(0,0,0,0.08);
 }
 
-.experience-title {
+.about-title {
   padding-left: 78px;
 }
 
-.experience h2 {
+.about h2 {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
   font-size: 54px;
@@ -252,22 +252,22 @@ a {
   letter-spacing: 1px;
 }
 
-.experience-copy {
+.about-copy {
   max-width: 250px;
   line-height: 1.65;
   font-size: 15px;
 }
 
-.experience-image {
+.about-image {
   height: 365px;
   background:
-    linear-gradient(90deg, rgba(233,226,216,0.35), rgba(233,226,216,0)),
-    url("https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1600&auto=format&fit=crop");
+    linear-gradient(90deg, rgba(233,226,216,0.40), rgba(233,226,216,0)),
+    url("https://images.unsplash.com/photo-1547592180-85f173990554?q=80&w=1600&auto=format&fit=crop");
   background-size: cover;
   background-position: center;
 }
 
-/* GUEST */
+/* GUEST LIST */
 
 .guest {
   display: grid;
@@ -409,7 +409,7 @@ a {
   }
 
   .features-strip,
-  .experience,
+  .about,
   .guest,
   .footer {
     grid-template-columns: 1fr;
@@ -425,14 +425,14 @@ a {
     border-bottom: none;
   }
 
-  .experience-title,
-  .experience-copy,
+  .about-title,
+  .about-copy,
   .guest-left,
   .guest-right {
     padding: 36px 24px;
   }
 
-  .experience-copy {
+  .about-copy {
     max-width: 100%;
   }
 
