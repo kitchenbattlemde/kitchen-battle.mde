@@ -4,19 +4,286 @@
   box-sizing: border-box;
 }
 
+html { scroll-behavior: smooth; }
+
 body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #050505;
+  color: white;
+}
+
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.78)),
+    url("KitchenBattle.png") center/cover no-repeat;
+}
+
+.navbar {
+  padding: 28px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 900;
+}
+
+.logo span,
+.hero h1 span,
+.gold,
+.tagline {
+  color: #ff7a00;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.nav-links a:hover {
+  color: #ff7a00;
+}
+
+.btn,
+.booking button {
+  background: linear-gradient(135deg, #ff3c00, #ff9500);
+  color: white;
+  padding: 16px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 0 20px rgba(255, 112, 0, .7);
+  cursor: pointer;
+}
+
+.hero-content {
+  max-width: 650px;
+  margin: 90px auto 0;
+  text-align: center;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 78px;
+  line-height: .9;
+  margin: 20px 0;
+}
+
+.hero h2 {
+  font-size: 32px;
+  text-transform: uppercase;
+}
+
+.tagline,
+.gold {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.hero-cards {
+  margin: 35px auto;
+  max-width: 520px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #d88900;
+  background: rgba(0,0,0,.6);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.hero-cards div {
+  padding: 20px;
+  border-right: 1px solid #d88900;
+}
+
+.hero-cards div:last-child {
+  border-right: none;
+}
+
+.big {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.experience {
+  background: #eee8df;
+  color: #111;
+  padding: 70px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 60px;
+}
+
+.experience h3 {
+  color: #c78300;
+  font-size: 28px;
+  text-transform: uppercase;
+}
+
+.experience h2,
+.how h2,
+.gallery h2,
+.booking h2 {
+  font-size: 38px;
+  text-transform: uppercase;
+  margin-bottom: 25px;
+}
+
+.experience p {
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  text-align: center;
+  gap: 25px;
+}
+
+.features div {
+  padding: 25px;
+  border-left: 1px solid #aaa;
+}
+
+.features h4 {
+  margin: 15px 0;
+  text-transform: uppercase;
+}
+
+.how {
+  padding: 70px;
+  text-align: center;
   background: #050505;
 }
 
-.page {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 45px;
 }
 
-.full-design {
-  width: 100%;
-  max-width: 1440px;
-  height: auto;
-  display: block;
+.steps span {
+  color: #ff9500;
+  font-size: 64px;
+  font-weight: 900;
+}
+
+.steps h3 {
+  text-transform: uppercase;
+  margin: 15px 0;
+}
+
+.event {
+  border-top: 1px solid #d88900;
+  border-bottom: 1px solid #d88900;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.event div {
+  padding: 30px;
+  border-right: 1px solid #d88900;
+  font-size: 18px;
+}
+
+.gallery,
+.booking {
+  padding: 80px 30px;
+  text-align: center;
+}
+
+.booking {
+  background: #eee8df;
+  color: #111;
+}
+
+form {
+  max-width: 450px;
+  margin: 30px auto 0;
+  display: grid;
+  gap: 15px;
+}
+
+input {
+  padding: 16px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #050505;
+  color: #aaa;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  color: white;
+  border: none;
+  font-size: 30px;
+}
+
+@media (max-width: 900px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .nav-links,
+  .navbar .btn {
+    display: none;
+  }
+
+  .nav-links.show {
+    display: flex;
+    position: absolute;
+    top: 90px;
+    right: 25px;
+    flex-direction: column;
+    background: #111;
+    padding: 25px;
+    border: 1px solid #ff9500;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-cards,
+  .experience,
+  .features,
+  .steps,
+  .event {
+    grid-template-columns: 1fr;
+  }
+
+  .experience,
+  .how {
+    padding: 45px 25px;
+  }
+
+  .hero-cards div,
+  .event div,
+  .features div {
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #d88900;
+  }
 }
