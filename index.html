@@ -12,7 +12,10 @@
   <nav class="navbar">
     <div class="logo">
       <div class="flame">🔥</div>
-      <div>KITCHEN<br><span>BATTLE</span></div>
+      <div class="logo-text">
+        <span class="logo-main">KITCHEN</span>
+        <span class="logo-battle">BATTLE</span>
+      </div>
     </div>
 
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
@@ -25,7 +28,7 @@
       <li><a href="#about">About Us</a></li>
     </ul>
 
-    <a href="#book" class="btn">Book Your Seat</a>
+    <a href="#events" class="btn">Book Your Seat</a>
   </nav>
 
   <div class="hero-content">
@@ -39,16 +42,14 @@
 
     <div class="hero-cards">
       <div>
-        <span>⏱</span>
+        <span>◷</span>
         <p><strong>Limited Seats</strong><br>Only 24 spots<br>per night.</p>
       </div>
       <div>
-        <span>👥</span>
+        <span>◇</span>
         <p><strong>Almost Sold Out</strong><br>Next event is<br>filling up fast!</p>
       </div>
     </div>
-
-    <a href="#book" class="btn big">Book Your Seat</a>
   </div>
 </header>
 
@@ -63,17 +64,19 @@
 
   <div class="features">
     <div>
-      <span>🥂</span>
+      <div class="line-icon glass"></div>
       <h4>Welcome Drink</h4>
       <p>Start the night with a signature welcome drink on us.</p>
     </div>
+
     <div>
-      <span>🍽</span>
+      <div class="line-icon cloche"></div>
       <h4>Live Cooking</h4>
       <p>Watch both competitors create their dishes right in front of you.</p>
     </div>
+
     <div>
-      <span>🏆</span>
+      <div class="line-icon trophy"></div>
       <h4>You Decide</h4>
       <p>Taste, vote, and crown the winner of the battle.</p>
     </div>
@@ -86,21 +89,21 @@
   <div class="steps">
     <div class="step">
       <span class="number">1</span>
-      <div class="circle">👥</div>
+      <div class="circle">VS</div>
       <h3>Two Competitors Face Off</h3>
       <p>Each competitor gets the same mystery ingredients.</p>
     </div>
 
     <div class="step">
       <span class="number">2</span>
-      <div class="circle">🍽</div>
+      <div class="circle">⌒</div>
       <h3>You Enjoy Both Creations</h3>
       <p>Sit back and enjoy both dishes made live, right in front of you.</p>
     </div>
 
     <div class="step">
       <span class="number">3</span>
-      <div class="circle">🗳</div>
+      <div class="circle">✓</div>
       <h3>You Decide The Winner</h3>
       <p>Cast your vote and crown the Kitchen Battle champion.</p>
     </div>
@@ -109,29 +112,19 @@
 
 <section class="event-bar" id="events">
   <div>
-    <span>📅</span>
-    <p><strong>Sat, 15 June 2024</strong><br>Doors open 6:30 PM<br>Battle starts 7:00 PM</p>
+    <span>◷</span>
+    <p><strong>Launching Soon</strong><br>Doors open before the battle</p>
   </div>
+
   <div>
-    <span>📍</span>
-    <p><strong>Flavor Arena</strong><br>123 Taste Street,<br>Food City</p>
+    <span>⌖</span>
+    <p><strong>Secret Location</strong><br>Medellín, Colombia<br>Location to be revealed</p>
   </div>
+
   <div>
-    <span>👥</span>
+    <span>◇</span>
     <p><strong>Only 24 Seats</strong><br>Per Night</p>
   </div>
-</section>
-
-<section class="booking" id="book">
-  <h2>Book Your Seat</h2>
-  <p>Reserve your spot for the next Kitchen Battle experience.</p>
-
-  <form>
-    <input type="text" placeholder="Full Name" required>
-    <input type="email" placeholder="Email Address" required>
-    <input type="number" placeholder="Number of Seats" min="1" max="24" required>
-    <button type="submit">Request Booking</button>
-  </form>
 </section>
 
 <footer>
