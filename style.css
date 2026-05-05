@@ -96,10 +96,8 @@ h1 {
 }
 
 .subheadline {
-  font-size: clamp(19px, 2.3vw, 28px);
-  font-weight: 700;
-  max-width: 650px;
-  margin-bottom: 18px;
+  color: #bdbdbd;
+  font-size: 18px;
 }
 
 .slogan {
