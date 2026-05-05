@@ -2,150 +2,77 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <title>Kitchen Battle</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .heading {
+      font-family: 'Oswald', sans-serif;
+    }
+  </style>
 </head>
-<body>
 
-<header class="hero" id="home">
-  <nav class="navbar">
-    <div class="logo">
-      <div class="flame">🔥</div>
-      <div class="logo-text">
-        <span class="logo-main">KITCHEN</span>
-        <span class="logo-battle">BATTLE</span>
-      </div>
-    </div>
+<body class="bg-white text-[#111111]">
 
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  <!-- 🔝 HEADER -->
+  <header class="flex justify-between items-center px-8 py-5 border-b border-gray-200">
 
-    <ul class="nav-links" id="navLinks">
-      <li><a class="active" href="#home">Home</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#gallery">Gallery</a></li>
-      <li><a href="#about">About Us</a></li>
-    </ul>
+    <h1 class="heading text-xl tracking-wider">
+      KITCHEN BATTLE
+    </h1>
 
-    <a href="#events" class="btn">Book Your Seat</a>
-  </nav>
+    <nav class="hidden md:flex gap-8 text-sm text-gray-600">
+      <a href="#" class="hover:text-black">Home</a>
+      <a href="#">Experience</a>
+      <a href="#">About</a>
+      <a href="#">Gallery</a>
+      <a href="#">Contact</a>
+    </nav>
 
-  <div class="hero-content">
-    <div class="cross">⚔</div>
-    <p class="tagline">Two competitors. One kitchen. One winner.</p>
+    <button class="border border-[#D96A1A] text-[#D96A1A] px-5 py-2 text-sm hover:bg-[#D96A1A] hover:text-white transition">
+      JOIN
+    </button>
 
-    <h1>KITCHEN<br><span>BATTLE</span></h1>
+  </header>
 
-    <h2>Live Cooking.<br>Real Competition.</h2>
-    <p class="gold">Cook. Compete. Conquer.</p>
 
-    <div class="hero-cards">
-      <div>
-        <span>◷</span>
-        <p><strong>Limited Seats</strong><br>Only 24 spots<br>per night.</p>
-      </div>
-      <div>
-        <span>◇</span>
-        <p><strong>Almost Sold Out</strong><br>Next event is<br>filling up fast!</p>
-      </div>
-    </div>
-  </div>
-</header>
+  <!-- 🥇 HERO SECTION -->
+  <section class="grid md:grid-cols-2 items-center px-8 py-20 gap-10">
 
-<section class="experience" id="about">
-  <div class="experience-text">
-    <h3>An Experience,</h3>
-    <h2>Not Just Dinner</h2>
-    <div class="line"></div>
-    <p>Kitchen Battle is a one-of-a-kind live cooking experience where two competitors go head-to-head to impress you.</p>
-    <strong>Come for the flavor,<br>stay for something special.</strong>
-  </div>
-
-  <div class="features">
-
-  <div>
-    <div class="icon glass"></div>
-    <h4>WELCOME DRINK</h4>
-    <p>Start the night with a signature welcome drink on us.</p>
-  </div>
-
-  <div>
-    <div class="icon cloche"></div>
-    <h4>LIVE COOKING</h4>
-    <p>Watch both competitors create their dishes right in front of you.</p>
-  </div>
-
-  <div>
-    <div class="icon trophy"></div>
-    <h4>YOU DECIDE</h4>
-    <p>Taste, vote, and crown the winner of the battle.</p>
-  </div>
-
-</div>
-
+    <!-- LEFT TEXT -->
     <div>
-      <div class="line-icon cloche"></div>
-      <h4>Live Cooking</h4>
-      <p>Watch both competitors create their dishes right in front of you.</p>
+      <h2 class="heading text-5xl md:text-6xl leading-tight">
+        TWO COMPETITORS.<br>
+        TWO DISHES.<br>
+        <span class="text-[#D96A1A]">ONE WINNER.</span>
+      </h2>
+
+      <p class="mt-6 text-gray-600 max-w-md">
+        A live cooking battle where you taste every round and decide who conquers the kitchen.
+      </p>
+
+      <button class="mt-8 bg-[#D96A1A] text-white px-6 py-3 hover:bg-[#F07A2A] transition">
+        JOIN THE GUEST LIST
+      </button>
     </div>
 
+
+    <!-- RIGHT IMAGE -->
     <div>
-      <div class="line-icon trophy"></div>
-      <h4>You Decide</h4>
-      <p>Taste, vote, and crown the winner of the battle.</p>
-    </div>
-  </div>
-</section>
-
-<section class="how" id="how">
-  <h2>How It Works</h2>
-
-  <div class="steps">
-    <div class="step">
-      <span class="number">1</span>
-      <div class="circle">VS</div>
-      <h3>Two Competitors Face Off</h3>
-      <p>Each competitor gets the same mystery ingredients.</p>
+      <img src="your-image.jpg" alt="Food" class="rounded-lg shadow-lg">
     </div>
 
-    <div class="step">
-      <span class="number">2</span>
-      <div class="circle">⌒</div>
-      <h3>You Enjoy Both Creations</h3>
-      <p>Sit back and enjoy both dishes made live, right in front of you.</p>
-    </div>
+  </section>
 
-    <div class="step">
-      <span class="number">3</span>
-      <div class="circle">✓</div>
-      <h3>You Decide The Winner</h3>
-      <p>Cast your vote and crown the Kitchen Battle champion.</p>
-    </div>
-  </div>
-</section>
-
-<section class="event-bar" id="events">
-  <div>
-    <span>◷</span>
-    <p><strong>Launching Soon</strong><br>Doors open before the battle</p>
-  </div>
-
-  <div>
-    <span>⌖</span>
-    <p><strong>Secret Location</strong><br>Medellín, Colombia<br>Location to be revealed</p>
-  </div>
-
-  <div>
-    <span>◇</span>
-    <p><strong>Only 24 Seats</strong><br>Per Night</p>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 Kitchen Battle — Cook. Compete. Conquer.</p>
-</footer>
-
-<script src="script.js"></script>
 </body>
 </html>
