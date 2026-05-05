@@ -246,7 +246,80 @@ body {
   font-size: 18px;
   font-weight: 900;
 }
+.icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border: 2px solid #d88900;
+  border-radius: 50%;
+  position: relative;
+}
 
+/* GLASS */
+.glass::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 30px;
+  border: 2px solid #d88900;
+  border-top: none;
+  left: 24px;
+  top: 15px;
+}
+
+.glass::after {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 2px;
+  background: #d88900;
+  left: 22px;
+  bottom: 15px;
+}
+
+/* CLOCHE */
+.cloche::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 20px;
+  border: 2px solid #d88900;
+  border-bottom: none;
+  border-radius: 40px 40px 0 0;
+  left: 14px;
+  top: 22px;
+}
+
+.cloche::after {
+  content: "";
+  position: absolute;
+  width: 46px;
+  height: 2px;
+  background: #d88900;
+  left: 12px;
+  top: 42px;
+}
+
+/* TROPHY */
+.trophy::before {
+  content: "";
+  position: absolute;
+  width: 24px;
+  height: 26px;
+  border: 2px solid #d88900;
+  left: 23px;
+  top: 14px;
+}
+
+.trophy::after {
+  content: "";
+  position: absolute;
+  width: 32px;
+  height: 2px;
+  background: #d88900;
+  left: 19px;
+  bottom: 14px;
+}
 /* PROFESSIONAL LINE ICONS */
 .line-icon {
   width: 70px;
