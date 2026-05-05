@@ -1,57 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kitchen Battle</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Battle | Cook. Compete. Conquer.</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header class="header">
-  <h1>KITCHEN BATTLE</h1>
+  <div class="logo">
+    <h1>KITCHEN BATTLE</h1>
+    <span></span>
+  </div>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Experience</a>
-    <a href="#">About</a>
-    <a href="#">Gallery</a>
-    <a href="#">Contact</a>
+  <nav class="nav">
+    <a href="#home" class="active">Home</a>
+    <a href="#experience">Experience</a>
+    <a href="#how">How It Works</a>
+    <a href="#guest-list">Guest List</a>
+    <a href="#contact">Contact</a>
   </nav>
 
-  <button class="outline-btn">JOIN</button>
+  <a href="#guest-list" class="outline-btn">Join the Guest List</a>
 </header>
 
-<!-- HERO -->
-<section class="hero">
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="eyebrow">Live Cooking Experience</p>
 
-  <!-- LEFT -->
-  <div class="hero-text">
     <h2>
-      TWO COMPETITORS.<br>
-      TWO DISHES.<br>
-      <span>ONE WINNER.</span>
+      Two Competitors.<br>
+      Two Dishes.<br>
+      <span>One Winner.</span>
     </h2>
 
-    <p>
+    <div class="orange-line"></div>
+
+    <p class="hero-copy">
       A live cooking battle where you taste every round and decide who conquers the kitchen.
     </p>
 
-    <button class="main-btn">JOIN THE GUEST LIST</button>
+    <div class="hero-buttons">
+      <a href="#guest-list" class="main-btn">Join the Guest List</a>
+      <a href="#how" class="secondary-btn">How It Works ↓</a>
+    </div>
   </div>
-
-  <!-- RIGHT IMAGE -->
-  <div class="hero-image">
-    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" alt="Food">
-  </div>
-
 </section>
+
+<section class="how" id="how">
+  <div class="section-title">
+    <span></span>
+    <h3>How It Works</h3>
+    <span></span>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="icon">01</div>
+      <h4>The Battle Begins</h4>
+      <div class="mini-line"></div>
+      <p>Two competitors face off live in the kitchen.</p>
+    </div>
+
+    <div class="step">
+      <div class="icon">02</div>
+      <h4>The Plates Are Served</h4>
+      <div class="mini-line"></div>
+      <p>You taste every dish created in each round.</p>
+    </div>
+
+    <div class="step">
+      <div class="icon">03</div>
+      <h4>You Decide the Winner</h4>
+      <div class="mini-line"></div>
+      <p>You vote and help crown the winner.</p>
+    </div>
+  </div>
+</section>
+
+<section class="experience" id="experience">
+  <div class="experience-text">
+    <h2>
+      Cook.<br>
+      Compete.<br>
+      <span>Conquer.</span>
+    </h2>
+  </div>
+
+  <div class="experience-copy">
+    <div class="orange-line"></div>
+    <p>
+      Real competitors. Real pressure. Real flavor. This is where skill meets heat — and the audience decides.
+    </p>
+  </div>
+
+  <div class="experience-image"></div>
+</section>
+
+<section class="guest" id="guest-list">
+  <div class="guest-left">
+    <h2>
+      The First Battle<br>
+      <span>Is Coming.</span>
+    </h2>
+
+    <div class="orange-line"></div>
+
+    <p>
+      An exclusive live cooking competition is about to launch. Limited seats. One night. One winner.
+    </p>
+  </div>
+
+  <div class="guest-right">
+    <h3>Be the First to Know.</h3>
+
+    <p>
+      Join the guest list and get early access to tickets, updates, and exclusive surprises.
+    </p>
+
+    <form>
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Join the Guest List</button>
+    </form>
+
+    <small>We respect your privacy. No spam, ever.</small>
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div>
+    <h4>Quick Links</h4>
+    <a href="#home">Home</a>
+    <a href="#experience">Experience</a>
+    <a href="#how">How It Works</a>
+    <a href="#guest-list">Guest List</a>
+  </div>
+
+  <div>
+    <h4>Follow Us</h4>
+    <p>Instagram · TikTok · Facebook · YouTube</p>
+  </div>
+
+  <div>
+    <h4>Stay Updated</h4>
+    <p>Be the first to know about our launch and exclusive events.</p>
+  </div>
+</footer>
+
+<p class="copyright">© 2025 Kitchen Battle. All rights reserved.</p>
 
 </body>
 </html>
