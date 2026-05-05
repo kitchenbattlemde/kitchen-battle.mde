@@ -247,12 +247,13 @@ body {
   font-weight: 900;
 }
 .icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
-  border: 2px solid #d88900;
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 28px;
+  border: 3px solid #d88900;
   border-radius: 50%;
   position: relative;
+  box-shadow: 0 0 18px rgba(216,137,0,0.35);
 }
 
 /* GLASS */
@@ -320,79 +321,6 @@ body {
   left: 19px;
   bottom: 14px;
 }
-/* PROFESSIONAL LINE ICONS */
-.line-icon {
-  width: 70px;
-  height: 70px;
-  margin: 0 auto 20px;
-  border: 3px solid #d88900;
-  border-radius: 50%;
-  position: relative;
-}
-
-.glass::before {
-  content: "";
-  position: absolute;
-  width: 26px;
-  height: 36px;
-  border: 3px solid #d88900;
-  border-top: none;
-  left: 19px;
-  top: 10px;
-}
-
-.glass::after {
-  content: "";
-  position: absolute;
-  width: 34px;
-  height: 3px;
-  background: #d88900;
-  left: 16px;
-  bottom: 13px;
-}
-
-.cloche::before {
-  content: "";
-  position: absolute;
-  width: 42px;
-  height: 24px;
-  border: 3px solid #d88900;
-  border-bottom: none;
-  border-radius: 42px 42px 0 0;
-  left: 11px;
-  top: 23px;
-}
-
-.cloche::after {
-  content: "";
-  position: absolute;
-  width: 48px;
-  height: 3px;
-  background: #d88900;
-  left: 9px;
-  top: 47px;
-}
-
-.trophy::before {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 32px;
-  border: 3px solid #d88900;
-  left: 17px;
-  top: 12px;
-}
-
-.trophy::after {
-  content: "";
-  position: absolute;
-  width: 40px;
-  height: 3px;
-  background: #d88900;
-  left: 13px;
-  bottom: 13px;
-}
-
 /* HOW */
 .how {
   background:
