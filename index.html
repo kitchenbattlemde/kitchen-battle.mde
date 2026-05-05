@@ -3,69 +3,132 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Kitchen Battle | Cook. Compete. Conquer.</title>
-
+  <title>The Kitchen Battle</title>
   <link rel="stylesheet" href="style.css" />
-
-  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <section class="hero">
-    <div class="overlay"></div>
+<header class="hero">
+  <nav class="navbar">
+    <div class="logo">
+      <span class="flame">🔥</span>
+      <div>KITCHEN <span>BATTLE</span></div>
+    </div>
 
-    <nav class="nav">
-      <div class="logo">THE KITCHEN BATTLE</div>
-      <div class="nav-links">
-        <a href="#experience">Experience</a>
-        <a href="#tickets">Tickets</a>
-        <a href="#compete">Compete</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a class="active" href="#">Home</a></li>
+      <li><a href="#">Events</a></li>
+      <li><a href="#">How It Works</a></li>
+      <li><a href="#">Gallery</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+
+    <a href="#" class="btn nav-btn">Book Your Seat</a>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+  </nav>
+
+  <div class="hero-content">
+    <div class="cross">⚔</div>
+    <p class="tagline">Two competitors. One kitchen. One winner.</p>
+
+    <h1>KITCHEN <span>BATTLE</span></h1>
+
+    <h2>Live Cooking.<br>Real Competition.</h2>
+    <p class="gold">Cook. Compete. Conquer.</p>
+
+    <div class="info-cards">
+      <div class="card">
+        <div class="icon">⏱</div>
+        <p><strong>Limited Seats</strong><br>Only 24 spots<br>per night.</p>
       </div>
-    </nav>
 
-   <p class="eyebrow">MEDELLÍN • LIVE EXPERIENCE</p>
-
-<h1>Two Competitors. Two Rounds. One Winner.</h1>
-
-<p class="subheadline">
-A live cooking battle where every dish is judged in real time — by you.
-</p>
-      
-  <p class="scarcity">Only 24 seats per event.</p>
-      <p class="slogan">Cook. Compete. Conquer.</p>
-
-      <div class="buttons">
-        <a href="mailto:kitchenbattle.mde@gmail.com" class="btn primary">Reserve My Seat</a>
-        <a href="mailto:kitchenbattle.mde@gmail.com" class="btn secondary">Apply to Compete</a>
+      <div class="card">
+        <div class="icon">👥</div>
+        <p><strong>Almost Sold Out</strong><br>Next event is<br>filling up fast!</p>
       </div>
     </div>
-  </section>
 
-  <section id="experience" class="section">
-    <h2>This Is Not Dinner. This Is a Battle.</h2>
+    <a href="#" class="btn hero-btn">Book Your Seat</a>
+  </div>
+</header>
+
+<section class="experience">
+  <div class="experience-text">
+    <h3>An Experience,</h3>
+    <h2>Not Just Dinner</h2>
+    <div class="line"></div>
     <p>
-      Two rising cooks face off in a restaurant-style kitchen environment.
-      You taste both rounds, feel the energy, and vote for the winner.
+      Kitchen Battle is a one-of-a-kind live cooking experience where two
+      competitors go head-to-head to impress you.
     </p>
-  </section>
+    <p><strong>Come for the flavor,<br>stay for something special.</strong></p>
+  </div>
 
-  <section id="tickets" class="tickets">
-    <h2>Only 24 Seats Per Event</h2>
-    <p>Intimate. Loud. Competitive. Unforgettable.</p>
-    <a href="mailto:kitchenbattle.mde@gmail.com" class="btn primary">Get Tickets</a>
-  </section>
+  <div class="features">
+    <div class="feature">
+      <div class="feature-icon">🥂</div>
+      <h4>Welcome Drink</h4>
+      <p>Start the night with a signature welcome drink on us.</p>
+    </div>
 
-  <section id="compete" class="section dark">
-    <h2>Think You Can Win?</h2>
-    <p>Step into the kitchen. Show your skill. Earn the crowd.</p>
-    <a href="mailto:kitchenbattle.mde@gmail.com" class="btn secondary">Apply to Compete</a>
-  </section>
+    <div class="feature">
+      <div class="feature-icon">🍽</div>
+      <h4>Live Cooking</h4>
+      <p>Watch both competitors create their dishes right in front of you.</p>
+    </div>
 
-  <footer>
-    <p>THE KITCHEN BATTLE</p>
-    <p>Cook. Compete. Conquer.</p>
-  </footer>
+    <div class="feature">
+      <div class="feature-icon">🏆</div>
+      <h4>You Decide</h4>
+      <p>Taste, vote, and crown the winner of the battle.</p>
+    </div>
+  </div>
+</section>
 
+<section class="how">
+  <h2>How It Works</h2>
+
+  <div class="steps">
+    <div class="step">
+      <span class="number">1</span>
+      <div class="circle">👨‍🍳</div>
+      <h3>Two Competitors Face Off</h3>
+      <p>Each competitor gets the same mystery ingredients.</p>
+    </div>
+
+    <div class="step">
+      <span class="number">2</span>
+      <div class="circle">🍽</div>
+      <h3>You Enjoy Both Creations</h3>
+      <p>Sit back and enjoy both dishes made live, right in front of you.</p>
+    </div>
+
+    <div class="step">
+      <span class="number">3</span>
+      <div class="circle">🗳</div>
+      <h3>You Decide the Winner</h3>
+      <p>Cast your vote and crown the Kitchen Battle champion.</p>
+    </div>
+  </div>
+
+  <div class="event-bar">
+    <div>
+      <span>📅</span>
+      <p><strong>Sat, 15 June 2024</strong><br>Doors open 6:30 PM<br>Battle starts 7:00 PM</p>
+    </div>
+
+    <div>
+      <span>📍</span>
+      <p><strong>Flavor Arena</strong><br>123 Taste Street,<br>Food City</p>
+    </div>
+
+    <div>
+      <span>👥</span>
+      <p><strong>Only 24 Seats</strong><br>Per Night</p>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
