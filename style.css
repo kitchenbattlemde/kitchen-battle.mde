@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;600;700&family=Permanent+Marker&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +9,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #050505;
+  font-family: 'Oswald', Arial, sans-serif;
+  background: #1a1a1a;
   color: #fff;
 }
 
@@ -17,9 +19,9 @@ body {
   min-height: 100vh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 50% 48%, rgba(255,106,0,0.42), transparent 22%),
-    radial-gradient(circle at 50% 35%, rgba(216,137,0,0.22), transparent 35%),
-    linear-gradient(180deg, #030303 0%, #090909 50%, #030303 100%);
+    radial-gradient(circle at 50% 48%, rgba(255,106,0,0.34), transparent 24%),
+    radial-gradient(circle at 50% 35%, rgba(216,137,0,0.20), transparent 36%),
+    linear-gradient(180deg, #2a2a2a 0%, #161616 45%, #101010 100%);
 }
 
 .hero::before {
@@ -27,7 +29,7 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(0,0,0,.95), rgba(0,0,0,.35), rgba(0,0,0,.95)),
+    linear-gradient(90deg, rgba(25,25,25,.92), rgba(35,35,35,.25), rgba(25,25,25,.92)),
     repeating-linear-gradient(90deg, rgba(255,255,255,.025) 0 1px, transparent 1px 90px);
   z-index: 1;
 }
@@ -43,21 +45,31 @@ body {
 
 .logo {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
-  font-size: 34px;
-  font-weight: 900;
-  line-height: .85;
-  color: white;
+  line-height: .8;
 }
 
-.logo span,
-.hero h1 span {
+.flame {
+  font-size: 30px;
+  margin-top: -8px;
+}
+
+.logo-main {
+  display: block;
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.logo-battle {
+  display: block;
+  font-family: 'Permanent Marker', cursive;
+  font-size: 38px;
   color: #ff5a00;
-  font-style: italic;
+  transform: rotate(-3deg);
 }
-
-.flame { font-size: 28px; }
 
 .nav-links {
   display: flex;
@@ -69,8 +81,8 @@ body {
   color: white;
   text-decoration: none;
   text-transform: uppercase;
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 700;
 }
 
 .nav-links a.active,
@@ -80,8 +92,7 @@ body {
   padding-bottom: 8px;
 }
 
-.btn,
-.booking button {
+.btn {
   display: inline-block;
   background: linear-gradient(135deg, #ff3500, #ff9500);
   color: #fff;
@@ -90,8 +101,7 @@ body {
   text-transform: uppercase;
   font-weight: 900;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
+  border: 1px solid #ff9a00;
   box-shadow: 0 0 24px rgba(255, 95, 0, .8);
 }
 
@@ -99,7 +109,7 @@ body {
   position: relative;
   z-index: 3;
   max-width: 760px;
-  margin: 85px auto 0;
+  margin: 95px auto 0;
   text-align: center;
   padding: 0 20px;
 }
@@ -112,22 +122,32 @@ body {
 .tagline {
   color: #ffb000;
   text-transform: uppercase;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 900;
 }
 
 .hero h1 {
-  font-size: 82px;
-  line-height: .85;
+  font-family: 'Anton', sans-serif;
+  font-size: 92px;
+  line-height: .82;
   margin: 20px 0;
   text-transform: uppercase;
-  letter-spacing: -2px;
+  letter-spacing: 1px;
+}
+
+.hero h1 span {
+  font-family: 'Permanent Marker', cursive;
+  color: #ff5a00;
+  font-size: 92px;
+  display: inline-block;
+  transform: rotate(-2deg);
 }
 
 .hero h2 {
-  font-size: 30px;
+  font-size: 34px;
   line-height: 1.15;
   text-transform: uppercase;
+  font-weight: 900;
 }
 
 .gold {
@@ -135,6 +155,7 @@ body {
   margin-top: 12px;
   text-transform: uppercase;
   font-weight: 900;
+  font-size: 20px;
 }
 
 .hero-cards {
@@ -144,7 +165,7 @@ body {
   grid-template-columns: 1fr 1fr;
   border: 1px solid #d88900;
   border-radius: 10px;
-  background: rgba(0,0,0,.58);
+  background: rgba(20,20,20,.72);
   backdrop-filter: blur(8px);
   overflow: hidden;
 }
@@ -162,12 +183,13 @@ body {
 }
 
 .hero-cards span {
-  font-size: 34px;
+  color: #ff9500;
+  font-size: 36px;
 }
 
 .hero-cards strong {
   text-transform: uppercase;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 /* EXPERIENCE */
@@ -182,12 +204,14 @@ body {
 
 .experience h3 {
   color: #d88900;
-  font-size: 28px;
+  font-size: 30px;
   text-transform: uppercase;
+  font-weight: 900;
 }
 
 .experience h2 {
-  font-size: 40px;
+  font-family: 'Anton', sans-serif;
+  font-size: 44px;
   text-transform: uppercase;
   margin-top: 6px;
 }
@@ -200,7 +224,7 @@ body {
 }
 
 .experience p {
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.7;
   margin-bottom: 18px;
 }
@@ -216,29 +240,100 @@ body {
   border-left: 1px solid #9b9b9b;
 }
 
-.features span {
-  display: block;
-  color: #d88900;
-  font-size: 52px;
-  margin-bottom: 22px;
-}
-
 .features h4 {
   text-transform: uppercase;
-  margin-bottom: 18px;
+  margin: 20px 0 18px;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+/* PROFESSIONAL LINE ICONS */
+.line-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border: 3px solid #d88900;
+  border-radius: 50%;
+  position: relative;
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  width: 26px;
+  height: 36px;
+  border: 3px solid #d88900;
+  border-top: none;
+  left: 19px;
+  top: 10px;
+}
+
+.glass::after {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 3px;
+  background: #d88900;
+  left: 16px;
+  bottom: 13px;
+}
+
+.cloche::before {
+  content: "";
+  position: absolute;
+  width: 42px;
+  height: 24px;
+  border: 3px solid #d88900;
+  border-bottom: none;
+  border-radius: 42px 42px 0 0;
+  left: 11px;
+  top: 23px;
+}
+
+.cloche::after {
+  content: "";
+  position: absolute;
+  width: 48px;
+  height: 3px;
+  background: #d88900;
+  left: 9px;
+  top: 47px;
+}
+
+.trophy::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 32px;
+  border: 3px solid #d88900;
+  left: 17px;
+  top: 12px;
+}
+
+.trophy::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 3px;
+  background: #d88900;
+  left: 13px;
+  bottom: 13px;
 }
 
 /* HOW */
 .how {
-  background: #050505;
-  padding: 58px 70px 65px;
+  background:
+    radial-gradient(circle at center, rgba(255,106,0,.12), transparent 38%),
+    linear-gradient(180deg, #1d1d1d, #111);
+  padding: 44px 70px 58px;
   text-align: center;
 }
 
 .how h2 {
-  font-size: 34px;
+  font-size: 36px;
   text-transform: uppercase;
-  margin-bottom: 42px;
+  margin-bottom: 36px;
+  font-weight: 900;
 }
 
 .steps {
@@ -248,36 +343,39 @@ body {
 }
 
 .number {
-  font-size: 66px;
+  font-size: 72px;
   font-weight: 900;
   color: #ddd;
 }
 
 .circle {
-  width: 115px;
-  height: 115px;
+  width: 116px;
+  height: 116px;
   border: 1px solid #ff9500;
   border-radius: 50%;
-  margin: -25px auto 25px;
+  margin: -35px auto 22px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 42px;
+  font-size: 34px;
+  color: white;
 }
 
 .step h3 {
   text-transform: uppercase;
   margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .step p {
   color: #ddd;
   line-height: 1.5;
+  font-size: 18px;
 }
 
 /* EVENT BAR */
 .event-bar {
-  background: #050505;
+  background: #111;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid #d88900;
@@ -292,45 +390,20 @@ body {
 }
 
 .event-bar span {
-  font-size: 34px;
+  color: #ff9500;
+  font-size: 38px;
 }
 
 .event-bar strong {
   text-transform: uppercase;
-  font-size: 20px;
-}
-
-/* BOOKING */
-.booking {
-  background: #eee8df;
-  color: #111;
-  padding: 80px 30px;
-  text-align: center;
-}
-
-.booking h2 {
-  font-size: 40px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-
-form {
-  max-width: 450px;
-  margin: 35px auto 0;
-  display: grid;
-  gap: 15px;
-}
-
-input {
-  padding: 16px;
-  border: 1px solid #c9c1b5;
-  font-size: 16px;
+  font-size: 22px;
 }
 
 footer {
   text-align: center;
   padding: 24px;
   color: #aaa;
+  background: #111;
 }
 
 .menu-btn {
@@ -367,12 +440,13 @@ footer {
     border: 1px solid #ff9500;
   }
 
-  .hero h1 {
-    font-size: 54px;
+  .hero h1,
+  .hero h1 span {
+    font-size: 58px;
   }
 
   .hero h2 {
-    font-size: 24px;
+    font-size: 26px;
   }
 
   .hero-cards,
