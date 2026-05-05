@@ -1,60 +1,71 @@
-<!-- 1. Import high-energy Google Fonts -->
-<link href="https://googleapis.com" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Kitchen Battle | Cook. Compete. Conquer.</title>
 
-<style>
-  /* Basic Reset */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <link rel="stylesheet" href="style.css" />
 
-  body {
-    /* Replace with your specific 'two chefs competing' image URL */
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                url('https://example.com');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #ffffff;
-    font-family: 'Montserrat', sans-serif;
-  }
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
 
-  .glass-hero {
-    text-align: center;
-    /* Modern Glassmorphism Effect */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px);
-    padding: 3.5rem 5rem;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-    max-width: 90%;
-  }
+<body>
 
-  h1 {
-    /* Using 'Anton' for a heavy, cinematic competition vibe */
-    font-family: 'Anton', sans-serif;
-    font-size: clamp(2rem, 6vw, 4.5rem);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 0.5rem;
-    color: #ff4d4d; /* Sharp accent red for intensity */
-    line-height: 1.1;
-  }
+  <section class="hero">
+    <div class="overlay"></div>
 
-  .subtitle {
-    font-weight: 300;
-    font-size: clamp(1rem, 2vw, 1.4rem);
-    letter-spacing: 2px;
-    text-transform: lowercase;
-    opacity: 0.85;
-  }
-</style>
+    <nav class="nav">
+      <div class="logo">THE KITCHEN BATTLE</div>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#tickets">Tickets</a>
+        <a href="#compete">Compete</a>
+      </div>
+    </nav>
 
-<!-- Clean, semantic HTML structure -->
-<section class="glass-hero">
-  <h1>Cooking Becomes Competition</h1>
-  <p class="subtitle">Two Chefs. One Victor. No Mercy.</p>
-</section>
+    <div class="hero-content">
+      <p class="eyebrow">LIVE IN MEDELLÍN</p>
+
+      <h1>Two Cooks. Two Rounds. One Winner.</h1>
+
+      <p class="subheadline">
+        A high-energy cooking battle where the audience tastes, reacts, and decides.
+      </p>
+
+      <p class="slogan">Cook. Compete. Conquer.</p>
+
+      <div class="buttons">
+        <a href="#tickets" class="btn primary">Reserve My Seat</a>
+        <a href="#compete" class="btn secondary">Apply to Compete</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <h2>This Is Not Dinner. This Is a Battle.</h2>
+    <p>
+      Two rising cooks face off in a restaurant-style kitchen environment.
+      You taste both rounds, feel the energy, and vote for the winner.
+    </p>
+  </section>
+
+  <section id="tickets" class="tickets">
+    <h2>Only 24 Seats Per Event</h2>
+    <p>Intimate. Loud. Competitive. Unforgettable.</p>
+    <a href="mailto:kitchenbattle.mde@gmail.com" class="btn primary">Get Tickets</a>
+  </section>
+
+  <section id="compete" class="section dark">
+    <h2>Think You Can Win?</h2>
+    <p>Step into the kitchen. Show your skill. Earn the crowd.</p>
+    <a href="mailto:kitchenbattle.mde@gmail.com" class="btn secondary">Apply to Compete</a>
+  </section>
+
+  <footer>
+    <p>THE KITCHEN BATTLE</p>
+    <p>Cook. Compete. Conquer.</p>
+  </footer>
+
+</body>
+</html>
