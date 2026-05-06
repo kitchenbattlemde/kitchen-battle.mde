@@ -1,781 +1,231 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Kitchen Battle | Cook. Compete. Conquer.</title>
-  <meta name="description" content="Kitchen Battle is a premium live culinary competition experience where guests taste, judge, and decide the winner." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --black: #000000;
-      --white: #ffffff;
-      --orange: #ff6600;
-      --soft-white: rgba(255, 255, 255, 0.78);
-      --muted-white: rgba(255, 255, 255, 0.48);
-      --beige: #f2eee9;
-      --charcoal: #080808;
-      --line-dark: rgba(0, 0, 0, 0.22);
-      --line-light: rgba(255, 255, 255, 0.12);
-      --ease: 0.35s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      background: var(--black);
-      color: var(--white);
-      font-family: "Inter", sans-serif;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 1.35rem 5.5%;
-      display: grid;
-      grid-template-columns: 220px 1fr 220px;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.88);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--line-light);
-    }
-
-    .logo {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2.45rem;
-      line-height: 0.88;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .logo span {
-      color: var(--orange);
-      display: block;
-    }
-
-    .nav {
-      display: flex;
-      justify-content: center;
-      gap: 3rem;
-    }
-
-    .nav a {
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      font-weight: 800;
-      letter-spacing: 1.4px;
-      color: rgba(255,255,255,0.82);
-      position: relative;
-      transition: var(--ease);
-    }
-
-    .nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.7rem;
-      width: 0;
-      height: 2px;
-      background: var(--orange);
-      transition: var(--ease);
-    }
-
-    .nav a:hover,
-    .nav a.active {
-      color: var(--white);
-    }
-
-    .nav a.active::after,
-    .nav a:hover::after {
-      width: 100%;
-    }
-
-    .header-btn {
-      justify-self: end;
-      background: var(--orange);
-      color: var(--white);
-      padding: 1rem 1.45rem;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      font-weight: 900;
-      letter-spacing: 1px;
-      transition: var(--ease);
-    }
-
-    .header-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 20px 45px rgba(255,102,0,0.28);
-    }
-
-    .hero {
-      min-height: 100vh;
-      padding: 8rem 5.5% 4rem;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.72) 32%, rgba(0,0,0,0.15) 68%, rgba(0,0,0,0.68) 100%),
-        radial-gradient(circle at 56% 55%, rgba(255,102,0,0.18), transparent 26%),
-       url("hero-kitchen-battle.jpg") center bottom / contain no-repeat,
-        #000;
-    }
-
-    .hero-content {
-      max-width: 540px;
-      position: relative;
-      z-index: 2;
-    }
-
-    .eyebrow {
-      color: var(--orange);
-      font-size: 0.82rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 6px;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero h1,
-    .arena-title,
-    .section-title,
-    .reserve-title {
-      font-family: "Bebas Neue", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    .hero h1 {
-      font-size: clamp(5rem, 10vw, 10rem);
-      line-height: 0.83;
-      color: var(--white);
-    }
-
-    .orange {
-      color: var(--orange);
-    }
-
-    .small-line {
-      width: 44px;
-      height: 2px;
-      background: var(--orange);
-      margin: 1.6rem 0 1.4rem;
-    }
-
-    .hero-copy {
-      color: var(--white);
-      font-size: clamp(1rem, 1.4vw, 1.18rem);
-      line-height: 1.65;
-      font-weight: 400;
-    }
-
-    .hero-es {
-      margin-top: 1.55rem;
-      color: rgba(255,255,255,0.72);
-      font-size: 1.12rem;
-      font-weight: 300;
-    }
-
-    .hero-es span {
-      color: var(--orange);
-      font-weight: 500;
-    }
-
-    .experience-section {
-      display: grid;
-      grid-template-columns: 0.95fr 2.05fr;
-      min-height: 560px;
-      border-top: 1px solid var(--line-light);
-      border-bottom: 1px solid var(--line-light);
-    }
-
-    .arena-panel {
-      background:
-        radial-gradient(circle at 15% 78%, rgba(255,102,0,0.08), transparent 28%),
-        linear-gradient(180deg, #050505, #000);
-      padding: 4.8rem 5.5%;
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-
-    .arena-panel::after {
-      content: "";
-      position: absolute;
-      right: 2rem;
-      top: 9%;
-      width: 2px;
-      height: 82%;
-      background: var(--orange);
-      opacity: 0.9;
-    }
-
-    .arena-title {
-      font-size: clamp(3.4rem, 6vw, 6rem);
-      line-height: 0.92;
-      margin-bottom: 1.6rem;
-    }
-
-    .arena-copy {
-      max-width: 360px;
-      color: rgba(255,255,255,0.84);
-      font-size: 1rem;
-      line-height: 1.75;
-      font-weight: 300;
-    }
-
-    .arena-es {
-      margin-top: 1.8rem;
-      color: rgba(255,255,255,0.62);
-      font-size: 1rem;
-    }
-
-    .arena-es span {
-      color: var(--orange);
-      font-weight: 600;
-    }
-
-    .info-panel {
-      background: var(--beige);
-      color: #111;
-      padding: 4.8rem 5.5%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .info-inner {
-      width: 100%;
-      max-width: 920px;
-      text-align: center;
-    }
-
-    .info-kicker {
-      color: var(--orange);
-      font-size: clamp(1.35rem, 2.5vw, 2.3rem);
-      font-weight: 900;
-      letter-spacing: 8px;
-      text-transform: uppercase;
-      margin-bottom: 0.3rem;
-    }
-
-    .section-title {
-      color: #111;
-      font-size: clamp(3.4rem, 5vw, 6.2rem);
-      line-height: 0.95;
-      margin-bottom: 0.45rem;
-    }
-
-    .section-sub {
-      color: rgba(0,0,0,0.52);
-      font-weight: 700;
-      font-size: 1.05rem;
-      margin-bottom: 2.7rem;
-    }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-    }
-
-    .feature {
-      padding: 0 2.4rem;
-      position: relative;
-    }
-
-    .feature:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 8%;
-      height: 86%;
-      width: 1px;
-      background: var(--line-dark);
-    }
-
-    .icon {
-      width: 88px;
-      height: 88px;
-      border: 1.4px solid var(--orange);
-      border-radius: 50%;
-      margin: 0 auto 1.4rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .icon svg {
-      width: 48px;
-      height: 48px;
-      fill: none;
-      stroke: #111;
-      stroke-width: 1.45;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .feature h3 {
-      font-size: 0.9rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 1.35;
-      margin-bottom: 1rem;
-    }
-
-    .feature p {
-      font-size: 0.88rem;
-      line-height: 1.65;
-      color: #111;
-    }
-
-    .feature .divider {
-      width: 32px;
-      height: 1.5px;
-      background: var(--orange);
-      margin: 1.25rem auto;
-    }
-
-    .feature .es {
-      color: rgba(0,0,0,0.46);
-      font-size: 0.82rem;
-    }
-
-    .reserve {
-      min-height: 460px;
-      background: var(--black);
-      padding: 5.2rem 5.5%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border-bottom: 1px solid var(--line-light);
-    }
-
-    .reserve-inner {
-      max-width: 760px;
-    }
-
-    .reserve-title {
-      font-size: clamp(3.5rem, 6vw, 6.8rem);
-      line-height: 0.9;
-      margin-bottom: 1.25rem;
-    }
-
-    .reserve-copy {
-      color: rgba(255,255,255,0.84);
-      font-size: 1.08rem;
-      line-height: 1.65;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .reserve-es {
-      color: rgba(255,255,255,0.58);
-      font-size: 0.98rem;
-      line-height: 1.65;
-      max-width: 600px;
-      margin: 0.9rem auto 0;
-    }
-
-    .reserve-btn {
-      display: inline-block;
-      margin-top: 2.1rem;
-      min-width: 320px;
-      background: var(--orange);
-      color: var(--white);
-      padding: 1.15rem 2rem;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1.3px;
-      font-weight: 900;
-      transition: var(--ease);
-    }
-
-    .reserve-btn span {
-      display: block;
-      text-transform: none;
-      font-size: 0.85rem;
-      letter-spacing: 0;
-      font-weight: 400;
-      margin-top: 0.25rem;
-    }
-
-    .reserve-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 24px 55px rgba(255,102,0,0.32);
-    }
-
-    .footer {
-      background: #050505;
-      padding: 1.5rem 5.5%;
-      display: grid;
-      grid-template-columns: 220px 1fr 160px;
-      gap: 2rem;
-      align-items: center;
-      border-top: 1px solid var(--line-light);
-    }
-
-    .footer-logo {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 1.7rem;
-      line-height: 0.88;
-      letter-spacing: 1.5px;
-    }
-
-    .footer-logo span {
-      display: block;
-      color: var(--orange);
-    }
-
-    .footer-center {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      color: rgba(255,255,255,0.74);
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      text-align: center;
-    }
-
-    .footer-center .bar {
-      width: 1px;
-      height: 32px;
-      background: var(--orange);
-    }
-
-    .footer-center span span {
-      color: var(--orange);
-    }
-
-    .footer-icons {
-      justify-self: end;
-      display: flex;
-      gap: 1.4rem;
-      align-items: center;
-    }
-
-    .footer-icons a {
-      opacity: 0.86;
-      transition: var(--ease);
-    }
-
-    .footer-icons a:hover {
-      opacity: 1;
-      color: var(--orange);
-    }
-
-    .footer-icons svg {
-      width: 26px;
-      height: 26px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 1.8;
-    }
-
-    @media (max-width: 980px) {
-      .header {
-        grid-template-columns: 1fr;
-        gap: 1.2rem;
-        text-align: center;
-        position: absolute;
-      }
-
-      .logo {
-        justify-self: center;
-      }
-
-      .header-btn {
-        display: none;
-      }
-
-      .nav {
-        gap: 1.6rem;
-      }
-
-      .hero {
-        padding-top: 12rem;
-        min-height: 850px;
-      }
-
-      .experience-section {
-        grid-template-columns: 1fr;
-      }
-
-      .arena-panel::after {
-        display: none;
-      }
-
-      .features {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .feature {
-        padding: 0;
-      }
-
-      .feature:not(:last-child)::after {
-        display: none;
-      }
-
-      .footer {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .footer-logo,
-      .footer-icons {
-        justify-self: center;
-      }
-
-      .footer-center {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      .footer-center .bar {
-        width: 60px;
-        height: 1px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .hero h1 {
-        font-size: 4.8rem;
-      }
-
-      .nav a {
-        font-size: 0.72rem;
-      }
-
-      .arena-title,
-      .reserve-title {
-        font-size: 4rem;
-      }
-
-      .section-title {
-        font-size: 3.2rem;
-      }
-
-      .info-kicker {
-        font-size: 1.2rem;
-        letter-spacing: 5px;
-      }
-
-      .reserve-btn {
-        width: 100%;
-        min-width: 0;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kitchen Battle</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: 'Inter', sans-serif;
+  background:#000;
+  color:#fff;
+}
+
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  left:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:rgba(0,0,0,0.9);
+  z-index:1000;
+}
+
+.logo{
+  font-family:'Bebas Neue';
+  font-size:28px;
+}
+
+.logo span{
+  color:#ff6600;
+}
+
+nav a{
+  margin:0 20px;
+  text-decoration:none;
+  color:#fff;
+  font-size:14px;
+  letter-spacing:2px;
+}
+
+.btn{
+  background:#ff6600;
+  padding:12px 20px;
+  font-size:12px;
+  letter-spacing:1px;
+}
+
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  padding:0 60px;
+
+  background:
+  linear-gradient(90deg,
+    rgba(0,0,0,0.97) 0%,
+    rgba(0,0,0,0.92) 30%,
+    rgba(0,0,0,0.75) 55%,
+    rgba(0,0,0,0.92) 80%,
+    rgba(0,0,0,0.97) 100%
+  ),
+  radial-gradient(circle at center, rgba(255,102,0,0.05), transparent 40%),
+  url("hero-kitchen-battle.jpg") center 60% / cover no-repeat;
+
+}
+
+.hero-content{
+  max-width:500px;
+}
+
+.hero small{
+  color:#ff6600;
+  letter-spacing:4px;
+}
+
+.hero h1{
+  font-family:'Bebas Neue';
+  font-size:110px;
+  line-height:0.9;
+}
+
+.hero h1 span{
+  color:#ff6600;
+}
+
+.hero p{
+  margin-top:20px;
+  line-height:1.6;
+}
+
+.section{
+  display:flex;
+  min-height:500px;
+}
+
+.left{
+  width:40%;
+  background:#000;
+  padding:80px 60px;
+}
+
+.left h2{
+  font-family:'Bebas Neue';
+  font-size:70px;
+  line-height:1;
+}
+
+.left h2 span{
+  color:#ff6600;
+}
+
+.right{
+  width:60%;
+  background:#f5f2ed;
+  color:#000;
+  padding:80px 60px;
+}
+
+.right h3{
+  font-family:'Bebas Neue';
+  font-size:60px;
+}
+
+.features{
+  display:flex;
+  margin-top:40px;
+}
+
+.feature{
+  flex:1;
+  text-align:center;
+  padding:20px;
+}
+
+.cta{
+  background:#000;
+  text-align:center;
+  padding:100px 20px;
+}
+
+.cta h2{
+  font-family:'Bebas Neue';
+  font-size:70px;
+}
+
+.cta button{
+  margin-top:20px;
+  padding:15px 30px;
+  background:#ff6600;
+  border:none;
+  color:#fff;
+  cursor:pointer;
+}
+
+</style>
 </head>
 
 <body>
 
-  <header class="header">
-    <a href="#home" class="logo" aria-label="Kitchen Battle Home">
-      KITCHEN
-      <span>BATTLE</span>
-    </a>
+<header>
+  <div class="logo">KITCHEN <span>BATTLE</span></div>
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#">GALLERY</a>
+    <a href="#">ABOUT US</a>
+  </nav>
+  <div class="btn">RESERVE YOUR SEAT</div>
+</header>
 
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#home" class="active">Home</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#about">About Us</a>
-    </nav>
+<section class="hero">
+  <div class="hero-content">
+    <small>LIVE CULINARY BATTLES</small>
 
-    <a href="#reserve" class="header-btn">Reserve Your Seat</a>
-  </header>
+    <h1>
+      COOK.<br>
+      COMPETE.<br>
+      <span>CONQUER.</span>
+    </h1>
 
-  <main>
+    <p>
+      Two competitors. Same ingredients.<br>
+      You taste. You decide the winner.
+    </p>
+  </div>
+</section>
 
-    <section class="hero" id="home">
-      <div class="hero-content">
-        <p class="eyebrow">Live Culinary Battles</p>
+<section class="section">
+  <div class="left">
+    <h2>
+      TASTE.<br>
+      JUDGE.<br>
+      <span>DECIDE.</span>
+    </h2>
 
-        <h1>
-          Cook.<br>
-          Compete.<br>
-          <span class="orange">Conquer.</span>
-        </h1>
+    <p style="margin-top:20px;">
+      A live culinary arena where the audience becomes part of the final verdict.
+    </p>
+  </div>
 
-        <div class="small-line"></div>
+  <div class="right">
+    <h3>AN EXPERIENCE,<br>NOT JUST DINNER</h3>
 
-        <p class="hero-copy">
-          Two competitors. Same ingredients.<br>
-          You taste. You decide the winner.
-        </p>
-
-        <p class="hero-es">
-          Cocina. Compite. <span>Conquista.</span>
-        </p>
-      </div>
-    </section>
-
-    <section class="experience-section" id="gallery">
-
-      <div class="arena-panel">
-        <div>
-          <p class="eyebrow">The Arena</p>
-
-          <h2 class="arena-title">
-            Taste.<br>
-            Judge.<br>
-            <span class="orange">Decide.</span>
-          </h2>
-
-          <p class="arena-copy">
-            A live culinary arena where the audience is not just watching — they are part of the final verdict.
-          </p>
-
-          <p class="arena-es">
-            Prueba. Juzga. <span>Decide.</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="info-panel" id="about">
-        <div class="info-inner">
-
-          <div class="info-kicker">An Experience,</div>
-          <h2 class="section-title">Not Just Dinner</h2>
-          <p class="section-sub">No es solo cena</p>
-
-          <div class="features">
-
-            <article class="feature">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64">
-                  <circle cx="23" cy="24" r="7"></circle>
-                  <path d="M12 44c0-8 5-13 11-13s11 5 11 13"></path>
-                  <circle cx="43" cy="24" r="7"></circle>
-                  <path d="M34 44c0-8 5-13 11-13s11 5 11 13"></path>
-                  <path d="M29 27l3 4 3-4"></path>
-                </svg>
-              </div>
-
-              <h3>Two Competitors<br>Face Off</h3>
-              <p>Each competitor gets the same mystery ingredients.</p>
-              <div class="divider"></div>
-              <p class="es">Dos competidores se enfrentan con los mismos ingredientes sorpresa.</p>
-            </article>
-
-            <article class="feature">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64">
-                  <path d="M14 42h36"></path>
-                  <path d="M18 38c2-13 12-22 26-22"></path>
-                  <path d="M12 48h40"></path>
-                  <path d="M28 10c0-3 2-4 2-6"></path>
-                  <path d="M36 10c0-3 2-4 2-6"></path>
-                </svg>
-              </div>
-
-              <h3>You Enjoy Both<br>Creations</h3>
-              <p>Sit back and enjoy both dishes made live, right in front of you.</p>
-              <div class="divider"></div>
-              <p class="es">Disfrutas ambas creaciones preparadas en vivo, frente a ti.</p>
-            </article>
-
-            <article class="feature">
-              <div class="icon" aria-hidden="true">
-                <svg viewBox="0 0 64 64">
-                  <path d="M20 22h28v34H20z"></path>
-                  <path d="M26 22v-8h16v8"></path>
-                  <path d="M27 39l6 6 12-14"></path>
-                </svg>
-              </div>
-
-              <h3>You Decide The<br>Winner</h3>
-              <p>Cast your vote and crown the Kitchen Battle champion.</p>
-              <div class="divider"></div>
-              <p class="es">Tú decides al ganador con tu voto.</p>
-            </article>
-
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <section class="reserve" id="reserve">
-      <div class="reserve-inner">
-        <p class="eyebrow">Be First In The Arena</p>
-
-        <h2 class="reserve-title">
-          Reserve Your <span class="orange">Seat.</span>
-        </h2>
-
-        <p class="reserve-copy">
-          Be part of the audience that tastes, votes, and decides the winner.
-        </p>
-
-        <p class="reserve-es">
-          Únete a la experiencia Kitchen Battle y sé parte del público que prueba, vota y decide al ganador.
-        </p>
-
-        <a href="mailto:hello@thekitchenbattle.com" class="reserve-btn">
-          Reserve Your Seat
-          <span>Reserva tu lugar</span>
-        </a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="footer">
-    <div class="footer-logo">
-      KITCHEN
-      <span>BATTLE</span>
+    <div class="features">
+      <div class="feature">FACE OFF</div>
+      <div class="feature">ENJOY</div>
+      <div class="feature">DECIDE</div>
     </div>
+  </div>
+</section>
 
-    <div class="footer-center">
-      <span>Medellín, Colombia</span>
-      <div class="bar"></div>
-      <span>Cook. Compete. <span>Conquer.</span></span>
-    </div>
-
-    <div class="footer-icons">
-      <a href="https://instagram.com" aria-label="Instagram">
-        <svg viewBox="0 0 24 24">
-          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
-          <circle cx="12" cy="12" r="4"></circle>
-          <circle cx="17.5" cy="6.5" r="1"></circle>
-        </svg>
-      </a>
-
-      <a href="mailto:hello@thekitchenbattle.com" aria-label="Email">
-        <svg viewBox="0 0 24 24">
-          <path d="M4 6h16v12H4z"></path>
-          <path d="M4 7l8 6 8-6"></path>
-        </svg>
-      </a>
-    </div>
-  </footer>
+<section class="cta">
+  <h2>RESERVE YOUR SEAT</h2>
+  <button>BOOK NOW</button>
+</section>
 
 </body>
 </html>
