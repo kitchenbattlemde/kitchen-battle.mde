@@ -11,43 +11,59 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#000;color:#fff;}
 
-/* HEADER */
 header{
   position:fixed;top:0;left:0;width:100%;
   display:flex;justify-content:space-between;align-items:center;
   padding:20px 60px;background:rgba(0,0,0,0.9);z-index:1000;
 }
+
 .logo{font-family:'Bebas Neue';font-size:28px;}
 .logo span{color:#ff6600;}
+
 nav a{margin:0 20px;color:#fff;text-decoration:none;font-size:14px;letter-spacing:2px;}
+
 .btn{background:#ff6600;padding:12px 20px;font-size:12px;letter-spacing:1px;}
 
-/* HERO */
+/* HERO (ONLY THIS PART WAS FIXED) */
 .hero{
   height:100vh;
-  display:flex;align-items:center;
+  display:flex;
+  align-items:center;
   padding:0 60px;
   position:relative;
   overflow:hidden;
 
-  /* KEY CHANGE: image is smaller + pushed back-right */
   background:
-    linear-gradient(90deg,
-      rgba(0,0,0,0.98) 0%,
-      rgba(0,0,0,0.95) 35%,
-      rgba(0,0,0,0.85) 60%,
-      rgba(0,0,0,0.95) 100%
-    ),
-    url("hero-kitchen-battle.jpg") right 10% bottom 0% / 70% no-repeat,
-    #000;
+  linear-gradient(90deg,
+    rgba(0,0,0,0.97) 0%,
+    rgba(0,0,0,0.93) 25%,
+    rgba(0,0,0,0.80) 50%,
+    rgba(0,0,0,0.93) 75%,
+    rgba(0,0,0,0.97) 100%
+  ),
+  radial-gradient(circle at 55% 55%, rgba(255,102,0,0.05), transparent 30%),
+  url("hero-kitchen-battle.jpg") center 60% / cover no-repeat;
+}
+
+/* push image BACK visually */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  backdrop-filter: blur(3px) brightness(0.7);
+  pointer-events:none;
 }
 
 .hero-content{
-  position:relative;z-index:2;
+  position:relative;
+  z-index:2;
   max-width:520px;
 }
 
-.hero small{color:#ff6600;letter-spacing:4px;}
+.hero small{
+  color:#ff6600;
+  letter-spacing:4px;
+}
 
 .hero h1{
   font-family:'Bebas Neue';
@@ -55,53 +71,79 @@ nav a{margin:0 20px;color:#fff;text-decoration:none;font-size:14px;letter-spacin
   line-height:0.9;
 }
 
-.hero h1 span{color:#ff6600;}
+.hero h1 span{
+  color:#ff6600;
+}
 
 .hero p{
   margin-top:20px;
   line-height:1.6;
 }
 
-/* SECTION */
-.section{display:flex;min-height:500px;}
-.left{
-  width:40%;background:#000;padding:80px 60px;
+/* MIDDLE SECTION (UNCHANGED) */
+.section{
+  display:flex;
+  min-height:500px;
 }
+
+.left{
+  width:40%;
+  background:#000;
+  padding:80px 60px;
+}
+
 .left h2{
   font-family:'Bebas Neue';
-  font-size:70px;line-height:1;
+  font-size:70px;
+  line-height:1;
 }
-.left h2 span{color:#ff6600;}
+
+.left h2 span{
+  color:#ff6600;
+}
 
 .right{
   width:60%;
-  background:#f5f2ed;color:#000;padding:80px 60px;
+  background:#f5f2ed;
+  color:#000;
+  padding:80px 60px;
 }
+
 .right h3{
   font-family:'Bebas Neue';
   font-size:60px;
 }
 
 .features{
-  display:flex;margin-top:40px;
-}
-.feature{
-  flex:1;text-align:center;padding:20px;
+  display:flex;
+  margin-top:40px;
 }
 
-/* CTA */
-.cta{
-  background:#000;text-align:center;padding:120px 20px;
+.feature{
+  flex:1;
+  text-align:center;
+  padding:20px;
 }
+
+/* CTA (UNCHANGED) */
+.cta{
+  background:#000;
+  text-align:center;
+  padding:120px 20px;
+}
+
 .cta h2{
   font-family:'Bebas Neue';
   font-size:70px;
 }
+
 .cta button{
   margin-top:25px;
   padding:16px 34px;
   background:#ff6600;
-  border:none;color:#fff;cursor:pointer;
+  border:none;
+  color:#fff;
+  cursor:pointer;
 }
 </style>
 </head>
