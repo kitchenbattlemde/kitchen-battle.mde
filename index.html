@@ -5,23 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Kitchen Battle | Cook. Compete. Conquer.</title>
+<meta name="description" content="Kitchen Battle is a premium live culinary competition experience where two competitors cook, guests taste both creations, and the audience crowns the winner.">
 
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --black:#000;
-  --white:#fff;
+  --black:#000000;
+  --white:#ffffff;
   --orange:#ff6600;
-  --dark:#111;
+  --dark:#111111;
+  --charcoal:#1a1a1a;
   --beige:#e9e4dc;
+  --beige-soft:#f0ebe4;
   --gold:#c98200;
+  --soft-white:rgba(255,255,255,.72);
+  --muted-white:rgba(255,255,255,.48);
+  --line-white:rgba(255,255,255,.12);
+  --line-dark:rgba(0,0,0,.32);
+  --ease:.35s ease;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#000;color:#fff;font-family:"Montserrat",sans-serif;overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
-html{scroll-behavior:smooth;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:"Montserrat",sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .9s ease, transform .9s ease;
+}
+
+.reveal.active{
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* HEADER */
 .header{
@@ -32,116 +70,237 @@ html{scroll-behavior:smooth;}
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:rgba(0,0,0,0.85);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  z-index:100;
+  background:rgba(0,0,0,.88);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  z-index:1000;
 }
 
 .logo{
-  font-family:"Bebas Neue";
-  font-size:28px;
+  font-family:"Bebas Neue",sans-serif;
+  font-size:30px;
+  letter-spacing:1px;
+  line-height:1;
 }
-.logo span{color:var(--orange);}
+
+.logo span{
+  color:var(--orange);
+}
 
 .nav{
   display:flex;
-  gap:30px;
+  gap:34px;
+  align-items:center;
 }
+
 .nav a{
   font-size:12px;
-  letter-spacing:2px;
+  letter-spacing:2.2px;
   text-transform:uppercase;
-  color:#aaa;
+  color:rgba(255,255,255,.72);
+  font-weight:800;
+  position:relative;
+  transition:var(--ease);
 }
-.nav a:hover{color:var(--orange);}
+
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-9px;
+  width:0;
+  height:2px;
+  background:var(--orange);
+  transition:var(--ease);
+}
+
+.nav a:hover{
+  color:var(--orange);
+}
+
+.nav a:hover::after{
+  width:100%;
+}
 
 .cta{
   background:var(--orange);
-  padding:12px 22px;
+  padding:13px 24px;
   font-size:12px;
-  border-radius:6px;
-  font-weight:600;
+  border-radius:8px;
+  font-weight:900;
+  letter-spacing:1.4px;
+  transition:var(--ease);
+  box-shadow:0 14px 34px rgba(255,102,0,.22);
+}
+
+.cta:hover{
+  transform:translateY(-3px);
+  box-shadow:0 22px 48px rgba(255,102,0,.34);
 }
 
 /* SECTION 1 HERO */
 .hero{
-  height:100vh;
+  min-height:100vh;
   display:flex;
   align-items:center;
-  padding:0 6%;
+  padding:120px 6% 80px;
   background:
-    radial-gradient(circle at 80% 30%, rgba(255,102,0,0.15), transparent 30%),
-    #000;
+    radial-gradient(circle at 82% 28%, rgba(255,102,0,.18), transparent 30%),
+    radial-gradient(circle at 16% 80%, rgba(255,255,255,.045), transparent 28%),
+    linear-gradient(90deg,#000 0%,#030303 52%,#151515 100%);
+  border-bottom:1px solid var(--line-white);
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  right:-160px;
+  top:160px;
+  width:460px;
+  height:460px;
+  border:1px solid rgba(255,102,0,.12);
+  border-radius:50%;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+}
+
+.eyebrow{
+  color:var(--orange);
+  font-size:12px;
+  letter-spacing:6px;
+  font-weight:900;
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+
+.hero h1,
+.left h2,
+.cta-section h2{
+  font-family:"Bebas Neue",sans-serif;
+  text-transform:uppercase;
 }
 
 .hero h1{
-  font-family:"Bebas Neue";
-  font-size:120px;
-  line-height:.85;
+  font-size:clamp(5rem,13vw,12rem);
+  line-height:.82;
+  letter-spacing:1px;
 }
-.hero span{color:var(--orange);}
+
+.hero span,
+.left span,
+.cta-section span{
+  color:var(--orange);
+}
 
 .sub{
-  margin-top:20px;
-  opacity:.7;
+  margin-top:24px;
+  color:var(--soft-white);
+  font-size:clamp(18px,2vw,24px);
+  font-weight:300;
+}
+
+.hero-points{
+  display:flex;
+  gap:24px;
+  flex-wrap:wrap;
+  margin-top:46px;
+}
+
+.point{
+  border-left:2px solid var(--orange);
+  padding-left:16px;
+  min-width:160px;
+}
+
+.point strong{
+  display:block;
+  font-family:"Bebas Neue",sans-serif;
+  font-size:34px;
+  line-height:1;
+}
+
+.point small{
+  color:var(--muted-white);
+  font-size:12px;
 }
 
 /* SECTION 2 SPLIT */
 .split{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:.9fr 1.1fr;
   min-height:100vh;
 }
 
-/* LEFT */
 .left{
   display:flex;
   align-items:center;
-  padding:100px 8%;
+  padding:120px 8%;
+  background:
+    radial-gradient(circle at 22% 35%, rgba(255,102,0,.1), transparent 32%),
+    #000;
+  border-right:1px solid var(--line-white);
 }
 
 .left h2{
-  font-family:"Bebas Neue";
-  font-size:110px;
-  line-height:.85;
+  font-size:clamp(5rem,10vw,10rem);
+  line-height:.82;
+  letter-spacing:1px;
 }
-.left span{color:var(--orange);}
+
+.left-copy{
+  margin-top:26px;
+  max-width:420px;
+  color:var(--soft-white);
+  font-weight:300;
+  line-height:1.8;
+}
 
 /* RIGHT */
 .right{
-  background:var(--beige);
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255,255,255,.75), transparent 34%),
+    linear-gradient(135deg,var(--beige-soft),var(--beige));
   color:#111;
   display:flex;
   align-items:center;
-  padding:80px;
+  padding:120px 7%;
 }
 
 .right h3{
-  font-size:38px;
-  font-weight:800;
+  font-size:clamp(40px,4vw,66px);
+  font-weight:900;
+  line-height:1.02;
+  text-transform:uppercase;
+  letter-spacing:-2px;
 }
+
 .right h3 span{
   display:block;
   color:var(--gold);
-  font-size:26px;
+  font-size:clamp(26px,2.4vw,38px);
+  letter-spacing:-.5px;
 }
 
 .line{
-  width:70px;
+  width:86px;
   height:3px;
   background:var(--gold);
-  margin:20px 0 30px;
+  margin:26px 0 56px;
 }
 
 .grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
+  gap:0;
 }
 
 .item{
   text-align:center;
-  padding:0 20px;
+  padding:0 28px;
   position:relative;
 }
 
@@ -149,70 +308,199 @@ html{scroll-behavior:smooth;}
   content:"";
   position:absolute;
   right:0;
-  top:20%;
-  height:60%;
+  top:12%;
+  height:76%;
   width:1px;
-  background:#aaa;
+  background:var(--line-dark);
 }
 
 .icon{
-  width:60px;
-  height:60px;
-  margin:0 auto 15px;
+  width:92px;
+  height:92px;
+  margin:0 auto 26px;
+  border:1.3px solid var(--gold);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:var(--ease);
 }
+
 .icon svg{
-  width:100%;
-  height:100%;
+  width:50px;
+  height:50px;
   stroke:var(--gold);
   fill:none;
-  stroke-width:2;
+  stroke-width:1.45;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.item:hover .icon{
+  transform:translateY(-6px);
+  box-shadow:0 18px 35px rgba(201,130,0,.15);
 }
 
 .item h4{
   font-size:14px;
-  margin-bottom:10px;
+  margin-bottom:14px;
+  font-weight:900;
+  text-transform:uppercase;
+  line-height:1.25;
 }
+
 .item p{
-  font-size:13px;
+  font-size:14px;
+  line-height:1.75;
+  font-weight:400;
 }
 
 /* SECTION 3 CTA */
 .cta-section{
-  padding:120px 6%;
+  min-height:78vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:130px 6%;
   text-align:center;
-  background:#111;
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255,102,0,.14), transparent 30%),
+    linear-gradient(180deg,#111 0%,#000 100%);
 }
 
 .cta-section h2{
-  font-family:"Bebas Neue";
-  font-size:90px;
+  font-size:clamp(4.5rem,10vw,9rem);
+  line-height:.86;
+  letter-spacing:1px;
 }
-.cta-section span{color:var(--orange);}
+
+.cta-section p{
+  margin:28px auto 0;
+  max-width:680px;
+  color:var(--soft-white);
+  font-size:18px;
+  line-height:1.8;
+  font-weight:300;
+}
+
+.scarcity{
+  margin-top:20px;
+  color:var(--orange);
+  font-size:13px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-weight:900;
+}
 
 .cta-btn{
   display:inline-block;
-  margin-top:30px;
+  margin-top:38px;
   background:var(--orange);
-  padding:18px 40px;
+  padding:18px 44px;
   font-size:14px;
   letter-spacing:2px;
-  font-weight:700;
+  font-weight:900;
+  transition:var(--ease);
+  box-shadow:0 16px 40px rgba(255,102,0,.24);
+}
+
+.cta-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 24px 55px rgba(255,102,0,.35);
 }
 
 /* FOOTER */
 footer{
-  padding:40px;
-  text-align:center;
+  padding:42px 6%;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  flex-wrap:wrap;
+  border-top:1px solid var(--line-white);
+  color:rgba(255,255,255,.45);
   font-size:12px;
-  opacity:.5;
+}
+
+footer a{
+  color:rgba(255,255,255,.55);
+  transition:var(--ease);
+}
+
+footer a:hover{
+  color:var(--orange);
 }
 
 /* MOBILE */
-@media(max-width:900px){
-  .split{grid-template-columns:1fr;}
-  .hero h1,.left h2{font-size:70px;}
-  .grid{grid-template-columns:1fr;}
-  .item::after{display:none;}
+@media(max-width:950px){
+  .header{
+    flex-direction:column;
+    gap:18px;
+    position:absolute;
+  }
+
+  .nav{
+    gap:18px;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .cta{
+    display:none;
+  }
+
+  .split{
+    grid-template-columns:1fr;
+  }
+
+  .left{
+    min-height:70vh;
+    border-right:none;
+    border-bottom:1px solid var(--line-white);
+  }
+
+  .right{
+    padding:90px 7%;
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+    gap:48px;
+  }
+
+  .item{
+    padding:0;
+  }
+
+  .item::after{
+    display:none;
+  }
+}
+
+@media(max-width:520px){
+  .hero{
+    padding:150px 7% 80px;
+  }
+
+  .hero h1,
+  .left h2{
+    font-size:64px;
+  }
+
+  .right h3{
+    font-size:34px;
+  }
+
+  .right h3 span{
+    font-size:22px;
+  }
+
+  .cta-section h2{
+    font-size:64px;
+  }
+
+  .hero-points{
+    flex-direction:column;
+  }
 }
 </style>
 </head>
@@ -223,38 +511,66 @@ footer{
   <div class="logo">KITCHEN <span>BATTLE</span></div>
 
   <nav class="nav">
-    <a href="#">HOME</a>
-    <a href="#">EXPERIENCE</a>
-    <a href="#">BOOK</a>
+    <a href="#home">HOME</a>
+    <a href="#experience">EXPERIENCE</a>
+    <a href="#book">BOOK</a>
   </nav>
 
-  <div class="cta">BOOK YOUR SEAT</div>
+  <a href="#book" class="cta">RESERVE YOUR SEAT</a>
 </header>
 
 <!-- SECTION 1 -->
-<section class="hero">
-  <div>
+<section class="hero" id="home">
+  <div class="hero-content reveal">
+    <p class="eyebrow">Live Culinary Competition</p>
+
     <h1>
       Cook.<br>
       Compete.<br>
       <span>Conquer.</span>
     </h1>
+
     <p class="sub">Cocina. Compite. Conquista.</p>
+
+    <div class="hero-points">
+      <div class="point">
+        <strong>02</strong>
+        <small>Competitors</small>
+      </div>
+
+      <div class="point">
+        <strong>LIVE</strong>
+        <small>Cooking Battle</small>
+      </div>
+
+      <div class="point">
+        <strong>YOU</strong>
+        <small>Decide the Winner</small>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- SECTION 2 -->
-<section class="split">
+<section class="split" id="experience">
 
-  <div class="left">
-    <h2>
-      Cook.<br>
-      Compete.<br>
-      <span>Conquer.</span>
-    </h2>
+  <div class="left reveal">
+    <div>
+      <p class="eyebrow">The Arena</p>
+
+      <h2>
+        Taste.<br>
+        Judge.<br>
+        <span>Decide.</span>
+      </h2>
+
+      <p class="left-copy">
+        A live culinary arena where the audience is not just watching — they are part of the final verdict.
+      </p>
+    </div>
   </div>
 
-  <div class="right">
+  <div class="right reveal">
     <div>
       <h3>
         <span>An Experience,</span>
@@ -265,28 +581,47 @@ footer{
 
       <div class="grid">
 
-        <div class="item">
+        <div class="item reveal">
           <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M8 2v10a4 4 0 0 0 8 0V2"/></svg>
+            <svg viewBox="0 0 64 64">
+              <circle cx="24" cy="24" r="7"></circle>
+              <path d="M12 44c0-8 5-13 12-13s12 5 12 13"></path>
+              <circle cx="44" cy="24" r="7"></circle>
+              <path d="M36 44c0-8 5-13 12-13s12 5 12 13"></path>
+              <path d="M30 27l4 5 4-5"></path>
+            </svg>
           </div>
-          <h4>WELCOME DRINK</h4>
-          <p>Start the night with a signature drink.</p>
+          <h4>Two Competitors Face Off</h4>
+          <p>Each competitor gets the same mystery ingredients.</p>
         </div>
 
-        <div class="item">
+        <div class="item reveal">
           <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M3 12h18"/></svg>
+            <svg viewBox="0 0 64 64">
+              <path d="M14 42h36"></path>
+              <path d="M18 38c2-13 12-22 26-22"></path>
+              <path d="M12 48h40"></path>
+              <path d="M28 10c0-3 2-4 2-6"></path>
+              <path d="M36 10c0-3 2-4 2-6"></path>
+              <path d="M24 54c4 3 12 3 16 0"></path>
+            </svg>
           </div>
-          <h4>LIVE COOKING</h4>
-          <p>Watch chefs compete live.</p>
+          <h4>You Enjoy Both Creations</h4>
+          <p>Sit back and enjoy both dishes made live, right in front of you.</p>
         </div>
 
-        <div class="item">
+        <div class="item reveal">
           <div class="icon">
-            <svg viewBox="0 0 24 24"><path d="M6 12l4 4 8-8"/></svg>
+            <svg viewBox="0 0 64 64">
+              <path d="M18 22h28v34H18z"></path>
+              <path d="M24 22v-8h16v8"></path>
+              <path d="M25 39l6 6 12-14"></path>
+              <path d="M14 28h4"></path>
+              <path d="M46 28h4"></path>
+            </svg>
           </div>
-          <h4>YOU DECIDE</h4>
-          <p>Taste and crown the winner.</p>
+          <h4>You Decide The Winner</h4>
+          <p>Cast your vote and crown the Kitchen Battle champion.</p>
         </div>
 
       </div>
@@ -296,18 +631,46 @@ footer{
 </section>
 
 <!-- SECTION 3 -->
-<section class="cta-section">
-  <h2>
-    Book Your<br>
-    <span>Seat.</span>
-  </h2>
+<section class="cta-section" id="book">
+  <div class="reveal">
+    <p class="eyebrow">Be First In The Arena</p>
 
-  <a href="#" class="cta-btn">JOIN THE EXPERIENCE</a>
+    <h2>
+      Reserve Your<br>
+      <span>Seat.</span>
+    </h2>
+
+    <p>
+      Join the Kitchen Battle experience and be part of the audience that tastes, votes, and decides the winner.
+    </p>
+
+    <div class="scarcity">Limited seats per event</div>
+
+    <a href="mailto:hello@thekitchenbattle.com" class="cta-btn">ENTER THE ARENA</a>
+  </div>
 </section>
 
 <footer>
-  © 2026 Kitchen Battle. All rights reserved.
+  <span>© 2026 Kitchen Battle. All rights reserved.</span>
+  <span><a href="mailto:hello@thekitchenbattle.com">Email</a> · <a href="https://instagram.com">Instagram</a></span>
 </footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+}, { threshold: 0.16 });
+
+reveals.forEach((el, index) => {
+  el.style.transitionDelay = `${Math.min(index * 80, 240)}ms`;
+  observer.observe(el);
+});
+</script>
 
 </body>
 </html>
