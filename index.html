@@ -12,10 +12,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
+
     :root {
       --black: #000000;
       --white: #ffffff;
-      --orange: #ff6600;
+      --orange: #D96A1A;
       --soft-white: rgba(255, 255, 255, 0.78);
       --muted-white: rgba(255, 255, 255, 0.48);
       --beige: #f2eee9;
@@ -57,7 +58,7 @@
       display: grid;
       grid-template-columns: 220px 1fr 220px;
       align-items: center;
-      background: rgba(0, 0, 0, 0.88);
+      background: rgba(0, 0, 0, 0.78);
       backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--line-light);
     }
@@ -126,7 +127,7 @@
 
     .header-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 20px 45px rgba(255,102,0,0.28);
+      box-shadow: 0 20px 45px rgba(217,106,26,0.25);
     }
 
     .hero {
@@ -137,8 +138,14 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.72) 32%, rgba(0,0,0,0.15) 68%, rgba(0,0,0,0.68) 100%),
-        radial-gradient(circle at 56% 55%, rgba(255,102,0,0.18), transparent 26%),
+        linear-gradient(
+          90deg,
+          rgba(0,0,0,0.78) 0%,
+          rgba(0,0,0,0.52) 30%,
+          rgba(0,0,0,0.10) 65%,
+          rgba(0,0,0,0.45) 100%
+        ),
+        radial-gradient(circle at 56% 55%, rgba(217,106,26,0.13), transparent 30%),
         url("hero-kitchen-battle.jpg") center center / cover no-repeat,
         #000;
     }
@@ -213,7 +220,7 @@
 
     .arena-panel {
       background:
-        radial-gradient(circle at 15% 78%, rgba(255,102,0,0.08), transparent 28%),
+        radial-gradient(circle at 15% 78%, rgba(217,106,26,0.08), transparent 28%),
         linear-gradient(180deg, #050505, #000);
       padding: 4.8rem 5.5%;
       display: flex;
@@ -424,7 +431,7 @@
 
     .reserve-btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 24px 55px rgba(255,102,0,0.32);
+      box-shadow: 0 24px 55px rgba(217,106,26,0.28);
     }
 
     .footer {
@@ -591,12 +598,14 @@
         min-width: 0;
       }
     }
+
   </style>
 </head>
 
 <body>
 
   <header class="header">
+
     <a href="#home" class="logo" aria-label="Kitchen Battle Home">
       KITCHEN
       <span>BATTLE</span>
@@ -609,12 +618,15 @@
     </nav>
 
     <a href="#reserve" class="header-btn">Reserve Your Seat</a>
+
   </header>
 
   <main>
 
     <section class="hero" id="home">
+
       <div class="hero-content">
+
         <p class="eyebrow">Live Culinary Battles</p>
 
         <h1>
@@ -633,13 +645,17 @@
         <p class="hero-es">
           Cocina. Compite. <span>Conquista.</span>
         </p>
+
       </div>
+
     </section>
 
     <section class="experience-section" id="gallery">
 
       <div class="arena-panel">
+
         <div>
+
           <p class="eyebrow">The Arena</p>
 
           <h2 class="arena-title">
@@ -655,20 +671,27 @@
           <p class="arena-es">
             Prueba. Juzga. <span>Decide.</span>
           </p>
+
         </div>
+
       </div>
 
       <div class="info-panel" id="about">
+
         <div class="info-inner">
 
           <div class="info-kicker">An Experience,</div>
+
           <h2 class="section-title">Not Just Dinner</h2>
+
           <p class="section-sub">No es solo cena</p>
 
           <div class="features">
 
             <article class="feature">
+
               <div class="icon" aria-hidden="true">
+
                 <svg viewBox="0 0 64 64">
                   <circle cx="23" cy="24" r="7"></circle>
                   <path d="M12 44c0-8 5-13 11-13s11 5 11 13"></path>
@@ -676,16 +699,25 @@
                   <path d="M34 44c0-8 5-13 11-13s11 5 11 13"></path>
                   <path d="M29 27l3 4 3-4"></path>
                 </svg>
+
               </div>
 
               <h3>Two Competitors<br>Face Off</h3>
+
               <p>Each competitor gets the same mystery ingredients.</p>
+
               <div class="divider"></div>
-              <p class="es">Dos competidores se enfrentan con los mismos ingredientes sorpresa.</p>
+
+              <p class="es">
+                Dos competidores se enfrentan con los mismos ingredientes sorpresa.
+              </p>
+
             </article>
 
             <article class="feature">
+
               <div class="icon" aria-hidden="true">
+
                 <svg viewBox="0 0 64 64">
                   <path d="M14 42h36"></path>
                   <path d="M18 38c2-13 12-22 26-22"></path>
@@ -693,37 +725,59 @@
                   <path d="M28 10c0-3 2-4 2-6"></path>
                   <path d="M36 10c0-3 2-4 2-6"></path>
                 </svg>
+
               </div>
 
               <h3>You Enjoy Both<br>Creations</h3>
-              <p>Sit back and enjoy both dishes made live, right in front of you.</p>
+
+              <p>
+                Sit back and enjoy both dishes made live, right in front of you.
+              </p>
+
               <div class="divider"></div>
-              <p class="es">Disfrutas ambas creaciones preparadas en vivo, frente a ti.</p>
+
+              <p class="es">
+                Disfrutas ambas creaciones preparadas en vivo, frente a ti.
+              </p>
+
             </article>
 
             <article class="feature">
+
               <div class="icon" aria-hidden="true">
+
                 <svg viewBox="0 0 64 64">
                   <path d="M20 22h28v34H20z"></path>
                   <path d="M26 22v-8h16v8"></path>
                   <path d="M27 39l6 6 12-14"></path>
                 </svg>
+
               </div>
 
               <h3>You Decide The<br>Winner</h3>
+
               <p>Cast your vote and crown the Kitchen Battle champion.</p>
+
               <div class="divider"></div>
-              <p class="es">Tú decides al ganador con tu voto.</p>
+
+              <p class="es">
+                Tú decides al ganador con tu voto.
+              </p>
+
             </article>
 
           </div>
+
         </div>
+
       </div>
 
     </section>
 
     <section class="reserve" id="reserve">
+
       <div class="reserve-inner">
+
         <p class="eyebrow">Be First In The Arena</p>
 
         <h2 class="reserve-title">
@@ -742,12 +796,15 @@
           Reserve Your Seat
           <span>Reserva tu lugar</span>
         </a>
+
       </div>
+
     </section>
 
   </main>
 
   <footer class="footer">
+
     <div class="footer-logo">
       KITCHEN
       <span>BATTLE</span>
@@ -755,26 +812,36 @@
 
     <div class="footer-center">
       <span>Medellín, Colombia</span>
+
       <div class="bar"></div>
-      <span>Cook. Compete. <span>Conquer.</span></span>
+
+      <span>
+        Cook. Compete. <span>Conquer.</span>
+      </span>
     </div>
 
     <div class="footer-icons">
+
       <a href="https://instagram.com" aria-label="Instagram">
+
         <svg viewBox="0 0 24 24">
           <rect x="3" y="3" width="18" height="18" rx="5"></rect>
           <circle cx="12" cy="12" r="4"></circle>
           <circle cx="17.5" cy="6.5" r="1"></circle>
         </svg>
+
       </a>
 
-      <a href="mailto:hello@thekitchenbattle.com" aria-label="Email">
+
         <svg viewBox="0 0 24 24">
           <path d="M4 6h16v12H4z"></path>
           <path d="M4 7l8 6 8-6"></path>
         </svg>
+
       </a>
+
     </div>
+
   </footer>
 
 </body>
