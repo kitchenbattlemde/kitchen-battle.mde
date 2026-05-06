@@ -1,1029 +1,781 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-US">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Kitchen Battle | Cook. Compete. Conquer.</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
-
-body{
-  background:#0B0B0B;
-  color:#FFFFFF;
-  font-family:'Inter',sans-serif;
-  overflow-x:hidden;
-}
-
-a{
-  text-decoration:none;
-  color:inherit;
-}
-
-img{
-  max-width:100%;
-  display:block;
-}
-
-/* HEADER */
-
-header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  z-index:1000;
-  padding:22px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  background:rgba(11,11,11,0.82);
-  backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(255,255,255,0.07);
-}
-
-.logo{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:34px;
-  letter-spacing:3px;
-  line-height:1;
-}
-
-.logo span{
-  color:#D96A1A;
-}
-
-nav{
-  display:flex;
-  gap:34px;
-  align-items:center;
-}
-
-nav a{
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:1.4px;
-  color:#D8D8D8;
-  font-weight:700;
-  transition:0.3s;
-}
-
-nav a:hover{
-  color:#D96A1A;
-}
-
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:14px;
-}
-
-.lang-btn,
-.menu-btn{
-  border:1px solid rgba(255,255,255,0.16);
-  background:rgba(255,255,255,0.03);
-  color:#fff;
-  padding:11px 17px;
-  border-radius:100px;
-  cursor:pointer;
-  font-weight:800;
-  font-size:12px;
-  letter-spacing:1px;
-  transition:0.3s;
-}
-
-.lang-btn:hover,
-.menu-btn:hover{
-  background:#D96A1A;
-  border-color:#D96A1A;
-}
-
-.menu-btn{
-  display:none;
-}
-
-/* MOBILE MENU */
-
-.mobile-nav{
-  display:none;
-  position:fixed;
-  top:78px;
-  left:0;
-  width:100%;
-  background:#0B0B0B;
-  border-bottom:1px solid rgba(255,255,255,0.08);
-  z-index:999;
-  padding:25px 7%;
-}
-
-.mobile-nav a{
-  display:block;
-  padding:16px 0;
-  color:#D8D8D8;
-  text-transform:uppercase;
-  font-size:13px;
-  letter-spacing:1.5px;
-  font-weight:800;
-  border-bottom:1px solid rgba(255,255,255,0.06);
-}
-
-.mobile-nav.active{
-  display:block;
-}
-
-/* HERO */
-
-.hero{
-  min-height:100vh;
-  position:relative;
-  display:flex;
-  align-items:center;
-  padding:145px 7% 90px;
-  overflow:hidden;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(90deg, rgba(11,11,11,0.96) 0%, rgba(11,11,11,0.78) 42%, rgba(11,11,11,0.55) 70%, rgba(11,11,11,0.96) 100%),
-    radial-gradient(circle at 75% 45%, rgba(217,106,26,0.22), transparent 38%);
-  z-index:2;
-}
-
-.hero-bg{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  opacity:0.52;
-  filter:contrast(1.05) brightness(0.72) saturate(0.85);
-  z-index:1;
-}
-
-/* CHANGE THIS IMAGE NAME TO YOUR REAL IMAGE FILE */
-.hero-bg{
-  content:url("kitchen-battle-hero.jpg");
-}
-
-.hero-content{
-  position:relative;
-  z-index:3;
-  max-width:780px;
-}
-
-.kicker{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  padding:11px 18px;
-  border:1px solid rgba(217,106,26,0.36);
-  background:rgba(217,106,26,0.08);
-  color:#F2A464;
-  border-radius:100px;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:26px;
-}
-
-.kicker::before{
-  content:"";
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#D96A1A;
-  box-shadow:0 0 22px rgba(217,106,26,0.9);
-}
-
-.hero h1{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(78px,10vw,148px);
-  line-height:0.84;
-  letter-spacing:4px;
-  margin-bottom:28px;
-}
-
-.hero h1 span{
-  color:#D96A1A;
-}
-
-.hero p{
-  max-width:650px;
-  font-size:18px;
-  line-height:1.85;
-  color:#C9C9C9;
-  margin-bottom:38px;
-}
-
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:16px;
-  align-items:center;
-}
-
-.primary-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:56px;
-  padding:0 34px;
-  border-radius:100px;
-  background:#D96A1A;
-  color:#fff;
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  transition:0.3s;
-  box-shadow:0 18px 45px rgba(217,106,26,0.24);
-}
-
-.primary-btn:hover{
-  background:#F07A22;
-  transform:translateY(-3px);
-}
-
-.secondary-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:56px;
-  padding:0 34px;
-  border-radius:100px;
-  border:1px solid rgba(255,255,255,0.18);
-  color:#fff;
-  font-size:13px;
-  font-weight:900;
-  letter-spacing:1.4px;
-  text-transform:uppercase;
-  transition:0.3s;
-}
-
-.secondary-btn:hover{
-  background:rgba(255,255,255,0.07);
-  transform:translateY(-3px);
-}
-
-.hero-stats{
-  margin-top:54px;
-  display:grid;
-  grid-template-columns:repeat(3, minmax(120px,1fr));
-  max-width:680px;
-  border-top:1px solid rgba(255,255,255,0.1);
-  border-bottom:1px solid rgba(255,255,255,0.1);
-}
-
-.stat{
-  padding:22px 20px;
-  border-right:1px solid rgba(255,255,255,0.08);
-}
-
-.stat:last-child{
-  border-right:none;
-}
-
-.stat strong{
-  display:block;
-  font-family:'Bebas Neue',sans-serif;
-  font-size:36px;
-  letter-spacing:2px;
-  color:#fff;
-}
-
-.stat span{
-  display:block;
-  color:#9D9D9D;
-  font-size:12px;
-  text-transform:uppercase;
-  letter-spacing:1.2px;
-  font-weight:800;
-}
-
-/* GENERAL */
-
-section{
-  padding:110px 7%;
-}
-
-.section-head{
-  max-width:830px;
-  margin:0 auto 62px;
-  text-align:center;
-}
-
-.eyebrow{
-  color:#D96A1A;
-  font-size:12px;
-  font-weight:900;
-  letter-spacing:2.2px;
-  text-transform:uppercase;
-  margin-bottom:16px;
-}
-
-.section-head h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(52px,6vw,86px);
-  line-height:0.9;
-  letter-spacing:3px;
-  margin-bottom:18px;
-}
-
-.section-head p{
-  color:#AFAFAF;
-  font-size:17px;
-  line-height:1.8;
-}
-
-/* CONCEPT */
-
-.concept{
-  background:#0B0B0B;
-}
-
-.concept-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-}
-
-.concept-card{
-  position:relative;
-  background:linear-gradient(180deg,#151515,#101010);
-  border:1px solid rgba(255,255,255,0.07);
-  border-radius:30px;
-  padding:38px 32px;
-  min-height:315px;
-  overflow:hidden;
-  transition:0.35s;
-}
-
-.concept-card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(217,106,26,0.35);
-}
-
-.concept-number{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:76px;
-  line-height:1;
-  color:rgba(217,106,26,0.18);
-  margin-bottom:22px;
-}
-
-.concept-card h3{
-  font-size:22px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:16px;
-}
-
-.concept-card p{
-  color:#A9A9A9;
-  line-height:1.85;
-  font-size:15px;
-}
-
-/* EXPERIENCE */
-
-.experience{
-  background:#111111;
-}
-
-.experience-wrap{
-  display:grid;
-  grid-template-columns:1.05fr 0.95fr;
-  gap:58px;
-  align-items:center;
-}
-
-.image-frame{
-  position:relative;
-  border-radius:34px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,0.08);
-  min-height:560px;
-  background:#171717;
-}
-
-.image-frame img{
-  width:100%;
-  height:100%;
-  min-height:560px;
-  object-fit:cover;
-  filter:brightness(0.75) contrast(1.08);
-}
-
-/* CHANGE THIS IMAGE NAME TO YOUR SECOND IMAGE FILE */
-.image-frame img{
-  content:url("kitchen-battle-experience.jpg");
-}
-
-.image-frame::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg,transparent,rgba(0,0,0,0.65));
-}
-
-.experience-copy h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(54px,6vw,88px);
-  line-height:0.9;
-  letter-spacing:3px;
-  margin-bottom:24px;
-}
-
-.experience-copy h2 span{
-  color:#D96A1A;
-}
-
-.experience-copy p{
-  color:#B6B6B6;
-  line-height:1.9;
-  font-size:17px;
-  margin-bottom:22px;
-}
-
-.lux-list{
-  margin-top:30px;
-  display:grid;
-  gap:14px;
-}
-
-.lux-item{
-  display:flex;
-  gap:14px;
-  align-items:flex-start;
-  padding:18px 0;
-  border-top:1px solid rgba(255,255,255,0.08);
-}
-
-.lux-mark{
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  border:1px solid rgba(217,106,26,0.55);
-  position:relative;
-  flex:0 0 22px;
-  margin-top:3px;
-}
-
-.lux-mark::after{
-  content:"";
-  position:absolute;
-  top:6px;
-  left:6px;
-  width:8px;
-  height:8px;
-  border-radius:50%;
-  background:#D96A1A;
-}
-
-.lux-item h4{
-  font-size:15px;
-  text-transform:uppercase;
-  letter-spacing:1.1px;
-  margin-bottom:5px;
-}
-
-.lux-item p{
-  margin:0;
-  color:#9F9F9F;
-  font-size:14px;
-  line-height:1.6;
-}
-
-/* HOW IT WORKS */
-
-.how{
-  background:#0B0B0B;
-}
-
-.timeline{
-  max-width:950px;
-  margin:0 auto;
-  display:grid;
-  gap:18px;
-}
-
-.step{
-  display:grid;
-  grid-template-columns:120px 1fr;
-  gap:30px;
-  align-items:start;
-  padding:30px;
-  background:#111111;
-  border:1px solid rgba(255,255,255,0.07);
-  border-radius:28px;
-}
-
-.step span{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:56px;
-  color:#D96A1A;
-  letter-spacing:2px;
-}
-
-.step h3{
-  font-size:21px;
-  text-transform:uppercase;
-  letter-spacing:1px;
-  margin-bottom:10px;
-}
-
-.step p{
-  color:#A9A9A9;
-  line-height:1.75;
-}
-
-/* CTA */
-
-.cta{
-  background:
-    radial-gradient(circle at 50% 20%, rgba(217,106,26,0.18), transparent 34%),
-    #111111;
-  text-align:center;
-}
-
-.cta-box{
-  max-width:980px;
-  margin:auto;
-  padding:84px 40px;
-  border-radius:38px;
-  border:1px solid rgba(255,255,255,0.09);
-  background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.015));
-}
-
-.cta h2{
-  font-family:'Bebas Neue',sans-serif;
-  font-size:clamp(58px,7vw,96px);
-  line-height:0.9;
-  letter-spacing:3px;
-  margin-bottom:22px;
-}
-
-.cta h2 span{
-  color:#D96A1A;
-}
-
-.cta p{
-  max-width:690px;
-  margin:0 auto 34px;
-  color:#BDBDBD;
-  line-height:1.85;
-  font-size:17px;
-}
-
-/* FOOTER */
-
-footer{
-  padding:40px 7%;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:22px;
-  flex-wrap:wrap;
-  background:#0B0B0B;
-  border-top:1px solid rgba(255,255,255,0.07);
-}
-
-footer p{
-  color:#858585;
-  font-size:13px;
-  font-weight:600;
-}
-
-.footer-links{
-  display:flex;
-  gap:22px;
-  flex-wrap:wrap;
-}
-
-.footer-links a{
-  color:#8F8F8F;
-  font-size:13px;
-  text-transform:uppercase;
-  letter-spacing:1.1px;
-  font-weight:800;
-  transition:0.3s;
-}
-
-.footer-links a:hover{
-  color:#D96A1A;
-}
-
-/* RESPONSIVE */
-
-@media(max-width:1000px){
-  nav{
-    display:none;
-  }
-
-  .menu-btn{
-    display:inline-flex;
-  }
-
-  .concept-grid,
-  .experience-wrap{
-    grid-template-columns:1fr;
-  }
-
-  .hero-stats{
-    grid-template-columns:1fr;
-  }
-
-  .stat{
-    border-right:none;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-  }
-
-  .stat:last-child{
-    border-bottom:none;
-  }
-}
-
-@media(max-width:650px){
-  header{
-    padding:20px 5%;
-  }
-
-  .logo{
-    font-size:28px;
-  }
-
-  .hero{
-    padding:135px 5% 70px;
-  }
-
-  section{
-    padding:80px 5%;
-  }
-
-  .hero h1{
-    letter-spacing:2px;
-  }
-
-  .hero p,
-  .section-head p,
-  .experience-copy p,
-  .cta p{
-    font-size:15.5px;
-  }
-
-  .hero-buttons{
-    flex-direction:column;
-    align-items:stretch;
-  }
-
-  .primary-btn,
-  .secondary-btn{
-    width:100%;
-  }
-
-  .step{
-    grid-template-columns:1fr;
-    gap:10px;
-  }
-
-  .image-frame,
-  .image-frame img{
-    min-height:420px;
-  }
-
-  .cta-box{
-    padding:60px 24px;
-  }
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Kitchen Battle | Cook. Compete. Conquer.</title>
+  <meta name="description" content="Kitchen Battle is a premium live culinary competition experience where guests taste, judge, and decide the winner." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --orange: #ff6600;
+      --soft-white: rgba(255, 255, 255, 0.78);
+      --muted-white: rgba(255, 255, 255, 0.48);
+      --beige: #f2eee9;
+      --charcoal: #080808;
+      --line-dark: rgba(0, 0, 0, 0.22);
+      --line-light: rgba(255, 255, 255, 0.12);
+      --ease: 0.35s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 1.35rem 5.5%;
+      display: grid;
+      grid-template-columns: 220px 1fr 220px;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .logo {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2.45rem;
+      line-height: 0.88;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .logo span {
+      color: var(--orange);
+      display: block;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+    }
+
+    .nav a {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 1.4px;
+      color: rgba(255,255,255,0.82);
+      position: relative;
+      transition: var(--ease);
+    }
+
+    .nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.7rem;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: var(--ease);
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      color: var(--white);
+    }
+
+    .nav a.active::after,
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .header-btn {
+      justify-self: end;
+      background: var(--orange);
+      color: var(--white);
+      padding: 1rem 1.45rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 1px;
+      transition: var(--ease);
+    }
+
+    .header-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 45px rgba(255,102,0,0.28);
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 8rem 5.5% 4rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.72) 32%, rgba(0,0,0,0.15) 68%, rgba(0,0,0,0.68) 100%),
+        radial-gradient(circle at 56% 55%, rgba(255,102,0,0.18), transparent 26%),
+        url("hero-kitchen-battle.jpg") center center / cover no-repeat,
+        #000;
+    }
+
+    .hero-content {
+      max-width: 540px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: var(--orange);
+      font-size: 0.82rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1,
+    .arena-title,
+    .section-title,
+    .reserve-title {
+      font-family: "Bebas Neue", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(5rem, 10vw, 10rem);
+      line-height: 0.83;
+      color: var(--white);
+    }
+
+    .orange {
+      color: var(--orange);
+    }
+
+    .small-line {
+      width: 44px;
+      height: 2px;
+      background: var(--orange);
+      margin: 1.6rem 0 1.4rem;
+    }
+
+    .hero-copy {
+      color: var(--white);
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .hero-es {
+      margin-top: 1.55rem;
+      color: rgba(255,255,255,0.72);
+      font-size: 1.12rem;
+      font-weight: 300;
+    }
+
+    .hero-es span {
+      color: var(--orange);
+      font-weight: 500;
+    }
+
+    .experience-section {
+      display: grid;
+      grid-template-columns: 0.95fr 2.05fr;
+      min-height: 560px;
+      border-top: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .arena-panel {
+      background:
+        radial-gradient(circle at 15% 78%, rgba(255,102,0,0.08), transparent 28%),
+        linear-gradient(180deg, #050505, #000);
+      padding: 4.8rem 5.5%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .arena-panel::after {
+      content: "";
+      position: absolute;
+      right: 2rem;
+      top: 9%;
+      width: 2px;
+      height: 82%;
+      background: var(--orange);
+      opacity: 0.9;
+    }
+
+    .arena-title {
+      font-size: clamp(3.4rem, 6vw, 6rem);
+      line-height: 0.92;
+      margin-bottom: 1.6rem;
+    }
+
+    .arena-copy {
+      max-width: 360px;
+      color: rgba(255,255,255,0.84);
+      font-size: 1rem;
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .arena-es {
+      margin-top: 1.8rem;
+      color: rgba(255,255,255,0.62);
+      font-size: 1rem;
+    }
+
+    .arena-es span {
+      color: var(--orange);
+      font-weight: 600;
+    }
+
+    .info-panel {
+      background: var(--beige);
+      color: #111;
+      padding: 4.8rem 5.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-inner {
+      width: 100%;
+      max-width: 920px;
+      text-align: center;
+    }
+
+    .info-kicker {
+      color: var(--orange);
+      font-size: clamp(1.35rem, 2.5vw, 2.3rem);
+      font-weight: 900;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-title {
+      color: #111;
+      font-size: clamp(3.4rem, 5vw, 6.2rem);
+      line-height: 0.95;
+      margin-bottom: 0.45rem;
+    }
+
+    .section-sub {
+      color: rgba(0,0,0,0.52);
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 2.7rem;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .feature {
+      padding: 0 2.4rem;
+      position: relative;
+    }
+
+    .feature:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 8%;
+      height: 86%;
+      width: 1px;
+      background: var(--line-dark);
+    }
+
+    .icon {
+      width: 88px;
+      height: 88px;
+      border: 1.4px solid var(--orange);
+      border-radius: 50%;
+      margin: 0 auto 1.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .icon svg {
+      width: 48px;
+      height: 48px;
+      fill: none;
+      stroke: #111;
+      stroke-width: 1.45;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .feature h3 {
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.35;
+      margin-bottom: 1rem;
+    }
+
+    .feature p {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: #111;
+    }
+
+    .feature .divider {
+      width: 32px;
+      height: 1.5px;
+      background: var(--orange);
+      margin: 1.25rem auto;
+    }
+
+    .feature .es {
+      color: rgba(0,0,0,0.46);
+      font-size: 0.82rem;
+    }
+
+    .reserve {
+      min-height: 460px;
+      background: var(--black);
+      padding: 5.2rem 5.5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-bottom: 1px solid var(--line-light);
+    }
+
+    .reserve-inner {
+      max-width: 760px;
+    }
+
+    .reserve-title {
+      font-size: clamp(3.5rem, 6vw, 6.8rem);
+      line-height: 0.9;
+      margin-bottom: 1.25rem;
+    }
+
+    .reserve-copy {
+      color: rgba(255,255,255,0.84);
+      font-size: 1.08rem;
+      line-height: 1.65;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .reserve-es {
+      color: rgba(255,255,255,0.58);
+      font-size: 0.98rem;
+      line-height: 1.65;
+      max-width: 600px;
+      margin: 0.9rem auto 0;
+    }
+
+    .reserve-btn {
+      display: inline-block;
+      margin-top: 2.1rem;
+      min-width: 320px;
+      background: var(--orange);
+      color: var(--white);
+      padding: 1.15rem 2rem;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1.3px;
+      font-weight: 900;
+      transition: var(--ease);
+    }
+
+    .reserve-btn span {
+      display: block;
+      text-transform: none;
+      font-size: 0.85rem;
+      letter-spacing: 0;
+      font-weight: 400;
+      margin-top: 0.25rem;
+    }
+
+    .reserve-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 24px 55px rgba(255,102,0,0.32);
+    }
+
+    .footer {
+      background: #050505;
+      padding: 1.5rem 5.5%;
+      display: grid;
+      grid-template-columns: 220px 1fr 160px;
+      gap: 2rem;
+      align-items: center;
+      border-top: 1px solid var(--line-light);
+    }
+
+    .footer-logo {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 1.7rem;
+      line-height: 0.88;
+      letter-spacing: 1.5px;
+    }
+
+    .footer-logo span {
+      display: block;
+      color: var(--orange);
+    }
+
+    .footer-center {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      color: rgba(255,255,255,0.74);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .footer-center .bar {
+      width: 1px;
+      height: 32px;
+      background: var(--orange);
+    }
+
+    .footer-center span span {
+      color: var(--orange);
+    }
+
+    .footer-icons {
+      justify-self: end;
+      display: flex;
+      gap: 1.4rem;
+      align-items: center;
+    }
+
+    .footer-icons a {
+      opacity: 0.86;
+      transition: var(--ease);
+    }
+
+    .footer-icons a:hover {
+      opacity: 1;
+      color: var(--orange);
+    }
+
+    .footer-icons svg {
+      width: 26px;
+      height: 26px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    @media (max-width: 980px) {
+      .header {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        text-align: center;
+        position: absolute;
+      }
+
+      .logo {
+        justify-self: center;
+      }
+
+      .header-btn {
+        display: none;
+      }
+
+      .nav {
+        gap: 1.6rem;
+      }
+
+      .hero {
+        padding-top: 12rem;
+        min-height: 850px;
+      }
+
+      .experience-section {
+        grid-template-columns: 1fr;
+      }
+
+      .arena-panel::after {
+        display: none;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .feature {
+        padding: 0;
+      }
+
+      .feature:not(:last-child)::after {
+        display: none;
+      }
+
+      .footer {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .footer-logo,
+      .footer-icons {
+        justify-self: center;
+      }
+
+      .footer-center {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .footer-center .bar {
+        width: 60px;
+        height: 1px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero h1 {
+        font-size: 4.8rem;
+      }
+
+      .nav a {
+        font-size: 0.72rem;
+      }
+
+      .arena-title,
+      .reserve-title {
+        font-size: 4rem;
+      }
+
+      .section-title {
+        font-size: 3.2rem;
+      }
+
+      .info-kicker {
+        font-size: 1.2rem;
+        letter-spacing: 5px;
+      }
+
+      .reserve-btn {
+        width: 100%;
+        min-width: 0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <a href="#home" class="logo">KITCHEN <span>BATTLE</span></a>
-
-  <nav>
-    <a href="#home" data-en="Home" data-es="Inicio">Home</a>
-    <a href="#concept" data-en="Concept" data-es="Concepto">Concept</a>
-    <a href="#experience" data-en="Experience" data-es="Experiencia">Experience</a>
-    <a href="#how" data-en="How It Works" data-es="Cómo Funciona">How It Works</a>
-    <a href="#reserve" data-en="Reserve" data-es="Reservar">Reserve</a>
-  </nav>
-
-  <div class="header-actions">
-    <button class="lang-btn" onclick="toggleLanguage()">ES</button>
-    <button class="menu-btn" onclick="toggleMenu()">MENU</button>
-  </div>
-</header>
-
-<div class="mobile-nav" id="mobileNav">
-  <a href="#home" onclick="toggleMenu()" data-en="Home" data-es="Inicio">Home</a>
-  <a href="#concept" onclick="toggleMenu()" data-en="Concept" data-es="Concepto">Concept</a>
-  <a href="#experience" onclick="toggleMenu()" data-en="Experience" data-es="Experiencia">Experience</a>
-  <a href="#how" onclick="toggleMenu()" data-en="How It Works" data-es="Cómo Funciona">How It Works</a>
-  <a href="#reserve" onclick="toggleMenu()" data-en="Reserve" data-es="Reservar">Reserve</a>
-</div>
-
-<section class="hero" id="home">
-  <img class="hero-bg" src="kitchen-battle-hero.jpg" alt="Kitchen Battle live culinary competition">
-
-  <div class="hero-content">
-    <div class="kicker" data-en="Live Culinary Competition" data-es="Competencia Culinaria En Vivo">
-      Live Culinary Competition
-    </div>
-
-    <h1 
-      data-en="COOK.<br><span>COMPETE.</span><br>CONQUER."
-      data-es="COCINA.<br><span>COMPITE.</span><br>CONQUISTA.">
-      COOK.<br><span>COMPETE.</span><br>CONQUER.
-    </h1>
-
-    <p 
-      data-en="A premium live culinary experience where two competitors enter the kitchen, create under pressure, and battle for the audience’s vote."
-      data-es="Una experiencia culinaria premium en vivo donde dos competidores entran a la cocina, crean bajo presión y compiten por el voto del público.">
-      A premium live culinary experience where two competitors enter the kitchen, create under pressure, and battle for the audience’s vote.
-    </p>
-
-    <div class="hero-buttons">
-      <a href="#reserve" class="primary-btn" data-en="Join The Guest List" data-es="Únete A La Lista">
-        Join The Guest List
-      </a>
-
-      <a href="#concept" class="secondary-btn" data-en="Explore The Concept" data-es="Ver El Concepto">
-        Explore The Concept
-      </a>
-    </div>
-
-    <div class="hero-stats">
-      <div class="stat">
-        <strong data-en="2" data-es="2">2</strong>
-        <span data-en="Competitors" data-es="Competidores">Competitors</span>
-      </div>
-
-      <div class="stat">
-        <strong data-en="1" data-es="1">1</strong>
-        <span data-en="Winner" data-es="Ganador">Winner</span>
-      </div>
-
-      <div class="stat">
-        <strong data-en="Live" data-es="En Vivo">Live</strong>
-        <span data-en="Audience Vote" data-es="Voto Del Público">Audience Vote</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="concept" id="concept">
-  <div class="section-head">
-    <div class="eyebrow" data-en="The Concept" data-es="El Concepto">The Concept</div>
-
-    <h2 
-      data-en="NOT A RESTAURANT.<br>NOT A COOKING CLASS."
-      data-es="NO ES UN RESTAURANTE.<br>NO ES UNA CLASE DE COCINA.">
-      NOT A RESTAURANT.<br>NOT A COOKING CLASS.
-    </h2>
-
-    <p 
-      data-en="Kitchen Battle is an intimate culinary show: part competition, part dining experience, part live performance."
-      data-es="Kitchen Battle es un show culinario íntimo: parte competencia, parte experiencia gastronómica, parte espectáculo en vivo.">
-      Kitchen Battle is an intimate culinary show: part competition, part dining experience, part live performance.
-    </p>
-  </div>
-
-  <div class="concept-grid">
-    <div class="concept-card">
-      <div class="concept-number">01</div>
-      <h3 data-en="The Battle" data-es="La Batalla">The Battle</h3>
-      <p 
-        data-en="Two competitors cook live in front of the room. Every decision, every plate, every second matters."
-        data-es="Dos competidores cocinan en vivo frente al público. Cada decisión, cada plato y cada segundo importan.">
-        Two competitors cook live in front of the room. Every decision, every plate, every second matters.
-      </p>
-    </div>
-
-    <div class="concept-card">
-      <div class="concept-number">02</div>
-      <h3 data-en="The Experience" data-es="La Experiencia">The Experience</h3>
-      <p 
-        data-en="Guests enjoy a curated atmosphere with elevated bites, cocktails, music, storytelling and tension."
-        data-es="Los invitados disfrutan una atmósfera curada con bocados elevados, cocteles, música, narrativa y tensión.">
-        Guests enjoy a curated atmosphere with elevated bites, cocktails, music, storytelling and tension.
-      </p>
-    </div>
-
-    <div class="concept-card">
-      <div class="concept-number">03</div>
-      <h3 data-en="The Vote" data-es="El Voto">The Vote</h3>
-      <p 
-        data-en="The audience decides the winner. One room. Two plates. One crown."
-        data-es="El público decide al ganador. Una sala. Dos platos. Una corona.">
-        The audience decides the winner. One room. Two plates. One crown.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="experience" id="experience">
-  <div class="experience-wrap">
-    <div class="image-frame">
-      <img src="kitchen-battle-experience.jpg" alt="Luxury kitchen competition experience">
-    </div>
-
-    <div class="experience-copy">
-      <div class="eyebrow" data-en="The Energy" data-es="La Energía">The Energy</div>
-
-      <h2 
-        data-en="WHERE FOOD BECOMES <span>PERFORMANCE</span>"
-        data-es="DONDE LA COCINA SE CONVIERTE EN <span>ESPECTÁCULO</span>">
-        WHERE FOOD BECOMES <span>PERFORMANCE</span>
-      </h2>
-
-      <p 
-        data-en="This is designed for people who want more than dinner. It is social, cinematic, competitive and memorable."
-        data-es="Esto está diseñado para personas que quieren más que una cena. Es social, cinematográfico, competitivo y memorable.">
-        This is designed for people who want more than dinner. It is social, cinematic, competitive and memorable.
-      </p>
-
-      <p 
-        data-en="From the first pour to the final vote, every moment is built to feel exclusive, polished and alive."
-        data-es="Desde el primer brindis hasta el voto final, cada momento está diseñado para sentirse exclusivo, pulido y vivo.">
-        From the first pour to the final vote, every moment is built to feel exclusive, polished and alive.
-      </p>
-
-      <div class="lux-list">
-        <div class="lux-item">
-          <div class="lux-mark"></div>
-          <div>
-            <h4 data-en="Intimate Room" data-es="Ambiente Íntimo">Intimate Room</h4>
-            <p 
-              data-en="Limited seating so every guest feels close to the action."
-              data-es="Cupos limitados para que cada invitado se sienta cerca de la acción.">
-              Limited seating so every guest feels close to the action.
-            </p>
-          </div>
-        </div>
-
-        <div class="lux-item">
-          <div class="lux-mark"></div>
-          <div>
-            <h4 data-en="Elevated Hospitality" data-es="Hospitalidad Elevada">Elevated Hospitality</h4>
-            <p 
-              data-en="A polished experience built around food, drinks and atmosphere."
-              data-es="Una experiencia pulida construida alrededor de comida, bebidas y ambiente.">
-              A polished experience built around food, drinks and atmosphere.
-            </p>
-          </div>
-        </div>
-
-        <div class="lux-item">
-          <div class="lux-mark"></div>
-          <div>
-            <h4 data-en="Cinematic Tension" data-es="Tensión Cinematográfica">Cinematic Tension</h4>
-            <p 
-              data-en="The pressure of competition makes the night feel alive."
-              data-es="La presión de la competencia hace que la noche se sienta viva.">
-              The pressure of competition makes the night feel alive.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="how" id="how">
-  <div class="section-head">
-    <div class="eyebrow" data-en="How It Works" data-es="Cómo Funciona">How It Works</div>
-
-    <h2 
-      data-en="THE NIGHT HAS ONE MISSION:<br>FIND THE WINNER."
-      data-es="LA NOCHE TIENE UNA MISIÓN:<br>ENCONTRAR AL GANADOR.">
-      THE NIGHT HAS ONE MISSION:<br>FIND THE WINNER.
-    </h2>
-  </div>
-
-  <div class="timeline">
-    <div class="step">
-      <span>01</span>
-      <div>
-        <h3 data-en="Guests Arrive" data-es="Llegan Los Invitados">Guests Arrive</h3>
-        <p 
-          data-en="The night begins with music, cocktails and a room designed for anticipation."
-          data-es="La noche comienza con música, cocteles y un ambiente diseñado para crear expectativa.">
-          The night begins with music, cocktails and a room designed for anticipation.
-        </p>
-      </div>
-    </div>
-
-    <div class="step">
-      <span>02</span>
-      <div>
-        <h3 data-en="The Battle Begins" data-es="Comienza La Batalla">The Battle Begins</h3>
-        <p 
-          data-en="Two competitors cook live, explain their process and plate under pressure."
-          data-es="Dos competidores cocinan en vivo, explican su proceso y emplatan bajo presión.">
-          Two competitors cook live, explain their process and plate under pressure.
-        </p>
-      </div>
-    </div>
-
-    <div class="step">
-      <span>03</span>
-      <div>
-        <h3 data-en="The Audience Votes" data-es="El Público Vota">The Audience Votes</h3>
-        <p 
-          data-en="Guests taste, judge and choose who conquered the kitchen."
-          data-es="Los invitados prueban, juzgan y eligen quién conquistó la cocina.">
-          Guests taste, judge and choose who conquered the kitchen.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta" id="reserve">
-  <div class="cta-box">
-    <div class="eyebrow" data-en="Coming Soon To Medellín" data-es="Próximamente En Medellín">
-      Coming Soon To Medellín
-    </div>
-
-    <h2 
-      data-en="LIMITED SEATS.<br><span>ONE WINNER.</span>"
-      data-es="CUPOS LIMITADOS.<br><span>UN GANADOR.</span>">
-      LIMITED SEATS.<br><span>ONE WINNER.</span>
-    </h2>
-
-    <p 
-      data-en="Join the guest list and be first to experience Kitchen Battle — a live culinary competition made for unforgettable nights."
-      data-es="Únete a la lista y sé de los primeros en vivir Kitchen Battle — una competencia culinaria en vivo creada para noches inolvidables.">
-      Join the guest list and be first to experience Kitchen Battle — a live culinary competition made for unforgettable nights.
-    </p>
-
-    <a href="mailto:hello@thekitchenbattle.com" class="primary-btn"
-      data-en="Request An Invitation"
-      data-es="Solicitar Invitación">
-      Request An Invitation
+  <header class="header">
+    <a href="#home" class="logo" aria-label="Kitchen Battle Home">
+      KITCHEN
+      <span>BATTLE</span>
     </a>
-  </div>
-</section>
 
-<footer>
-  <p>© 2026 KITCHEN BATTLE. COOK. COMPETE. CONQUER.</p>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#home" class="active">Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About Us</a>
+    </nav>
 
-  <div class="footer-links">
-    <a href="#" data-en="Instagram" data-es="Instagram">Instagram</a>
-    <a href="#" data-en="TikTok" data-es="TikTok">TikTok</a>
-    <a href="mailto:hello@thekitchenbattle.com" data-en="Contact" data-es="Contacto">Contact</a>
-  </div>
-</footer>
+    <a href="#reserve" class="header-btn">Reserve Your Seat</a>
+  </header>
 
-<script>
-let currentLanguage = "en";
+  <main>
 
-function toggleLanguage(){
-  const elements = document.querySelectorAll("[data-en]");
-  const button = document.querySelector(".lang-btn");
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <p class="eyebrow">Live Culinary Battles</p>
 
-  if(currentLanguage === "en"){
-    elements.forEach(el => {
-      el.innerHTML = el.getAttribute("data-es");
-    });
+        <h1>
+          Cook.<br>
+          Compete.<br>
+          <span class="orange">Conquer.</span>
+        </h1>
 
-    currentLanguage = "es";
-    button.innerHTML = "EN";
-    document.documentElement.lang = "es";
-  } else {
-    elements.forEach(el => {
-      el.innerHTML = el.getAttribute("data-en");
-    });
+        <div class="small-line"></div>
 
-    currentLanguage = "en";
-    button.innerHTML = "ES";
-    document.documentElement.lang = "en";
-  }
-}
+        <p class="hero-copy">
+          Two competitors. Same ingredients.<br>
+          You taste. You decide the winner.
+        </p>
 
-function toggleMenu(){
-  const mobileNav = document.getElementById("mobileNav");
-  mobileNav.classList.toggle("active");
-}
-</script>
+        <p class="hero-es">
+          Cocina. Compite. <span>Conquista.</span>
+        </p>
+      </div>
+    </section>
+
+    <section class="experience-section" id="gallery">
+
+      <div class="arena-panel">
+        <div>
+          <p class="eyebrow">The Arena</p>
+
+          <h2 class="arena-title">
+            Taste.<br>
+            Judge.<br>
+            <span class="orange">Decide.</span>
+          </h2>
+
+          <p class="arena-copy">
+            A live culinary arena where the audience is not just watching — they are part of the final verdict.
+          </p>
+
+          <p class="arena-es">
+            Prueba. Juzga. <span>Decide.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="info-panel" id="about">
+        <div class="info-inner">
+
+          <div class="info-kicker">An Experience,</div>
+          <h2 class="section-title">Not Just Dinner</h2>
+          <p class="section-sub">No es solo cena</p>
+
+          <div class="features">
+
+            <article class="feature">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle cx="23" cy="24" r="7"></circle>
+                  <path d="M12 44c0-8 5-13 11-13s11 5 11 13"></path>
+                  <circle cx="43" cy="24" r="7"></circle>
+                  <path d="M34 44c0-8 5-13 11-13s11 5 11 13"></path>
+                  <path d="M29 27l3 4 3-4"></path>
+                </svg>
+              </div>
+
+              <h3>Two Competitors<br>Face Off</h3>
+              <p>Each competitor gets the same mystery ingredients.</p>
+              <div class="divider"></div>
+              <p class="es">Dos competidores se enfrentan con los mismos ingredientes sorpresa.</p>
+            </article>
+
+            <article class="feature">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path d="M14 42h36"></path>
+                  <path d="M18 38c2-13 12-22 26-22"></path>
+                  <path d="M12 48h40"></path>
+                  <path d="M28 10c0-3 2-4 2-6"></path>
+                  <path d="M36 10c0-3 2-4 2-6"></path>
+                </svg>
+              </div>
+
+              <h3>You Enjoy Both<br>Creations</h3>
+              <p>Sit back and enjoy both dishes made live, right in front of you.</p>
+              <div class="divider"></div>
+              <p class="es">Disfrutas ambas creaciones preparadas en vivo, frente a ti.</p>
+            </article>
+
+            <article class="feature">
+              <div class="icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path d="M20 22h28v34H20z"></path>
+                  <path d="M26 22v-8h16v8"></path>
+                  <path d="M27 39l6 6 12-14"></path>
+                </svg>
+              </div>
+
+              <h3>You Decide The<br>Winner</h3>
+              <p>Cast your vote and crown the Kitchen Battle champion.</p>
+              <div class="divider"></div>
+              <p class="es">Tú decides al ganador con tu voto.</p>
+            </article>
+
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="reserve" id="reserve">
+      <div class="reserve-inner">
+        <p class="eyebrow">Be First In The Arena</p>
+
+        <h2 class="reserve-title">
+          Reserve Your <span class="orange">Seat.</span>
+        </h2>
+
+        <p class="reserve-copy">
+          Be part of the audience that tastes, votes, and decides the winner.
+        </p>
+
+        <p class="reserve-es">
+          Únete a la experiencia Kitchen Battle y sé parte del público que prueba, vota y decide al ganador.
+        </p>
+
+        <a href="mailto:hello@thekitchenbattle.com" class="reserve-btn">
+          Reserve Your Seat
+          <span>Reserva tu lugar</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-logo">
+      KITCHEN
+      <span>BATTLE</span>
+    </div>
+
+    <div class="footer-center">
+      <span>Medellín, Colombia</span>
+      <div class="bar"></div>
+      <span>Cook. Compete. <span>Conquer.</span></span>
+    </div>
+
+    <div class="footer-icons">
+      <a href="https://instagram.com" aria-label="Instagram">
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+          <circle cx="12" cy="12" r="4"></circle>
+          <circle cx="17.5" cy="6.5" r="1"></circle>
+        </svg>
+      </a>
+
+      <a href="mailto:hello@thekitchenbattle.com" aria-label="Email">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 6h16v12H4z"></path>
+          <path d="M4 7l8 6 8-6"></path>
+        </svg>
+      </a>
+    </div>
+  </footer>
 
 </body>
 </html>
