@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <title>Kitchen Battle | Cook. Compete. Conquer.</title>
-  <meta name="description" content="Kitchen Battle is a live culinary competition experience where guests taste, judge, and decide the winner." />
+  <meta name="description" content="Kitchen Battle is a premium live culinary competition experience where guests taste, vote, and crown the winner." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -18,10 +18,12 @@
       --orange: #ff6600;
       --dark-gray: #1a1a1a;
       --beige: #e9e4dc;
+      --beige-dark: #111111;
       --beige-orange: #c98200;
       --soft-white: rgba(255,255,255,0.72);
-      --max-width: 1200px;
-      --section-padding: 8rem 6%;
+      --muted-white: rgba(255,255,255,0.48);
+      --line-white: rgba(255,255,255,0.16);
+      --max-width: 1240px;
       --transition: 0.3s ease;
     }
 
@@ -53,23 +55,19 @@
       margin: 0 auto;
     }
 
-    .section {
-      padding: var(--section-padding);
-    }
-
     .eyebrow {
       color: var(--orange);
       text-transform: uppercase;
-      letter-spacing: 4px;
+      letter-spacing: 6px;
       font-size: 0.78rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+      font-weight: 800;
+      margin-bottom: 1.3rem;
     }
 
     .headline {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(4rem, 10vw, 8rem);
-      line-height: 0.86;
+      font-size: clamp(4.5rem, 12vw, 10rem);
+      line-height: 0.82;
       letter-spacing: 1px;
       text-transform: uppercase;
     }
@@ -79,8 +77,8 @@
     }
 
     .sub-es {
-      margin-top: 1.2rem;
-      font-size: clamp(1rem, 2vw, 1.25rem);
+      margin-top: 1.4rem;
+      font-size: clamp(1rem, 1.7vw, 1.35rem);
       font-weight: 300;
       color: var(--soft-white);
     }
@@ -100,78 +98,288 @@
       }
     }
 
+    /* HEADER */
     .header {
       width: 100%;
-      padding: 1.4rem 6%;
-      background: var(--black);
+      padding: 1.15rem 5.5%;
+      background:
+        linear-gradient(90deg, #000000 0%, #111111 52%, #050505 100%);
       border-bottom: 1px solid rgba(255,255,255,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
 
     .header-inner {
       max-width: var(--max-width);
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 220px 1fr 190px;
       align-items: center;
       gap: 2rem;
     }
 
-    .logo {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: 2rem;
-      letter-spacing: 1px;
-      line-height: 1;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
     }
 
-    .logo span {
+    .brand-mark {
+      width: 34px;
+      height: 46px;
+    }
+
+    .brand-mark svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--orange);
+    }
+
+    .brand-text {
+      font-family: "Bebas Neue", sans-serif;
+      line-height: 0.82;
+      letter-spacing: 1px;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--white);
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 2.25rem;
       color: var(--orange);
+      transform: skew(-8deg);
     }
 
     .nav {
       display: flex;
-      gap: 2.2rem;
+      justify-content: center;
       align-items: center;
+      gap: clamp(1.5rem, 3vw, 3rem);
     }
 
     .nav a {
-      font-size: 0.75rem;
-      letter-spacing: 2.5px;
+      font-size: 0.78rem;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.78);
+      font-weight: 700;
+      color: rgba(255,255,255,0.82);
+      position: relative;
       transition: var(--transition);
     }
 
-    .nav a:hover {
+    .nav a:hover,
+    .nav a.active {
       color: var(--orange);
     }
 
+    .nav a.active::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.75rem;
+      width: 100%;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    .book-btn {
+      justify-self: end;
+      background: var(--orange);
+      color: var(--white);
+      padding: 1rem 1.45rem;
+      border-radius: 8px;
+      font-size: 0.78rem;
+      letter-spacing: 1.2px;
+      font-weight: 800;
+      text-transform: uppercase;
+      transition: var(--transition);
+      box-shadow: 0 12px 35px rgba(255,102,0,0.18);
+    }
+
+    .book-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 45px rgba(255,102,0,0.28);
+    }
+
+    /* HERO */
     .hero {
-      min-height: 82vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
       padding: 8rem 6%;
-      position: relative;
       background:
-        radial-gradient(circle at 80% 35%, rgba(255,102,0,0.16), transparent 32%),
-        linear-gradient(90deg, rgba(0,0,0,0.98), rgba(0,0,0,0.92), rgba(0,0,0,0.82)),
+        radial-gradient(circle at 80% 30%, rgba(255,102,0,0.18), transparent 30%),
+        linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.94), rgba(26,26,26,0.55)),
         var(--black);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .hero-content {
-      max-width: 900px;
+      max-width: 960px;
     }
 
     .hero .headline {
-      font-size: clamp(5rem, 13vw, 10rem);
+      font-size: clamp(5rem, 14vw, 12rem);
     }
 
+    /* LUXURY SPLIT OPTION 1 */
+    .concept-experience {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      min-height: 820px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .concept-left {
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,102,0,0.08), transparent 28%),
+        var(--black);
+      padding: 7.5rem 6%;
+      display: flex;
+      align-items: center;
+    }
+
+    .concept-left-inner {
+      max-width: 620px;
+      margin-left: auto;
+      margin-right: 2rem;
+    }
+
+    .concept-left .headline {
+      font-size: clamp(5rem, 10vw, 10rem);
+    }
+
+    .experience-right {
+      background:
+        linear-gradient(135deg, rgba(255,255,255,0.18), transparent 28%),
+        var(--beige);
+      color: var(--beige-dark);
+      padding: 7.5rem 6%;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .experience-right::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55), transparent 34%),
+        radial-gradient(circle at 90% 80%, rgba(0,0,0,0.05), transparent 30%);
+      pointer-events: none;
+    }
+
+    .experience-inner {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 780px;
+    }
+
+    .experience-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+      line-height: 1.05;
+      text-transform: uppercase;
+      letter-spacing: -1.5px;
+      color: #111111;
+      font-weight: 900;
+      margin-bottom: 1rem;
+    }
+
+    .experience-title span {
+      display: block;
+      color: var(--beige-orange);
+      font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+      letter-spacing: -0.5px;
+    }
+
+    .beige-line {
+      width: 78px;
+      height: 3px;
+      background: var(--beige-orange);
+      margin: 1.3rem 0 2rem;
+    }
+
+    .experience-copy {
+      max-width: 420px;
+      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      line-height: 1.65;
+      color: #111111;
+      margin-bottom: 4rem;
+    }
+
+    .experience-copy strong {
+      display: block;
+      margin-top: 1.2rem;
+      font-weight: 900;
+    }
+
+    .beige-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .beige-item {
+      text-align: center;
+      padding: 0 2.1rem;
+      position: relative;
+    }
+
+    .beige-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 0.25rem;
+      height: 100%;
+      width: 1px;
+      background: rgba(0,0,0,0.48);
+    }
+
+    .beige-icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 1.6rem;
+    }
+
+    .beige-icon svg {
+      width: 100%;
+      height: 100%;
+      stroke: var(--beige-orange);
+      stroke-width: 1.85;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .beige-item h3 {
+      font-size: 0.98rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #111111;
+      margin-bottom: 1rem;
+    }
+
+    .beige-item p {
+      font-size: 0.96rem;
+      line-height: 1.65;
+      color: #111111;
+      font-weight: 400;
+    }
+
+    /* HOW IT WORKS */
     .how-it-works {
       background:
-        radial-gradient(circle at center, rgba(255,255,255,0.045), transparent 38%),
-        linear-gradient(rgba(0,0,0,0.92), rgba(0,0,0,0.98)),
+        radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 36%),
+        linear-gradient(rgba(0,0,0,0.94), rgba(0,0,0,1)),
         var(--black);
-      padding: 7rem 6%;
+      padding: 8rem 6%;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -180,13 +388,13 @@
       align-items: center;
       justify-content: center;
       gap: 1.5rem;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4.2rem;
     }
 
     .how-title-wrap::before,
     .how-title-wrap::after {
       content: "";
-      width: 42px;
+      width: 48px;
       height: 1px;
       background: var(--orange);
       display: block;
@@ -194,9 +402,9 @@
 
     .how-title {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(2rem, 4vw, 3.3rem);
       line-height: 1;
-      letter-spacing: 8px;
+      letter-spacing: 9px;
       text-transform: uppercase;
       color: var(--white);
       text-align: center;
@@ -205,13 +413,13 @@
     .steps-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      max-width: 1050px;
+      max-width: 1080px;
       margin: 0 auto;
     }
 
     .step {
       text-align: center;
-      padding: 0 3.2rem;
+      padding: 0 3.4rem;
       position: relative;
     }
 
@@ -219,16 +427,16 @@
       content: "";
       position: absolute;
       right: 0;
-      top: 8px;
-      height: 230px;
+      top: 0.5rem;
+      height: 240px;
       width: 1px;
       background: rgba(255,255,255,0.28);
     }
 
     .step-icon {
-      width: 90px;
-      height: 90px;
-      margin: 0 auto 1.8rem;
+      width: 96px;
+      height: 96px;
+      margin: 0 auto 2rem;
       border: 1.5px solid var(--white);
       border-radius: 50%;
       display: flex;
@@ -237,8 +445,8 @@
     }
 
     .step-icon svg {
-      width: 54px;
-      height: 54px;
+      width: 56px;
+      height: 56px;
       stroke: var(--white);
       stroke-width: 1.7;
       fill: none;
@@ -248,151 +456,33 @@
 
     .step-icon .orange-stroke {
       stroke: var(--orange);
-      stroke-width: 2.2;
+      stroke-width: 2.3;
     }
 
     .step h3 {
       font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(1.7rem, 2.3vw, 2.2rem);
+      font-size: clamp(1.9rem, 2.4vw, 2.45rem);
       line-height: 1;
-      letter-spacing: 2px;
+      letter-spacing: 2.2px;
       text-transform: uppercase;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.5rem;
     }
 
     .mini-line {
-      width: 32px;
+      width: 34px;
       height: 2px;
       background: var(--orange);
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.6rem;
     }
 
     .step p {
-      color: rgba(255,255,255,0.86);
+      color: rgba(255,255,255,0.84);
       font-size: 1rem;
       font-weight: 300;
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
-    .concept-experience {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      min-height: 760px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .concept-left {
-      background: var(--black);
-      padding: 8rem 8%;
-      display: flex;
-      align-items: center;
-    }
-
-    .concept-left .headline {
-      font-size: clamp(4.5rem, 10vw, 9rem);
-    }
-
-    .experience-right {
-      background: var(--beige);
-      color: #111111;
-      padding: 6rem 6%;
-      display: flex;
-      align-items: center;
-    }
-
-    .experience-inner {
-      width: 100%;
-    }
-
-    .experience-title {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 700;
-      font-size: clamp(2rem, 3vw, 3rem);
-      line-height: 1.15;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
-    }
-
-    .experience-title span {
-      display: block;
-      color: var(--beige-orange);
-      font-size: clamp(1.5rem, 2vw, 2rem);
-    }
-
-    .beige-line {
-      width: 70px;
-      height: 3px;
-      background: var(--beige-orange);
-      margin: 1rem 0 1.7rem;
-    }
-
-    .experience-copy {
-      max-width: 380px;
-      font-size: 1.05rem;
-      line-height: 1.65;
-      margin-bottom: 3rem;
-      color: #111111;
-    }
-
-    .experience-copy strong {
-      display: block;
-      margin-top: 1rem;
-      font-weight: 700;
-    }
-
-    .beige-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-    }
-
-    .beige-item {
-      text-align: center;
-      padding: 0 1.7rem;
-      position: relative;
-    }
-
-    .beige-item:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 5px;
-      height: 100%;
-      width: 1px;
-      background: rgba(0,0,0,0.55);
-    }
-
-    .beige-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 1.7rem;
-    }
-
-    .beige-icon svg {
-      width: 100%;
-      height: 100%;
-      stroke: var(--beige-orange);
-      stroke-width: 1.8;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .beige-item h3 {
-      font-size: 0.95rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      color: #111111;
-    }
-
-    .beige-item p {
-      font-size: 0.92rem;
-      line-height: 1.65;
-      color: #111111;
-    }
-
+    /* FOOTER */
     .footer {
       background: var(--black);
       padding: 2rem 6%;
@@ -411,13 +501,31 @@
       padding-top: 2rem;
     }
 
-    @media (max-width: 1000px) {
+    /* RESPONSIVE */
+    @media (max-width: 1050px) {
+      .header-inner {
+        grid-template-columns: 180px 1fr;
+      }
+
+      .book-btn {
+        display: none;
+      }
+
       .concept-experience {
         grid-template-columns: 1fr;
       }
 
       .concept-left {
-        min-height: 560px;
+        min-height: 620px;
+      }
+
+      .concept-left-inner {
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .experience-inner {
+        max-width: 100%;
       }
 
       .beige-grid {
@@ -425,35 +533,41 @@
         gap: 3rem;
       }
 
-      .beige-item::after {
-        display: none;
+      .beige-item {
+        padding: 0;
       }
 
-      .experience-copy {
-        max-width: 100%;
+      .beige-item:not(:last-child)::after {
+        display: none;
       }
     }
 
     @media (max-width: 900px) {
       .header-inner {
+        display: flex;
         flex-wrap: wrap;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: center;
       }
 
       .nav {
         width: 100%;
         justify-content: center;
-        gap: 1.5rem;
-        padding-top: 1rem;
+        gap: 1.3rem;
+        flex-wrap: wrap;
       }
 
       .hero {
-        min-height: 70vh;
+        min-height: 72vh;
         padding: 6rem 6%;
       }
 
       .steps-grid {
         grid-template-columns: 1fr;
-        gap: 4rem;
+        gap: 4.5rem;
       }
 
       .step {
@@ -465,24 +579,51 @@
       }
     }
 
-    @media (max-width: 520px) {
-      .logo {
-        font-size: 1.6rem;
+    @media (max-width: 560px) {
+      .brand-text strong {
+        font-size: 1.65rem;
+      }
+
+      .brand-text span {
+        font-size: 1.85rem;
+      }
+
+      .brand-mark {
+        width: 28px;
+        height: 38px;
       }
 
       .nav a {
-        font-size: 0.65rem;
-        letter-spacing: 1.5px;
+        font-size: 0.66rem;
+        letter-spacing: 1.3px;
       }
 
       .headline,
       .hero .headline,
       .concept-left .headline {
-        font-size: clamp(3.5rem, 18vw, 5.5rem);
+        font-size: clamp(4rem, 19vw, 6rem);
+      }
+
+      .concept-left,
+      .experience-right {
+        padding: 5.5rem 6%;
+      }
+
+      .experience-title {
+        font-size: clamp(2.1rem, 10vw, 3rem);
       }
 
       .how-title {
         letter-spacing: 4px;
+      }
+
+      .how-title-wrap {
+        gap: 1rem;
+      }
+
+      .how-title-wrap::before,
+      .how-title-wrap::after {
+        width: 28px;
       }
     }
   </style>
@@ -492,15 +633,33 @@
 
   <header class="header" aria-label="Main website header">
     <div class="header-inner">
-      <a href="#home" class="logo" aria-label="Kitchen Battle Home">
-        KITCHEN <span>BATTLE</span>
+
+      <a href="#home" class="brand" aria-label="Kitchen Battle Home">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 64 90">
+            <path d="M35 2C28 16 43 19 29 35C23 42 18 49 18 61C18 77 30 88 45 84C57 81 64 69 61 55C58 42 48 36 49 23C40 29 41 39 34 43C37 29 30 22 35 2Z"></path>
+            <path d="M25 57C18 67 25 80 38 80C48 80 55 72 54 62C50 68 44 69 41 64C37 58 42 51 39 44C35 51 29 51 25 57Z" fill="#000000"></path>
+          </svg>
+        </div>
+
+        <div class="brand-text">
+          <strong>Kitchen</strong>
+          <span>Battle</span>
+        </div>
       </a>
 
       <nav class="nav" aria-label="Primary navigation">
-        <a href="#experience">Experience</a>
-        <a href="#concept">Concept</a>
-        <a href="mailto:hello@thekitchenbattle.com">Contact</a>
+        <a href="#home" class="active">Home</a>
+        <a href="#concept">Events</a>
+        <a href="#experience">How It Works</a>
+        <a href="#concept">Gallery</a>
+        <a href="#concept">About Us</a>
       </nav>
+
+      <a href="mailto:hello@thekitchenbattle.com" class="book-btn" aria-label="Book your seat">
+        Book Your Seat
+      </a>
+
     </div>
   </header>
 
@@ -522,58 +681,9 @@
       </div>
     </section>
 
-    <section class="how-it-works" id="experience" aria-label="How Kitchen Battle works">
-      <div class="container fade-in">
-        <div class="how-title-wrap">
-          <h2 class="how-title">How It Works</h2>
-        </div>
-
-        <div class="steps-grid">
-          <article class="step">
-            <div class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64">
-                <path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"></path>
-                <circle cx="32" cy="32" r="10"></circle>
-                <path class="orange-stroke" d="M32 21c-5 3-8 7-8 11s3 8 8 11"></path>
-              </svg>
-            </div>
-            <h3>The Battle Begins</h3>
-            <div class="mini-line"></div>
-            <p>Two competitors face off<br>live in the kitchen.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64">
-                <path d="M14 39h36"></path>
-                <path d="M18 35c2-11 11-19 22-19s20 8 22 19"></path>
-                <path d="M12 43h40"></path>
-                <path class="orange-stroke" d="M18 48h28"></path>
-                <circle cx="32" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <h3>The Plates Are Served</h3>
-            <div class="mini-line"></div>
-            <p>You taste every dish<br>created in each round.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64">
-                <path d="M22 33l9 9 21-27" class="orange-stroke"></path>
-              </svg>
-            </div>
-            <h3>You Decide The Winner</h3>
-            <div class="mini-line"></div>
-            <p>You decide<br>who moves forward.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <section class="concept-experience" id="concept" aria-label="Kitchen Battle concept and experience">
       <div class="concept-left fade-in">
-        <div>
+        <div class="concept-left-inner">
           <p class="eyebrow">The Concept</p>
 
           <h2 class="headline">
@@ -588,6 +698,7 @@
 
       <div class="experience-right fade-in">
         <div class="experience-inner">
+
           <h2 class="experience-title">
             <span>An Experience,</span>
             Not Just Dinner
@@ -600,6 +711,7 @@
           </p>
 
           <div class="beige-grid">
+
             <article class="beige-item">
               <div class="beige-icon" aria-hidden="true">
                 <svg viewBox="0 0 64 64">
@@ -640,7 +752,60 @@
               <h3>You Decide</h3>
               <p>Taste, vote, and crown the winner of the battle.</p>
             </article>
+
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="experience" aria-label="How Kitchen Battle works">
+      <div class="container fade-in">
+
+        <div class="how-title-wrap">
+          <h2 class="how-title">How It Works</h2>
+        </div>
+
+        <div class="steps-grid">
+
+          <article class="step">
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"></path>
+                <circle cx="32" cy="32" r="10"></circle>
+                <path class="orange-stroke" d="M32 21c-5 3-8 7-8 11s3 8 8 11"></path>
+              </svg>
+            </div>
+            <h3>The Battle Begins</h3>
+            <div class="mini-line"></div>
+            <p>Two competitors face off<br>live in the kitchen.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M14 39h36"></path>
+                <path d="M18 35c2-11 11-19 22-19s20 8 22 19"></path>
+                <path d="M12 43h40"></path>
+                <path class="orange-stroke" d="M18 48h28"></path>
+                <circle cx="32" cy="10" r="3"></circle>
+              </svg>
+            </div>
+            <h3>The Plates Are Served</h3>
+            <div class="mini-line"></div>
+            <p>You taste every dish<br>created in each round.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64">
+                <path d="M22 33l9 9 21-27" class="orange-stroke"></path>
+              </svg>
+            </div>
+            <h3>You Decide The Winner</h3>
+            <div class="mini-line"></div>
+            <p>You decide<br>who moves forward.</p>
+          </article>
+
         </div>
       </div>
     </section>
