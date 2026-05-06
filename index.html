@@ -3,167 +3,112 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Kitchen Battle</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:#000;color:#fff;}
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-body{
-  font-family: 'Inter', sans-serif;
-  background:#000;
-  color:#fff;
-}
-
+/* HEADER */
 header{
-  position:fixed;
-  width:100%;
-  top:0;
-  left:0;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 60px;
-  background:rgba(0,0,0,0.9);
-  z-index:1000;
+  position:fixed;top:0;left:0;width:100%;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 60px;background:rgba(0,0,0,0.9);z-index:1000;
 }
+.logo{font-family:'Bebas Neue';font-size:28px;}
+.logo span{color:#ff6600;}
+nav a{margin:0 20px;color:#fff;text-decoration:none;font-size:14px;letter-spacing:2px;}
+.btn{background:#ff6600;padding:12px 20px;font-size:12px;letter-spacing:1px;}
 
-.logo{
-  font-family:'Bebas Neue';
-  font-size:28px;
-}
-
-.logo span{
-  color:#ff6600;
-}
-
-nav a{
-  margin:0 20px;
-  text-decoration:none;
-  color:#fff;
-  font-size:14px;
-  letter-spacing:2px;
-}
-
-.btn{
-  background:#ff6600;
-  padding:12px 20px;
-  font-size:12px;
-  letter-spacing:1px;
-}
-
+/* HERO */
 .hero{
   height:100vh;
-  display:flex;
-  align-items:center;
+  display:flex;align-items:center;
   padding:0 60px;
-
-  background:
-  linear-gradient(90deg,
-    rgba(0,0,0,0.97) 0%,
-    rgba(0,0,0,0.92) 30%,
-    rgba(0,0,0,0.75) 55%,
-    rgba(0,0,0,0.92) 80%,
-    rgba(0,0,0,0.97) 100%
-  ),
-  radial-gradient(circle at center, rgba(255,102,0,0.05), transparent 40%),
-  url("hero-kitchen-battle.jpg") center 60% / cover no-repeat;
-
+  position:relative;
+  overflow:hidden;
 }
 
+/* IMAGE LAYER (pushed back) */
+.hero::before{
+  content:"";
+  position:absolute;inset:0;
+  background:url("hero-kitchen-battle.jpg") center 60% / cover no-repeat;
+  transform:scale(0.92);           /* slightly smaller = feels further away */
+  filter:brightness(0.55) contrast(0.85) blur(2px); /* push back */
+  z-index:0;
+}
+
+/* OVERLAY (dominates, makes image secondary) */
+.hero::after{
+  content:"";
+  position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(0,0,0,0.98) 0%,
+      rgba(0,0,0,0.95) 30%,
+      rgba(0,0,0,0.88) 55%,
+      rgba(0,0,0,0.95) 80%,
+      rgba(0,0,0,0.98) 100%
+    ),
+    radial-gradient(circle at 55% 55%, rgba(255,102,0,0.05), transparent 30%);
+  z-index:1;
+}
+
+/* CONTENT ON TOP */
 .hero-content{
+  position:relative;z-index:2;
   max-width:500px;
 }
-
-.hero small{
-  color:#ff6600;
-  letter-spacing:4px;
-}
-
+.hero small{color:#ff6600;letter-spacing:4px;}
 .hero h1{
   font-family:'Bebas Neue';
-  font-size:110px;
-  line-height:0.9;
+  font-size:110px;line-height:0.9;
 }
+.hero h1 span{color:#ff6600;}
+.hero p{margin-top:20px;line-height:1.6;}
 
-.hero h1 span{
-  color:#ff6600;
-}
-
-.hero p{
-  margin-top:20px;
-  line-height:1.6;
-}
-
-.section{
-  display:flex;
-  min-height:500px;
-}
-
+/* SECTION */
+.section{display:flex;min-height:500px;}
 .left{
-  width:40%;
-  background:#000;
-  padding:80px 60px;
+  width:40%;background:#000;padding:80px 60px;
 }
-
 .left h2{
   font-family:'Bebas Neue';
-  font-size:70px;
-  line-height:1;
+  font-size:70px;line-height:1;
 }
-
-.left h2 span{
-  color:#ff6600;
-}
+.left h2 span{color:#ff6600;}
 
 .right{
   width:60%;
-  background:#f5f2ed;
-  color:#000;
-  padding:80px 60px;
+  background:#f5f2ed;color:#000;padding:80px 60px;
 }
-
 .right h3{
   font-family:'Bebas Neue';
   font-size:60px;
 }
-
 .features{
-  display:flex;
-  margin-top:40px;
+  display:flex;margin-top:40px;
 }
-
 .feature{
-  flex:1;
-  text-align:center;
-  padding:20px;
+  flex:1;text-align:center;padding:20px;
 }
 
+/* CTA */
 .cta{
-  background:#000;
-  text-align:center;
-  padding:100px 20px;
+  background:#000;text-align:center;padding:120px 20px;
 }
-
 .cta h2{
   font-family:'Bebas Neue';
   font-size:70px;
 }
-
 .cta button{
-  margin-top:20px;
-  padding:15px 30px;
+  margin-top:25px;
+  padding:16px 34px;
   background:#ff6600;
-  border:none;
-  color:#fff;
-  cursor:pointer;
+  border:none;color:#fff;cursor:pointer;
 }
 
 </style>
