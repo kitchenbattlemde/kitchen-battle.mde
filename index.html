@@ -9,22 +9,23 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
       --black: #000000;
       --white: #ffffff;
       --orange: #ff6600;
-      --dark-gray: #1a1a1a;
+      --dark: #111111;
+      --charcoal: #1a1a1a;
       --beige: #e9e4dc;
       --beige-dark: #111111;
-      --beige-orange: #c98200;
+      --gold-orange: #c98200;
       --soft-white: rgba(255,255,255,0.72);
-      --muted-white: rgba(255,255,255,0.48);
-      --line-white: rgba(255,255,255,0.16);
-      --max-width: 1240px;
-      --transition: 0.3s ease;
+      --muted-white: rgba(255,255,255,0.45);
+      --line: rgba(255,255,255,0.12);
+      --max: 1240px;
+      --ease: 0.35s ease;
     }
 
     * {
@@ -41,7 +42,6 @@
       background: var(--black);
       color: var(--white);
       font-family: "Montserrat", sans-serif;
-      line-height: 1.7;
       overflow-x: hidden;
     }
 
@@ -51,67 +51,23 @@
     }
 
     .container {
-      max-width: var(--max-width);
+      max-width: var(--max);
       margin: 0 auto;
-    }
-
-    .eyebrow {
-      color: var(--orange);
-      text-transform: uppercase;
-      letter-spacing: 6px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      margin-bottom: 1.3rem;
-    }
-
-    .headline {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(4.5rem, 12vw, 10rem);
-      line-height: 0.82;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .headline span {
-      color: var(--orange);
-    }
-
-    .sub-es {
-      margin-top: 1.4rem;
-      font-size: clamp(1rem, 1.7vw, 1.35rem);
-      font-weight: 300;
-      color: var(--soft-white);
-    }
-
-    .fade-in {
-      animation: fadeUp 0.9s ease both;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(35px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      width: 100%;
     }
 
     /* HEADER */
     .header {
-      width: 100%;
-      padding: 1.15rem 5.5%;
-      background:
-        linear-gradient(90deg, #000000 0%, #111111 52%, #050505 100%);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
       position: sticky;
       top: 0;
       z-index: 100;
+      background: linear-gradient(90deg, #000 0%, #111 55%, #050505 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 1.15rem 5.5%;
     }
 
     .header-inner {
-      max-width: var(--max-width);
+      max-width: var(--max);
       margin: 0 auto;
       display: grid;
       grid-template-columns: 220px 1fr 190px;
@@ -140,6 +96,7 @@
       font-family: "Bebas Neue", sans-serif;
       line-height: 0.82;
       letter-spacing: 1px;
+      text-transform: uppercase;
     }
 
     .brand-text strong {
@@ -158,18 +115,17 @@
     .nav {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: clamp(1.5rem, 3vw, 3rem);
+      gap: clamp(1.4rem, 3vw, 3rem);
     }
 
     .nav a {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       letter-spacing: 1.8px;
       text-transform: uppercase;
-      font-weight: 700;
-      color: rgba(255,255,255,0.82);
+      font-weight: 800;
+      color: rgba(255,255,255,0.78);
       position: relative;
-      transition: var(--transition);
+      transition: var(--ease);
     }
 
     .nav a:hover,
@@ -195,301 +151,322 @@
       border-radius: 8px;
       font-size: 0.78rem;
       letter-spacing: 1.2px;
-      font-weight: 800;
+      font-weight: 900;
       text-transform: uppercase;
-      transition: var(--transition);
-      box-shadow: 0 12px 35px rgba(255,102,0,0.18);
+      transition: var(--ease);
+      box-shadow: 0 14px 35px rgba(255,102,0,0.22);
     }
 
     .book-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 18px 45px rgba(255,102,0,0.28);
+      box-shadow: 0 20px 48px rgba(255,102,0,0.32);
     }
 
-    /* HERO */
-    .hero {
-      min-height: 88vh;
+    /* GENERAL TYPE */
+    .eyebrow {
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      margin-bottom: 1.3rem;
+    }
+
+    .headline {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: clamp(5rem, 13vw, 12rem);
+      line-height: 0.82;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .headline span {
+      color: var(--orange);
+    }
+
+    .subline {
+      margin-top: 1.6rem;
+      font-size: clamp(1rem, 1.8vw, 1.35rem);
+      font-weight: 300;
+      color: var(--soft-white);
+      letter-spacing: 0.2px;
+    }
+
+    .fade {
+      animation: fadeUp 0.9s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(34px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* SECTION 1: HERO */
+    .section-one {
+      min-height: calc(100vh - 92px);
       display: flex;
       align-items: center;
-      padding: 8rem 6%;
+      padding: 7rem 6%;
       background:
-        radial-gradient(circle at 80% 30%, rgba(255,102,0,0.18), transparent 30%),
-        linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0.94), rgba(26,26,26,0.55)),
-        var(--black);
+        radial-gradient(circle at 78% 28%, rgba(255,102,0,0.18), transparent 29%),
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.045), transparent 26%),
+        linear-gradient(90deg, #000 0%, #040404 52%, #151515 100%);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
     .hero-content {
-      max-width: 960px;
+      max-width: 900px;
     }
 
-    .hero .headline {
-      font-size: clamp(5rem, 14vw, 12rem);
+    .hero-mini {
+      margin-top: 3rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    /* LUXURY SPLIT OPTION 1 */
-    .concept-experience {
+    .mini-card {
+      border-left: 2px solid var(--orange);
+      padding-left: 1rem;
+      min-width: 160px;
+    }
+
+    .mini-card strong {
+      display: block;
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .mini-card small {
+      color: var(--muted-white);
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* SECTION 2: SPLIT EXPERIENCE */
+    .section-two {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      min-height: 820px;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
+      grid-template-columns: 0.88fr 1.12fr;
+      min-height: 100vh;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
-    .concept-left {
+    .concept-side {
       background:
-        radial-gradient(circle at 20% 30%, rgba(255,102,0,0.08), transparent 28%),
-        var(--black);
+        radial-gradient(circle at 20% 35%, rgba(255,102,0,0.09), transparent 28%),
+        linear-gradient(180deg, #000 0%, #020202 100%);
       padding: 7.5rem 6%;
       display: flex;
       align-items: center;
     }
 
-    .concept-left-inner {
+    .concept-inner {
       max-width: 620px;
       margin-left: auto;
       margin-right: 2rem;
     }
 
-    .concept-left .headline {
-      font-size: clamp(5rem, 10vw, 10rem);
+    .concept-side .headline {
+      font-size: clamp(5.2rem, 10vw, 10.4rem);
     }
 
-    .experience-right {
+    .experience-side {
       background:
-        linear-gradient(135deg, rgba(255,255,255,0.18), transparent 28%),
+        radial-gradient(circle at 20% 18%, rgba(255,255,255,0.7), transparent 32%),
+        radial-gradient(circle at 92% 82%, rgba(0,0,0,0.06), transparent 34%),
         var(--beige);
       color: var(--beige-dark);
       padding: 7.5rem 6%;
       display: flex;
       align-items: center;
-      position: relative;
-    }
-
-    .experience-right::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.55), transparent 34%),
-        radial-gradient(circle at 90% 80%, rgba(0,0,0,0.05), transparent 30%);
-      pointer-events: none;
     }
 
     .experience-inner {
-      position: relative;
-      z-index: 2;
+      max-width: 800px;
       width: 100%;
-      max-width: 780px;
     }
 
     .experience-title {
-      font-family: "Montserrat", sans-serif;
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      line-height: 1.05;
+      font-size: clamp(2.55rem, 4vw, 4.35rem);
+      line-height: 1.02;
       text-transform: uppercase;
-      letter-spacing: -1.5px;
-      color: #111111;
       font-weight: 900;
-      margin-bottom: 1rem;
+      letter-spacing: -1.8px;
+      margin-bottom: 1.1rem;
     }
 
     .experience-title span {
       display: block;
-      color: var(--beige-orange);
-      font-size: clamp(1.7rem, 2.4vw, 2.3rem);
+      color: var(--gold-orange);
+      font-size: clamp(1.8rem, 2.4vw, 2.45rem);
       letter-spacing: -0.5px;
     }
 
-    .beige-line {
+    .gold-line {
       width: 78px;
       height: 3px;
-      background: var(--beige-orange);
-      margin: 1.3rem 0 2rem;
+      background: var(--gold-orange);
+      margin: 1.25rem 0 2.2rem;
     }
 
     .experience-copy {
-      max-width: 420px;
-      font-size: clamp(1rem, 1.5vw, 1.18rem);
+      max-width: 430px;
+      font-size: clamp(1rem, 1.45vw, 1.2rem);
       line-height: 1.65;
-      color: #111111;
-      margin-bottom: 4rem;
+      color: #111;
+      font-weight: 500;
+      margin-bottom: 4.6rem;
     }
 
     .experience-copy strong {
-      display: block;
-      margin-top: 1.2rem;
       font-weight: 900;
     }
 
-    .beige-grid {
+    .experience-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
     }
 
-    .beige-item {
+    .experience-item {
       text-align: center;
       padding: 0 2.1rem;
       position: relative;
     }
 
-    .beige-item:not(:last-child)::after {
+    .experience-item:not(:last-child)::after {
       content: "";
       position: absolute;
       right: 0;
-      top: 0.25rem;
+      top: 0.3rem;
       height: 100%;
       width: 1px;
-      background: rgba(0,0,0,0.48);
+      background: rgba(0,0,0,0.42);
     }
 
-    .beige-icon {
-      width: 72px;
-      height: 72px;
+    .experience-icon {
+      width: 76px;
+      height: 76px;
       margin: 0 auto 1.6rem;
+      transition: var(--ease);
     }
 
-    .beige-icon svg {
+    .experience-icon svg {
       width: 100%;
       height: 100%;
-      stroke: var(--beige-orange);
-      stroke-width: 1.85;
+      stroke: var(--gold-orange);
+      stroke-width: 1.65;
       fill: none;
       stroke-linecap: round;
       stroke-linejoin: round;
     }
 
-    .beige-item h3 {
+    .experience-item:hover .experience-icon {
+      transform: translateY(-5px);
+    }
+
+    .experience-item h3 {
       font-size: 0.98rem;
       font-weight: 900;
       text-transform: uppercase;
-      color: #111111;
+      color: #111;
       margin-bottom: 1rem;
+      letter-spacing: -0.2px;
     }
 
-    .beige-item p {
+    .experience-item p {
       font-size: 0.96rem;
       line-height: 1.65;
-      color: #111111;
+      color: #111;
       font-weight: 400;
     }
 
-    /* HOW IT WORKS */
-    .how-it-works {
-      background:
-        radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 36%),
-        linear-gradient(rgba(0,0,0,0.94), rgba(0,0,0,1)),
-        var(--black);
-      padding: 8rem 6%;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .how-title-wrap {
+    /* SECTION 3: CTA */
+    .section-three {
+      min-height: 72vh;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 4.2rem;
-    }
-
-    .how-title-wrap::before,
-    .how-title-wrap::after {
-      content: "";
-      width: 48px;
-      height: 1px;
-      background: var(--orange);
-      display: block;
-    }
-
-    .how-title {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(2rem, 4vw, 3.3rem);
-      line-height: 1;
-      letter-spacing: 9px;
-      text-transform: uppercase;
-      color: var(--white);
       text-align: center;
+      padding: 7rem 6%;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(255,102,0,0.13), transparent 28%),
+        linear-gradient(180deg, #101010 0%, #000000 100%);
     }
 
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      max-width: 1080px;
+    .cta-content {
+      max-width: 880px;
       margin: 0 auto;
     }
 
-    .step {
-      text-align: center;
-      padding: 0 3.4rem;
-      position: relative;
+    .cta-content .headline {
+      font-size: clamp(4.5rem, 10vw, 9rem);
     }
 
-    .step:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: 0;
-      top: 0.5rem;
-      height: 240px;
-      width: 1px;
-      background: rgba(255,255,255,0.28);
-    }
-
-    .step-icon {
-      width: 96px;
-      height: 96px;
-      margin: 0 auto 2rem;
-      border: 1.5px solid var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .step-icon svg {
-      width: 56px;
-      height: 56px;
-      stroke: var(--white);
-      stroke-width: 1.7;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .step-icon .orange-stroke {
-      stroke: var(--orange);
-      stroke-width: 2.3;
-    }
-
-    .step h3 {
-      font-family: "Bebas Neue", sans-serif;
-      font-size: clamp(1.9rem, 2.4vw, 2.45rem);
-      line-height: 1;
-      letter-spacing: 2.2px;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-    }
-
-    .mini-line {
-      width: 34px;
-      height: 2px;
-      background: var(--orange);
-      margin: 0 auto 1.6rem;
-    }
-
-    .step p {
-      color: rgba(255,255,255,0.84);
-      font-size: 1rem;
+    .cta-copy {
+      max-width: 620px;
+      margin: 2rem auto 0;
+      color: var(--soft-white);
+      font-size: 1.05rem;
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.8;
     }
 
-    /* FOOTER */
+    .cta-actions {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2.8rem;
+    }
+
+    .primary-btn,
+    .outline-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 190px;
+      padding: 1rem 1.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1.7px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      transition: var(--ease);
+    }
+
+    .primary-btn {
+      background: var(--orange);
+      border: 1px solid var(--orange);
+      color: var(--white);
+      box-shadow: 0 14px 35px rgba(255,102,0,0.22);
+    }
+
+    .outline-btn {
+      border: 1px solid var(--orange);
+      color: var(--white);
+    }
+
+    .primary-btn:hover,
+    .outline-btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .outline-btn:hover {
+      background: var(--orange);
+    }
+
     .footer {
-      background: var(--black);
       padding: 2rem 6%;
+      background: var(--black);
     }
 
     .footer-inner {
-      max-width: var(--max-width);
+      max-width: var(--max);
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -511,71 +488,52 @@
         display: none;
       }
 
-      .concept-experience {
+      .section-two {
         grid-template-columns: 1fr;
       }
 
-      .concept-left {
+      .concept-inner {
+        margin: 0;
+      }
+
+      .concept-side {
         min-height: 620px;
       }
 
-      .concept-left-inner {
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .experience-inner {
-        max-width: 100%;
-      }
-
-      .beige-grid {
+      .experience-grid {
         grid-template-columns: 1fr;
-        gap: 3rem;
+        gap: 3.2rem;
       }
 
-      .beige-item {
+      .experience-item {
         padding: 0;
       }
 
-      .beige-item:not(:last-child)::after {
+      .experience-item:not(:last-child)::after {
         display: none;
       }
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 800px) {
       .header-inner {
         display: flex;
-        flex-wrap: wrap;
-      }
-
-      .brand {
-        width: 100%;
-        justify-content: center;
+        flex-direction: column;
       }
 
       .nav {
-        width: 100%;
-        justify-content: center;
-        gap: 1.3rem;
         flex-wrap: wrap;
+        gap: 1rem 1.4rem;
       }
 
-      .hero {
-        min-height: 72vh;
-        padding: 6rem 6%;
+      .section-one {
+        min-height: 80vh;
+        padding: 5.5rem 6%;
       }
 
-      .steps-grid {
-        grid-template-columns: 1fr;
-        gap: 4.5rem;
-      }
-
-      .step {
-        padding: 0;
-      }
-
-      .step:not(:last-child)::after {
-        display: none;
+      .concept-side,
+      .experience-side,
+      .section-three {
+        padding: 5.5rem 6%;
       }
     }
 
@@ -595,35 +553,31 @@
 
       .nav a {
         font-size: 0.66rem;
-        letter-spacing: 1.3px;
+        letter-spacing: 1.2px;
       }
 
       .headline,
-      .hero .headline,
-      .concept-left .headline {
-        font-size: clamp(4rem, 19vw, 6rem);
-      }
-
-      .concept-left,
-      .experience-right {
-        padding: 5.5rem 6%;
+      .section-one .headline,
+      .concept-side .headline,
+      .cta-content .headline {
+        font-size: clamp(4rem, 20vw, 6rem);
       }
 
       .experience-title {
         font-size: clamp(2.1rem, 10vw, 3rem);
       }
 
-      .how-title {
-        letter-spacing: 4px;
+      .experience-title span {
+        font-size: clamp(1.4rem, 7vw, 2rem);
       }
 
-      .how-title-wrap {
-        gap: 1rem;
+      .hero-mini {
+        flex-direction: column;
       }
 
-      .how-title-wrap::before,
-      .how-title-wrap::after {
-        width: 28px;
+      .primary-btn,
+      .outline-btn {
+        width: 100%;
       }
     }
   </style>
@@ -650,24 +604,21 @@
 
       <nav class="nav" aria-label="Primary navigation">
         <a href="#home" class="active">Home</a>
-        <a href="#concept">Events</a>
-        <a href="#experience">How It Works</a>
-        <a href="#concept">Gallery</a>
-        <a href="#concept">About Us</a>
+        <a href="#experience">Experience</a>
+        <a href="#book">Book</a>
       </nav>
 
-      <a href="mailto:hello@thekitchenbattle.com" class="book-btn" aria-label="Book your seat">
-        Book Your Seat
-      </a>
+      <a href="#book" class="book-btn">Book Your Seat</a>
 
     </div>
   </header>
 
   <main>
 
-    <section class="hero" id="home" aria-label="Kitchen Battle hero section">
+    <!-- SECTION 1 -->
+    <section class="section-one" id="home" aria-label="Kitchen Battle hero section">
       <div class="container">
-        <div class="hero-content fade-in">
+        <div class="hero-content fade">
           <p class="eyebrow">Live Culinary Competition</p>
 
           <h1 class="headline">
@@ -676,14 +627,32 @@
             <span>Conquer.</span>
           </h1>
 
-          <p class="sub-es">Cocina. Compite. Conquista.</p>
+          <p class="subline">Cocina. Compite. Conquista.</p>
+
+          <div class="hero-mini">
+            <div class="mini-card">
+              <strong>02</strong>
+              <small>Competitors</small>
+            </div>
+
+            <div class="mini-card">
+              <strong>LIVE</strong>
+              <small>Cooking Battle</small>
+            </div>
+
+            <div class="mini-card">
+              <strong>YOU</strong>
+              <small>Decide the Winner</small>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="concept-experience" id="concept" aria-label="Kitchen Battle concept and experience">
-      <div class="concept-left fade-in">
-        <div class="concept-left-inner">
+    <!-- SECTION 2 -->
+    <section class="section-two" id="experience" aria-label="Kitchen Battle experience">
+      <div class="concept-side fade">
+        <div class="concept-inner">
           <p class="eyebrow">The Concept</p>
 
           <h2 class="headline">
@@ -692,11 +661,11 @@
             <span>Conquer.</span>
           </h2>
 
-          <p class="sub-es">Cocina. Compite. Conquista.</p>
+          <p class="subline">Cocina. Compite. Conquista.</p>
         </div>
       </div>
 
-      <div class="experience-right fade-in">
+      <div class="experience-side fade">
         <div class="experience-inner">
 
           <h2 class="experience-title">
@@ -704,16 +673,16 @@
             Not Just Dinner
           </h2>
 
-          <div class="beige-line"></div>
+          <div class="gold-line"></div>
 
           <p class="experience-copy">
             <strong>Come for the flavor, stay for something special.</strong>
           </p>
 
-          <div class="beige-grid">
+          <div class="experience-grid">
 
-            <article class="beige-item">
-              <div class="beige-icon" aria-hidden="true">
+            <article class="experience-item">
+              <div class="experience-icon" aria-hidden="true">
                 <svg viewBox="0 0 64 64">
                   <path d="M22 6h20v24c0 8-4 14-10 14S22 38 22 30V6z"></path>
                   <path d="M22 18h20"></path>
@@ -722,11 +691,11 @@
                 </svg>
               </div>
               <h3>Welcome Drink</h3>
-              <p>Start the night with a signature welcome drink on us.</p>
+              <p>Start the night with a signature welcome drink.</p>
             </article>
 
-            <article class="beige-item">
-              <div class="beige-icon" aria-hidden="true">
+            <article class="experience-item">
+              <div class="experience-icon" aria-hidden="true">
                 <svg viewBox="0 0 64 64">
                   <path d="M14 42h36"></path>
                   <path d="M18 38c2-13 12-22 26-22"></path>
@@ -736,11 +705,11 @@
                 </svg>
               </div>
               <h3>Live Cooking</h3>
-              <p>Watch both competitors create their dishes right in front of you.</p>
+              <p>Watch competitors create their dishes right in front of you.</p>
             </article>
 
-            <article class="beige-item">
-              <div class="beige-icon" aria-hidden="true">
+            <article class="experience-item">
+              <div class="experience-icon" aria-hidden="true">
                 <svg viewBox="0 0 64 64">
                   <path d="M22 8h20v12c0 8-4 15-10 15S22 28 22 20V8z"></path>
                   <path d="M22 12H10c0 10 5 16 13 17"></path>
@@ -750,7 +719,7 @@
                 </svg>
               </div>
               <h3>You Decide</h3>
-              <p>Taste, vote, and crown the winner of the battle.</p>
+              <p>Taste, vote, and crown the winner.</p>
             </article>
 
           </div>
@@ -758,54 +727,27 @@
       </div>
     </section>
 
-    <section class="how-it-works" id="experience" aria-label="How Kitchen Battle works">
-      <div class="container fade-in">
+    <!-- SECTION 3 -->
+    <section class="section-three" id="book" aria-label="Book Kitchen Battle">
+      <div class="container">
+        <div class="cta-content fade">
+          <p class="eyebrow">Be First In The Arena</p>
 
-        <div class="how-title-wrap">
-          <h2 class="how-title">How It Works</h2>
-        </div>
+          <h2 class="headline">
+            Book Your<br>
+            <span>Seat.</span>
+          </h2>
 
-        <div class="steps-grid">
+          <p class="subline">Reserva tu lugar.</p>
 
-          <article class="step">
-            <div class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64">
-                <path d="M6 32s10-16 26-16 26 16 26 16-10 16-26 16S6 32 6 32z"></path>
-                <circle cx="32" cy="32" r="10"></circle>
-                <path class="orange-stroke" d="M32 21c-5 3-8 7-8 11s3 8 8 11"></path>
-              </svg>
-            </div>
-            <h3>The Battle Begins</h3>
-            <div class="mini-line"></div>
-            <p>Two competitors face off<br>live in the kitchen.</p>
-          </article>
+          <p class="cta-copy">
+            Join the first Kitchen Battle experience and be part of the audience that tastes, votes, and decides the winner.
+          </p>
 
-          <article class="step">
-            <div class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64">
-                <path d="M14 39h36"></path>
-                <path d="M18 35c2-11 11-19 22-19s20 8 22 19"></path>
-                <path d="M12 43h40"></path>
-                <path class="orange-stroke" d="M18 48h28"></path>
-                <circle cx="32" cy="10" r="3"></circle>
-              </svg>
-            </div>
-            <h3>The Plates Are Served</h3>
-            <div class="mini-line"></div>
-            <p>You taste every dish<br>created in each round.</p>
-          </article>
-
-          <article class="step">
-            <div class="step-icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64">
-                <path d="M22 33l9 9 21-27" class="orange-stroke"></path>
-              </svg>
-            </div>
-            <h3>You Decide The Winner</h3>
-            <div class="mini-line"></div>
-            <p>You decide<br>who moves forward.</p>
-          </article>
-
+          <div class="cta-actions">
+            <a href="mailto:hello@thekitchenbattle.com" class="primary-btn">Contact Us</a>
+            <a href="https://instagram.com" class="outline-btn">Instagram</a>
+          </div>
         </div>
       </div>
     </section>
