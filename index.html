@@ -17,19 +17,14 @@
     :root {
       --black: #000000;
       --white: #ffffff;
-
       --orange: #B8844F;
       --light-gray: #ddd9d4;
       --ivory: #f3eee7;
-
       --soft-white: rgba(255, 255, 255, 0.78);
       --muted-white: rgba(255, 255, 255, 0.48);
-
       --charcoal: #080808;
-
       --line-dark: rgba(0, 0, 0, 0.08);
       --line-light: rgba(255, 255, 255, 0.12);
-
       --ease: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
@@ -423,6 +418,7 @@
 
     .reserve-inner {
       max-width: 760px;
+      width: 100%;
     }
 
     .reserve-title {
@@ -448,19 +444,59 @@
       margin: 0.9rem auto 0;
     }
 
+    .reservation-form {
+      width: 100%;
+      max-width: 560px;
+      margin: 2.4rem auto 0;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .reservation-form input,
+    .reservation-form textarea {
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.14);
+      background: rgba(255,255,255,0.52);
+      color: #111;
+      padding: 1rem 1.1rem;
+      font-family: "Inter", sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: var(--ease);
+    }
+
+    .reservation-form input::placeholder,
+    .reservation-form textarea::placeholder {
+      color: rgba(0,0,0,0.46);
+    }
+
+    .reservation-form input:focus,
+    .reservation-form textarea:focus {
+      border-color: var(--orange);
+      background: rgba(255,255,255,0.78);
+    }
+
+    .reservation-form textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
     .reserve-btn {
       display: inline-block;
-      margin-top: 2.1rem;
+      margin-top: 0.4rem;
       min-width: 320px;
       background: var(--orange);
       color: var(--white);
+      border: none;
       padding: 1.15rem 2rem;
       font-size: 0.95rem;
       text-transform: uppercase;
       letter-spacing: 1.8px;
       font-weight: 900;
       border-radius: 2px;
+      cursor: pointer;
       transition: var(--ease);
+      font-family: "Inter", sans-serif;
     }
 
     .reserve-btn span {
@@ -475,6 +511,13 @@
     .reserve-btn:hover {
       transform: translateY(-4px);
       box-shadow: 0 24px 55px rgba(184,132,79,0.28);
+    }
+
+    .form-note {
+      margin-top: 1rem;
+      color: rgba(0,0,0,0.52);
+      font-size: 0.82rem;
+      line-height: 1.5;
     }
 
     .footer {
@@ -801,10 +844,23 @@
           Únete a la experiencia Kitchen Battle y sé parte del público que prueba, vota y decide al ganador.
         </p>
 
-        <a href="mailto:hello@thekitchenbattle.com" class="reserve-btn">
-          Reserve Your Seat
-          <span>Reserva tu lugar</span>
-        </a>
+        <form class="reservation-form" action="https://formspree.io/f/xjgljbdv" method="POST">
+          <input type="text" name="Full Name" placeholder="Full Name" required>
+          <input type="email" name="Email" placeholder="Email Address" required>
+          <input type="tel" name="Phone" placeholder="Phone Number" required>
+          <input type="number" name="Number of Guests" placeholder="Number of Guests" min="1" max="24" required>
+          <input type="text" name="Preferred Date" placeholder="Preferred Date">
+          <textarea name="Dietary Restrictions or Notes" placeholder="Dietary Restrictions or Notes"></textarea>
+
+          <button type="submit" class="reserve-btn">
+            Reserve Your Seat
+            <span>Reserva tu lugar</span>
+          </button>
+        </form>
+
+        <p class="form-note">
+          Your reservation request will be reviewed and confirmed by the Kitchen Battle team.
+        </p>
       </div>
     </section>
 
@@ -831,7 +887,7 @@
         </svg>
       </a>
 
-      <a href="mailto:hello@thekitchenbattle.com" aria-label="Email">
+      <a href="mailto:kitchenbattle.mde@gmail.com" aria-label="Email">
         <svg viewBox="0 0 24 24">
           <path d="M4 6h16v12H4z"></path>
           <path d="M4 7l8 6 8-6"></path>
