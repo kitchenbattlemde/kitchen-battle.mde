@@ -18,9 +18,8 @@
       --black: #000000;
       --white: #ffffff;
 
-      /* UPDATED COLORS */
       --orange: #B8844F;
-      --light-gray: #d9d6d1;
+      --light-gray: #ddd9d4;
       --ivory: #f3eee7;
 
       --soft-white: rgba(255, 255, 255, 0.78);
@@ -28,10 +27,10 @@
 
       --charcoal: #080808;
 
-      --line-dark: rgba(0, 0, 0, 0.14);
+      --line-dark: rgba(0, 0, 0, 0.08);
       --line-light: rgba(255, 255, 255, 0.12);
 
-      --ease: 0.35s ease;
+      --ease: all 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     * {
@@ -130,7 +129,8 @@
       font-size: 0.78rem;
       text-transform: uppercase;
       font-weight: 900;
-      letter-spacing: 1px;
+      letter-spacing: 1.8px;
+      border-radius: 2px;
       transition: var(--ease);
     }
 
@@ -149,10 +149,10 @@
       background:
         linear-gradient(
           90deg,
-          rgba(0,0,0,0.90) 0%,
-          rgba(0,0,0,0.72) 28%,
-          rgba(0,0,0,0.42) 58%,
-          rgba(0,0,0,0.76) 100%
+          rgba(0,0,0,0.82) 0%,
+          rgba(0,0,0,0.64) 28%,
+          rgba(0,0,0,0.38) 58%,
+          rgba(0,0,0,0.70) 100%
         ),
         radial-gradient(circle at 58% 52%, rgba(184,132,79,0.08), transparent 36%),
         url("hero-kitchen-battle.jpg") center center / cover no-repeat,
@@ -178,7 +178,10 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.18);
+      background:
+        rgba(0,0,0,0.18),
+        radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: auto, 3px 3px;
       backdrop-filter: blur(1.1px) brightness(0.78);
       z-index: 1;
     }
@@ -230,6 +233,7 @@
       font-size: clamp(1rem, 1.4vw, 1.18rem);
       line-height: 1.65;
       font-weight: 400;
+      max-width: 460px;
     }
 
     .hero-es {
@@ -244,8 +248,6 @@
       font-weight: 500;
     }
 
-    /* UPDATED FULL MIDDLE SECTION */
-
     .experience-section {
       display: grid;
       grid-template-columns: 0.95fr 2.05fr;
@@ -257,7 +259,7 @@
 
     .arena-panel {
       background: var(--light-gray);
-      padding: 4.8rem 5.5%;
+      padding: 6.5rem 5.5%;
       display: flex;
       align-items: center;
       position: relative;
@@ -303,7 +305,7 @@
     .info-panel {
       background: var(--light-gray);
       color: #111;
-      padding: 4.8rem 5.5%;
+      padding: 6.5rem 5.5%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -407,13 +409,11 @@
       font-size: 0.82rem;
     }
 
-    /* UPDATED BOTTOM SECTION */
-
     .reserve {
       min-height: 460px;
       background: var(--ivory);
       color: #111;
-      padding: 5.2rem 5.5%;
+      padding: 6.5rem 5.5%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -436,7 +436,7 @@
       color: rgba(0,0,0,0.74);
       font-size: 1.08rem;
       line-height: 1.65;
-      max-width: 520px;
+      max-width: 460px;
       margin: 0 auto;
     }
 
@@ -457,8 +457,9 @@
       padding: 1.15rem 2rem;
       font-size: 0.95rem;
       text-transform: uppercase;
-      letter-spacing: 1.3px;
+      letter-spacing: 1.8px;
       font-weight: 900;
+      border-radius: 2px;
       transition: var(--ease);
     }
 
@@ -571,6 +572,10 @@
         min-height: 850px;
       }
 
+      .hero-content {
+        padding-top: 2rem;
+      }
+
       .experience-section {
         grid-template-columns: 1fr;
       }
@@ -616,6 +621,7 @@
     @media (max-width: 560px) {
       .hero h1 {
         font-size: 4.8rem;
+        line-height: 0.92;
       }
 
       .nav a {
