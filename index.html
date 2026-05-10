@@ -17,13 +17,20 @@
     :root {
       --black: #000000;
       --white: #ffffff;
-      --orange: #D96A1A;
+
+      /* UPDATED COLORS */
+      --orange: #B8844F;
+      --light-gray: #d9d6d1;
+      --ivory: #f3eee7;
+
       --soft-white: rgba(255, 255, 255, 0.78);
       --muted-white: rgba(255, 255, 255, 0.48);
-      --beige: #f2eee9;
+
       --charcoal: #080808;
-      --line-dark: rgba(0, 0, 0, 0.22);
+
+      --line-dark: rgba(0, 0, 0, 0.14);
       --line-light: rgba(255, 255, 255, 0.12);
+
       --ease: 0.35s ease;
     }
 
@@ -129,7 +136,7 @@
 
     .header-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 20px 45px rgba(217,106,26,0.25);
+      box-shadow: 0 20px 45px rgba(184,132,79,0.28);
     }
 
     .hero {
@@ -147,7 +154,7 @@
           rgba(0,0,0,0.42) 58%,
           rgba(0,0,0,0.76) 100%
         ),
-        radial-gradient(circle at 58% 52%, rgba(217,106,26,0.08), transparent 36%),
+        radial-gradient(circle at 58% 52%, rgba(184,132,79,0.08), transparent 36%),
         url("hero-kitchen-battle.jpg") center center / cover no-repeat,
         #000;
     }
@@ -237,22 +244,24 @@
       font-weight: 500;
     }
 
+    /* UPDATED FULL MIDDLE SECTION */
+
     .experience-section {
       display: grid;
       grid-template-columns: 0.95fr 2.05fr;
       min-height: 560px;
-      border-top: 1px solid var(--line-light);
-      border-bottom: 1px solid var(--line-light);
+      background: var(--light-gray);
+      border-top: 1px solid var(--line-dark);
+      border-bottom: 1px solid var(--line-dark);
     }
 
     .arena-panel {
-      background:
-        radial-gradient(circle at 15% 78%, rgba(217,106,26,0.08), transparent 28%),
-        linear-gradient(180deg, #050505, #000);
+      background: var(--light-gray);
       padding: 4.8rem 5.5%;
       display: flex;
       align-items: center;
       position: relative;
+      color: #111;
     }
 
     .arena-panel::after {
@@ -274,15 +283,15 @@
 
     .arena-copy {
       max-width: 360px;
-      color: rgba(255,255,255,0.84);
+      color: rgba(0,0,0,0.74);
       font-size: 1rem;
       line-height: 1.75;
-      font-weight: 300;
+      font-weight: 400;
     }
 
     .arena-es {
       margin-top: 1.8rem;
-      color: rgba(255,255,255,0.62);
+      color: rgba(0,0,0,0.52);
       font-size: 1rem;
     }
 
@@ -292,7 +301,7 @@
     }
 
     .info-panel {
-      background: var(--beige);
+      background: var(--light-gray);
       color: #111;
       padding: 4.8rem 5.5%;
       display: flex;
@@ -332,6 +341,7 @@
     .features {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      background: transparent;
     }
 
     .feature {
@@ -376,6 +386,7 @@
       text-transform: uppercase;
       line-height: 1.35;
       margin-bottom: 1rem;
+      color: #111;
     }
 
     .feature p {
@@ -396,15 +407,18 @@
       font-size: 0.82rem;
     }
 
+    /* UPDATED BOTTOM SECTION */
+
     .reserve {
       min-height: 460px;
-      background: var(--black);
+      background: var(--ivory);
+      color: #111;
       padding: 5.2rem 5.5%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      border-bottom: 1px solid var(--line-light);
+      border-bottom: 1px solid var(--line-dark);
     }
 
     .reserve-inner {
@@ -415,10 +429,11 @@
       font-size: clamp(3.5rem, 6vw, 6.8rem);
       line-height: 0.9;
       margin-bottom: 1.25rem;
+      color: #111;
     }
 
     .reserve-copy {
-      color: rgba(255,255,255,0.84);
+      color: rgba(0,0,0,0.74);
       font-size: 1.08rem;
       line-height: 1.65;
       max-width: 520px;
@@ -426,7 +441,7 @@
     }
 
     .reserve-es {
-      color: rgba(255,255,255,0.58);
+      color: rgba(0,0,0,0.58);
       font-size: 0.98rem;
       line-height: 1.65;
       max-width: 600px;
@@ -458,7 +473,7 @@
 
     .reserve-btn:hover {
       transform: translateY(-4px);
-      box-shadow: 0 24px 55px rgba(217,106,26,0.28);
+      box-shadow: 0 24px 55px rgba(184,132,79,0.28);
     }
 
     .footer {
