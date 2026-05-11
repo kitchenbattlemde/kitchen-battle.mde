@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-
     :root {
       --black: #000000;
       --white: #ffffff;
@@ -520,6 +519,24 @@
       line-height: 1.5;
     }
 
+    .success-message {
+      display: none;
+      margin-top: 1.4rem;
+      color: var(--orange);
+      font-size: 0.98rem;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .error-message {
+      display: none;
+      margin-top: 1.4rem;
+      color: #8b1e1e;
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
     .footer {
       background: #050505;
       padding: 1.5rem 5.5%;
@@ -690,14 +707,12 @@
         min-width: 0;
       }
     }
-
   </style>
 </head>
 
 <body>
 
   <header class="header">
-
     <a href="#home" class="logo" aria-label="Kitchen Battle Home">
       KITCHEN
       <span>BATTLE</span>
@@ -710,15 +725,11 @@
     </nav>
 
     <a href="#reserve" class="header-btn">Reserve Your Seat</a>
-
   </header>
 
   <main>
-
     <section class="hero" id="home">
-
       <div class="hero-content">
-
         <p class="eyebrow">Live Culinary Battles</p>
 
         <h1>
@@ -737,13 +748,10 @@
         <p class="hero-es">
           Cocina. Compite. <span>Conquista.</span>
         </p>
-
       </div>
-
     </section>
 
     <section class="experience-section" id="gallery">
-
       <div class="arena-panel">
         <div>
           <p class="eyebrow">The Arena</p>
@@ -766,13 +774,11 @@
 
       <div class="info-panel" id="about">
         <div class="info-inner">
-
           <div class="info-kicker">An Experience,</div>
           <h2 class="section-title">Not Just Dinner</h2>
           <p class="section-sub">No es solo cena</p>
 
           <div class="features">
-
             <article class="feature">
               <div class="icon" aria-hidden="true">
                 <svg viewBox="0 0 64 64">
@@ -821,11 +827,9 @@
               <div class="divider"></div>
               <p class="es">Tú decides al ganador con tu voto.</p>
             </article>
-
           </div>
         </div>
       </div>
-
     </section>
 
     <section class="reserve" id="reserve">
@@ -844,7 +848,7 @@
           Únete a la experiencia Kitchen Battle y sé parte del público que prueba, vota y decide al ganador.
         </p>
 
-        <form class="reservation-form" action="https://formspree.io/f/xjgljbdv" method="POST" data-formspree-redirect="https://thekitchenbattle.com">
+        <form class="reservation-form" action="https://formspree.io/f/xjgljbdv" method="POST" id="reservation-form">
           <input type="text" name="Full Name" placeholder="Full Name" required>
           <input type="email" name="Email" placeholder="Email Address" required>
           <input type="tel" name="Phone" placeholder="Phone Number" required>
@@ -852,7 +856,7 @@
           <input type="text" name="Preferred Date" placeholder="Preferred Date">
           <textarea name="Dietary Restrictions or Notes" placeholder="Dietary Restrictions or Notes"></textarea>
 
-          <button type="submit" class="reserve-btn">
+          <button type="submit" class="reserve-btn" id="submit-button">
             Reserve Your Seat
             <span>Reserva tu lugar</span>
           </button>
@@ -861,9 +865,16 @@
         <p class="form-note">
           Your reservation request will be reviewed and confirmed by the Kitchen Battle team.
         </p>
+
+        <p class="success-message" id="success-message">
+          Your reservation request to be part of the battle has been sent. We’ll be in touch soon.
+        </p>
+
+        <p class="error-message" id="error-message">
+          Something went wrong. Please try again or email kitchenbattle.mde@gmail.com.
+        </p>
       </div>
     </section>
-
   </main>
 
   <footer class="footer">
@@ -895,6 +906,46 @@
       </a>
     </div>
   </footer>
+
+  <script>
+    const form = document.getElementById("reservation-form");
+    const successMessage = document.getElementById("success-message");
+    const errorMessage = document.getElementById("error-message");
+    const submitButton = document.getElementById("submit-button");
+
+    form.addEventListener("submit", async function(event) {
+      event.preventDefault();
+
+      successMessage.style.display = "none";
+      errorMessage.style.display = "none";
+      submitButton.disabled = true;
+      submitButton.style.opacity = "0.7";
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            "Accept": "application/json"
+          }
+        });
+
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = "block";
+        } else {
+          errorMessage.style.display = "block";
+        }
+      } catch (error) {
+        errorMessage.style.display = "block";
+      }
+
+      submitButton.disabled = false;
+      submitButton.style.opacity = "1";
+    });
+  </script>
 
 </body>
 </html>
